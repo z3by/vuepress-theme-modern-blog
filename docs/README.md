@@ -2,15 +2,15 @@
 sidebar: auto
 ---
 
-# @vuepress/theme-blog
+# vuepress-theme-modern-blog
 
 > Default blog theme for VuePress 
 
 ## Install
 
 ```bash
-yarn add @vuepress/theme-blog -D
-# OR npm install @vuepress/theme-blog -D
+yarn add vuepress-theme-modern-blog -D
+# OR npm install vuepress-theme-modern-blog -D
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ yarn add @vuepress/theme-blog -D
 ```js
 // .vuepress/config.js
 module.exports = {
-  theme: '@vuepress/blog',
+  theme: 'modern-blog',
   themeConfig: {
     // Please keep looking down to see the available options.
   }
@@ -210,7 +210,6 @@ Whether to extract summary from source markdowns.
 
 Set the length of summary.
 
-
 ### pwa
 
 - Type: `boolean`
@@ -228,6 +227,49 @@ plugin is as follows:
   updatePopup: true
 }
 ```
+
+### about
+
+to make this works you need to create a new page and add the proper config to `themeConfig.nav`
+then set the layout to `AboutLayout` in page frontmatter.
+
+- Type: `{ fullName: string, bio: string, image: string }`
+- Default: `undefined`
+
+### heroImage
+
+- Type: `string`
+- Default: `"https://source.unsplash.com/random"`
+
+### disqus
+
+- Type: `string`
+- Default: `undefined`
+
+Disqus website short name check [official website](https://disqus.com/)
+
+### sitemap
+
+
+available options:
+
+```js
+...
+sitemap: {
+    hostname: "https://ahmadmostafa.com/" // your own hostname
+}
+...
+```
+
+### socialShareNetworks
+
+- Type: `Array<string>`
+- Default: `undefined`
+
+### googleAnalytics
+
+- Type: `{ googleAnalyticsTrackingID: string }`
+- Default: `undefined`
 
 ### paginationComponent
 
@@ -269,6 +311,8 @@ tags:
 
 ### date
 
+Date published
+
 ```markdown
 ---
 date: 2016-10-20 20:44:40
@@ -276,6 +320,8 @@ date: 2016-10-20 20:44:40
 ```
 
 ### author
+
+Author name
 
 ```markdown
 ---
@@ -288,10 +334,46 @@ author: ULIVZ
 ```markdown
 ---
 location: Hangzhou
-published: true
-title: Front Matter in VuePress
-description: some description
-image: https://source.unsplash.com/random
 ---
 ```
 
+### published
+
+Published state: if it does not exists in frontmatter Post will not be shown
+
+```markdown
+---
+published: true
+---
+```
+
+### description
+
+Post summary
+
+```markdown
+---
+description: some description
+---
+```
+
+### title
+
+title will be shown in the posts list
+
+```markdown
+---
+title: Front Matter in VuePress
+---
+```
+
+
+### image
+
+header image for the post item
+
+```markdown
+---
+image: https://source.unsplash.com/random
+---
+```
