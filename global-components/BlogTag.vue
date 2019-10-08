@@ -25,8 +25,8 @@
     text-align left
     box-sizing border-box
     transition: background-color .3s
-    color #000
-    border 1px solid #000
+    color #222
+    border 1px solid #222
     text-decoration none
     transition all .5s
 

@@ -1,137 +1,198 @@
 <template>
-  <div id="base-list-layout">
-    <div class="ui-posts">
-      <div class="ui-post" v-for="page in pages">
-        <div class="ui-post-title">
-          <NavLink :link="page.path">{{ page.title }}</NavLink>
+  <div id="base-list-layout" align="center">
+    <header class="home-hero" :style="{backgroundImage: 'url(' + $themeConfig.heroImage + ')'}">
+      <h1>{{ $site.title }}</h1>
+      <h3>{{ $site.description }}</h3>
+    </header>
+    <div class="ui-posts" align="left">
+      <h2>Latest Articles</h2>
+      <div class="ui-post" v-for="page in pages" v-if="page.frontmatter.published">
+        <div
+          class="ui-post-image"
+          :style="{backgroundImage: `url(${page.frontmatter.image})`}"
+          v-if="page.frontmatter.image
+          "
+        ></div>
+        <div class="ui-post-body">
+          <div class="ui-post-title">
+            <NavLink :link="page.path">{{ page.title }}</NavLink>
+          </div>
+          <div class="ui-post-description">{{ page.frontmatter.description || page.description }}...</div>
         </div>
-        
-        <div class="ui-post-summary">
-          {{ page.frontmatter.summary || page.summary }}
-          <!-- <Content :page-key="page.key" slot-key="intro"/>-->
-        </div>
-
-        <div class="ui-post-author" v-if="page.frontmatter.author">
-          <NavigationIcon/>
-          <span>{{ page.frontmatter.author }} in {{ page.frontmatter.location }}</span>
-        </div>
-
-        <div class="ui-post-date" v-if="page.frontmatter.date">
-          <ClockIcon/>
-          <span>{{ new Date(page.frontmatter.date.trim()).toDateString() }}</span>
-        </div>
+        <hr />
+        <PostInfo
+          :date="page.frontmatter.date"
+          :timeToRead="page.readingTime.text"
+          :location="page.frontmatter.location"
+        />
       </div>
     </div>
-    
+
     <component v-if="$pagination.length > 1 && paginationComponent" :is="paginationComponent"></component>
   </div>
 </template>
 
 <script>
-  /* global THEME_BLOG_PAGINATION_COMPONENT */
-  
-  import Vue from 'vue'
-  import { NavigationIcon, ClockIcon } from 'vue-feather-icons'
-  import { Pagination, SimplePagination } from '@vuepress/plugin-blog/lib/client/components'
-  
-  export default {
-    components: { NavigationIcon, ClockIcon },
+/* global THEME_BLOG_PAGINATION_COMPONENT */
 
-    data() {
-      return {
-        paginationComponent: null
+import Vue from "vue";
+import PostInfo from "../components/PostInfo";
+import {
+  Pagination,
+  SimplePagination
+} from "@vuepress/plugin-blog/lib/client/components";
+
+export default {
+  components: { PostInfo },
+
+  data() {
+    return {
+      paginationComponent: null
+    };
+  },
+
+  created() {
+    this.paginationComponent = this.getPaginationComponent();
+  },
+
+  computed: {
+    pages() {
+      return this.$pagination.pages;
+    }
+  },
+
+  methods: {
+    getPaginationComponent() {
+      const n = THEME_BLOG_PAGINATION_COMPONENT;
+      if (n === "Pagination") {
+        return Pagination;
       }
-    },
-    
-    created() {
-      this.paginationComponent = this.getPaginationComponent()
-    },
-    
-    computed: {
-      pages() {
-        return this.$pagination.pages
-      },
-    },
-    
-    methods: {
-      getPaginationComponent() {
-        const n = THEME_BLOG_PAGINATION_COMPONENT
-        if (n === 'Pagination') {
-          return Pagination
-        }
 
-        if (n === 'SimplePagination') {
-          return SimplePagination
-        }
-
-        return Vue.component(n) || Pagination
+      if (n === "SimplePagination") {
+        return SimplePagination;
       }
+
+      return Vue.component(n) || Pagination;
     }
   }
+};
 </script>
 
 <style lang="stylus">
-  .common-layout
-    .content-wrapper
-      padding-bottom 80px
-  
-  .ui-post
-    padding-bottom 25px
-    margin-bottom 25px
-    border-bottom 1px solid #f1f1f1
-    
-    &:last-child
-      border-bottom 0px
-      margin-bottom 0px
-    
-    p
-      margin 0
-  
-  .ui-post-title
-    font-family PT Serif, Serif
-    font-size 28px
-    border-bottom 0
-    
-    a
-      cursor pointer
-      color #000
-      transition all .2s
-      text-decoration none
-      
-      &:hover
-        text-decoration underline
-  
-  .ui-post-summary
-    font-size 14px
-    margin-bottom 15px
-    color rgba(0, 0, 0, 0.54)
-    font-weight 200
-  
-  .ui-post-author
-    display flex
-    align-items center
-    font-size 12px
-    line-height 12px
-    color rgba(0, 0, 0, 0.84)
-    margin-bottom 3px
-    font-weight 400
-    
-    svg
-      margin-right 5px
-      width 14px
-      height 14px
-  
-  .ui-post-date
-    display flex
-    align-items center
-    font-size 12px
-    color rgba(0, 0, 0, 0.54)
-    font-weight 200
-    
-    svg
-      margin-right 5px
-      width 14px
-      height 14px
+.common-layout {
+  .content-wrapper {
+    padding-bottom: 80px;
+  }
+}
+
+header.home-hero {
+  height: 600px;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    color: white;
+    margin: 0;
+    font-size: 4em;
+
+    @media (max-width: 600px) {
+      font-size: 2em;
+    }
+  }
+
+  h3 {
+    color: darken(white, 9%);
+    margin-top: 0;
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: 300;
+  }
+}
+
+.ui-posts {
+  max-width: 800px;
+  margin-top: 50px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.ui-post {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  padding-top: 15px;
+  margin-bottom: 25px;
+  border-radius: 14px;
+  border-bottom: 1px solid #f1f1f1;
+  background-color: #FFF;
+
+  &:hover {
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  &:last-child {
+    border-bottom: 0px;
+    margin-bottom: 0px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.ui-post-body {
+  padding: 15px;
+}
+
+.ui-post-image {
+  height: 200px;
+  background-size: cover;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.ui-post-title {
+  font-size: 24px;
+  border-bottom: 0;
+  margin-bottom: 10px;
+
+  a {
+    cursor: pointer;
+    color: #222;
+    transition: all 0.2s;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.ui-post-description {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 200;
+}
+
+.ui-post-author {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 12px;
+  color: rgba(0, 0, 0, 0.84);
+  margin-bottom: 3px;
+  font-weight: 400;
+
+  svg {
+    margin-right: 5px;
+    width: 14px;
+    height: 14px;
+  }
+}
 </style>
 
 <style src="prismjs/themes/prism-okaidia.css"></style>

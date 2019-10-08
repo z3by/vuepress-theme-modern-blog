@@ -1,7 +1,7 @@
 {
-  "name": "@vuepress/theme-blog",
-  "version": "1.2.5",
-  "description": "Default blog theme for VuePress",
+  "name": "@vuepress/theme-modern",
+  "version": "1.0.0",
+  "description": "Modern blog theme for VuePress",
   "main": "index.js",
   "files": [
     "index.js",

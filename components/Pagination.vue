@@ -1,52 +1,49 @@
 <template>
-  <div
-    class="pagination"
-    v-if="pagination"
-  >
+  <div class="pagination" v-if="pagination">
     <router-link
       class="prev"
       title="Previous Page"
       v-if="pagination.hasPrev"
       :to="pagination.prevLink"
-    >
-      Prev
-    </router-link>
+    >Prev</router-link>
     <router-link
       class="next"
       title="Next Page"
       v-if="pagination.hasNext"
       :to="pagination.nextLink"
-    >
-      Next
-    </router-link>
+    >Next</router-link>
   </div>
 </template>
 
 <script>
-  export default {
-    props: ['pagination']
-  }
+export default {
+  props: ["pagination"]
+};
 </script>
 
 <style lang="stylus">
-  .pagination
-    a
-      margin-right: 20px
-      color: #000
-      height: 38px
-      line-height: 38px
-      transition: all .3s ease
-      position: relative
-      overflow: hidden
-      display: inline-block
-      background #FFF
-      padding: 0 15px
-      text-decoration: none
-      border 1px solid #000
-      border-radius 5px
-      transition all .5s
-      &:hover
-        color #FFF
-        border 1px solid $accentColor
-        background-color $accentColor
+.pagination {
+  a {
+    margin-right: 20px;
+    color: #222;
+    height: 38px;
+    line-height: 38px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    background: #FFF;
+    padding: 0 15px;
+    text-decoration: none;
+    border: 1px solid #222;
+    border-radius: 5px;
+    transition: all 0.5s;
+
+    &:hover {
+      color: #FFF;
+      border: 1px solid $accentColor;
+      background-color: $accentColor;
+    }
+  }
+}
 </style>

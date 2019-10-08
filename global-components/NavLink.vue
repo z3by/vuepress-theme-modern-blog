@@ -51,7 +51,7 @@ export default {
 
 <style lang="stylus">
 .nav-link
-  color #000
+  color #222
 
 .nav-link
   &:hover, &.router-link-active
