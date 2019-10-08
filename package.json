@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-modern-blog",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Modern blog theme for VuePress",
   "main": "index.js",
   "files": [
@@ -10,6 +10,15 @@
     "global-components",
     "fonts",
     "components"
+  ],
+  "keywords": [
+    "vuepress",
+    "vuepress-theme",
+    "vuepress-blog",
+    "vuepress",
+    "vue",
+    "vuepress-theme-blog",
+    "vuepress-theme-modern-blog"
   ],
   "scripts": {
     "test": "npm run lint && jest",
