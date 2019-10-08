@@ -10,7 +10,8 @@ module.exports = (themeConfig, ctx) => {
     pwa: !!themeConfig.pwa
   });
 
-  themeConfig.heroImage = themeConfig.heroImage || "https://source.unsplash.com/random"
+  themeConfig.heroImage =
+    themeConfig.heroImage || "https://source.unsplash.com/random";
 
   const defaultBlogPluginOptions = {
     directories: [
@@ -64,24 +65,30 @@ module.exports = (themeConfig, ctx) => {
       }
     ],
     [
-      "@vuepress/google-analytics",
-      {
-        ga: themeConfig.googleAnalyticsTrackingID
-      }
-    ],
-    [
       "sitemap",
       {
-        hostname: themeConfig.hostname
+        hostname: themeConfig.sitemap.hostname
       }
-    ],
-    [
+    ]
+  ];
+
+  if (themeConfig.socialShare) {
+    plugins.push([
       "social-share",
       {
         networks: themeConfig.socialShareNetworks
       }
-    ]
-  ];
+    ]);
+  }
+
+  if (themeConfig.googleAnalytics) {
+    plugins.push([
+      "@vuepress/google-analytics",
+      {
+        ga: themeConfig.googleAnalytics.googleAnalyticsTrackingID
+      }
+    ]);
+  }
 
   if (themeConfig.pwa) {
     plugins.push([

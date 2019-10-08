@@ -3,9 +3,6 @@ module.exports = {
   description: "This is a blog example built by VuePress",
   theme: require.resolve("../../"),
   themeConfig: {
-    /**
-     * Ref: https://vuepress-theme-blog.ulivz.com/#nav
-     */
     nav: [
       {
         text: "Blog",
@@ -20,21 +17,26 @@ module.exports = {
         link: "/about/"
       }
     ],
-    /**
-     * Ref: https://vuepress-theme-blog.ulivz.com/#footer
-     */
+    sitemap: {
+      hostname: "https://ahmadmostafa.com/"
+    },
     disqus: "disquswebsiteshortname", // if you want to incorporate Disqus for comments replace this value else just get rid of it
-    socialShareNetworks: ["facebook", "twitter"],
+    socialShare: {
+      socialShareNetworks: ["facebook", "twitter"]
+    },
+    googleAnalytics: {
+      googleAnalyticsTrackingID: "" // Google Analytics tracking ID
+    },
     about: {
       fullName: "Ahmad Mostafa",
       bio: "I am a passionate Software Engineer, I love Vue.js ♥ ...",
-      image: "https://www.ahmadmostafa.com/images/bg_1.png",
+      image: "https://www.ahmadmostafa.com/images/bg_1.png"
     },
     footer: {
       contact: [
         {
           type: "github",
-          link: "https://github.com/ulivz"
+          link: "https://github.com/z3by"
         },
         {
           type: "instagram",
@@ -46,7 +48,7 @@ module.exports = {
         },
         {
           type: "twitter",
-          link: "https://twitter.com/_ulivz"
+          link: "#"
         }
       ],
       copyright: [
@@ -60,7 +62,5 @@ module.exports = {
         }
       ]
     }
-
-    // paginationComponent: 'SimplePagination'
   }
 };
