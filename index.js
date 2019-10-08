@@ -63,16 +63,18 @@ module.exports = (themeConfig, ctx) => {
       {
         searchMaxSuggestions: 10
       }
-    ],
-    [
-      "sitemap",
-      {
-        hostname: themeConfig.sitemap.hostname
-      }
     ]
   ];
 
-  if (themeConfig.socialShare) {
+  if (themeConfig.sitemap && themeConfig.hostname) {
+    plugins.push([
+      "sitemap",
+      {
+        hostname: themeConfig.hostname
+      }
+    ]);
+  }
+  if (themeConfig.socialShare && themeConfig.socialShareNetworks) {
     plugins.push([
       "social-share",
       {
@@ -85,7 +87,7 @@ module.exports = (themeConfig, ctx) => {
     plugins.push([
       "@vuepress/google-analytics",
       {
-        ga: themeConfig.googleAnalytics.googleAnalyticsTrackingID
+        ga: themeConfig.googleAnalytics
       }
     ]);
   }

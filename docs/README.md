@@ -250,25 +250,35 @@ Disqus website short name check [official website](https://disqus.com/)
 
 ### sitemap
 
+- Type: `boolean`
+- Default: `false`
 
-available options:
+to enable this plugin you need to define:
+
 
 ```js
 ...
-sitemap: {
-    hostname: "https://ahmadmostafa.com/" // your own hostname
-}
+  hostname: "https://ahmadmostafa.com/" // your own hostname
 ...
 ```
 
-### socialShareNetworks
+### socialShare
 
-- Type: `Array<string>`
+- Type: `boolean`
+- Default: `false`
+
+to enable this plugin you need also to define:
+
+#### socialShareNetworks
+
+- Type: `Array< string >`
 - Default: `undefined`
+
+refer to [docs](https://sns.goyfe.com/)
 
 ### googleAnalytics
 
-- Type: `{ googleAnalyticsTrackingID: string }`
+- Type: `string`
 - Default: `undefined`
 
 ### paginationComponent

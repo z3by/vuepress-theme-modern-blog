@@ -17,16 +17,12 @@ module.exports = {
         link: "/about/"
       }
     ],
-    sitemap: {
-      hostname: "https://ahmadmostafa.com/"
-    },
+    sitemap: true, // enables sitemap plugin
+    hostname: "https://ahmadmostafa.com/", // required for sitemap
     disqus: "disquswebsiteshortname", // if you want to incorporate Disqus for comments replace this value else just get rid of it
-    socialShare: {
-      socialShareNetworks: ["facebook", "twitter"]
-    },
-    googleAnalytics: {
-      googleAnalyticsTrackingID: "" // Google Analytics tracking ID
-    },
+    socialShare: true, // enables social share
+    socialShareNetworks: ["facebook", "twitter"], // required for social share plugin
+    googleAnalytics: "", // Google Analytics tracking ID
     about: {
       fullName: "Ahmad Mostafa",
       bio: "I am a passionate Software Engineer, I love Vue.js ♥ ...",
