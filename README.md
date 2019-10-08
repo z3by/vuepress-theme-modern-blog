@@ -1,28 +1,26 @@
-# @vuepress/theme-modern
+# vuepress-theme-modern-blog
 
-[![NPM version](https://badgen.net/npm/v/@vuepress/theme-modern)](https://npmjs.com/package/@vuepress/theme-modern) [![NPM downloads](https://badgen.net/npm/dm/@vuepress/theme-modern)](https://npmjs.com/package/@vuepress/theme-modern)
+[![NPM version](https://badgen.net/npm/v/vuepress-theme-modern-blog)](https://npmjs.com/package/vuepress-theme-modern-blog) [![NPM downloads](https://badgen.net/npm/dm/vuepress-theme-modern-blog)](https://npmjs.com/package/vuepress-theme-modern-blog)
 
 ## Sites
 
-- [Documentation](https://vuepress-theme-modern.z3by.com) - clone this repo and run `yarn && yarn docs:dev`
-- [Live Example](https://example.vuepress-theme-modern.z3by.com/) - clone this repo and run `yarn && yarn example:dev`
-- [Live Example - Z3BY's space](https://z3by.com/)
+- [Documentation](https://vp-modern-docs.z3by.com) - clone this repo and run `yarn && yarn docs:dev`
+- [Live Example](https://vp-modern.z3by.com/) - clone this repo and run `yarn && yarn example:dev`
 
 
 ## Install
 
 ```bash
-yarn add @vuepress/theme-modern -D
-# OR npm install @vuepress/theme-modern -D
+yarn add vuepress-theme-modern-blog -D
+# OR npm install vuepress-theme-modern-blog -D
 ```
-
 
 ## Usage
 
 ```js
 // .vuepress/config.js
 module.exports = {
-  theme: '@vuepress/modern',
+  theme: 'modern-blog',
   themeConfig: {
     // Please head documentation to see the available options.
   }
