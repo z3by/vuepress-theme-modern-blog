@@ -2,6 +2,21 @@
 
 [![NPM version](https://badgen.net/npm/v/vuepress-theme-modern-blog)](https://npmjs.com/package/vuepress-theme-modern-blog) [![NPM downloads](https://badgen.net/npm/dm/vuepress-theme-modern-blog)](https://npmjs.com/package/vuepress-theme-modern-blog)
 
+## Features
+
+- builtin comments support
+- Sitemap generator support
+- Social Sharing
+- Google Analytics
+- Smooth Scrolling
+- Reading Time
+- Drafting
+- Reading Progress
+- Back to Top button
+- Seo enhanced experience
+- PWA Support
+
+
 ## Sites
 
 - [Documentation](https://vp-modern-docs.z3by.com) - clone this repo and run `yarn && yarn docs:dev`
