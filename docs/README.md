@@ -288,6 +288,10 @@ author: ULIVZ
 ```markdown
 ---
 location: Hangzhou
+published: true
+title: Front Matter in VuePress
+description: some description
+image: https://source.unsplash.com/random
 ---
 ```
 

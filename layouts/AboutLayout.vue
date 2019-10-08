@@ -2,10 +2,10 @@
   <div>
     <div align="center" class="card">
       <div class="card-header">
-        <img src="/images/bg_1.png" alt="Ahmad Mostafa" class="card-img" />
+        <img :src="$themeConfig.about.image" :alt="$themeConfig.about.fullName" class="card-img" />
         <h1>{{ $themeConfig.fullName }}</h1>
       </div>
-      <p>{{ $themeConfig.fullDescription }}</p>
+      <p>{{ $themeConfig.about.bio }}</p>
       <hr />
       <ul class="contact" v-if="contact">
         <li class="contact-item" v-for="item in contact" :key="item.text">
@@ -96,7 +96,7 @@ export default {
   }
 
   .card-header {
-    background: linear-gradient(to right, #B993D6, #8CA6DB);
+    background: linear-gradient(to right, lighten($accentColor, 20%), lighten($secondaryColor, 30%));
     padding-top: 50px;
   }
 

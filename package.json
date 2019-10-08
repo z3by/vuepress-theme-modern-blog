@@ -1,6 +1,6 @@
 {
-  "name": "@vuepress/theme-modern",
-  "version": "1.0.0",
+  "name": "vuepress-theme-modern-blog",
+  "version": "1.0.1",
   "description": "Modern blog theme for VuePress",
   "main": "index.js",
   "files": [
@@ -21,10 +21,14 @@
     "prepublishOnly": "npm run example:build && conventional-changelog -p angular -r 2 -i CHANGELOG.md -s"
   },
   "repository": {
-    "url": "ulivz/vuepress-theme-blog",
+    "url": "z3by/vuepress-theme-modern-blog",
     "type": "git"
   },
-  "author": "ulivz<chl814@foxmail.com>",
+  "author": {
+    "email": "zoaby.am@gmail.com",
+    "name": "Ahmad Mostafa",
+    "url": "https://ahmadmostafa.com"
+  },
   "license": "MIT",
   "dependencies": {
     "@vuepress/plugin-blog": "^1.2.5",
@@ -33,7 +37,17 @@
     "@vuepress/plugin-pwa": "1.0.0",
     "@vuepress/plugin-search": "1.0.0",
     "remove-markdown": "^0.3.0",
-    "vue-feather-icons": "^4.21.0"
+    "vue-feather-icons": "^4.21.0",
+    "@vuepress/plugin-back-to-top": "^1.0.0-rc.1",
+    "@vuepress/theme-blog": "^1.2.5",
+    "@vuepress/plugin-google-analytics": "^1.1.0",
+    "vuepress-plugin-disqus": "^0.1.1",
+    "vuepress-plugin-reading-progress": "^1.0.7",
+    "vuepress-plugin-reading-time": "^0.1.1",
+    "vuepress-plugin-seo": "^0.1.2",
+    "vuepress-plugin-smooth-scroll": "^0.0.4",
+    "vuepress-plugin-social-share": "^0.0.6",
+    "vuepress-plugin-sitemap": "^2.1.2"
   },
   "devDependencies": {
     "conventional-changelog-cli": "^2.0.1",

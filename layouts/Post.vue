@@ -2,7 +2,7 @@
   <div id="vuperess-theme-blog__post-layout">
     <main class="vuepress-blog-theme-content">
       <img :src="$frontmatter.image" :alt="$frontmatter.title" v-if="$frontmatter.image" />
-      <h1>{{ $frontmatter.title }}</h1>
+      <h1 align="center">{{ $frontmatter.title }}</h1>
       <PostInfo
         :date="$frontmatter.date"
         :timeToRead="$page.readingTime.text"

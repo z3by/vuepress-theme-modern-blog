@@ -4,7 +4,11 @@ tag:
   - markdown
   - vuepress
 author: ULIVZ
-location: Hangzhou  
+location: Hangzhou
+published: true
+title: Markdown Slot
+description: VuePress implements a content distribution API for Markdown. With this feature, you can split your document into multiple fragments to facilitate flexible composition in the layout component.
+image: https://source.unsplash.com/random  
 ---
 
 # Markdown Slot

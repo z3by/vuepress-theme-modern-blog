@@ -10,6 +10,8 @@ module.exports = (themeConfig, ctx) => {
     pwa: !!themeConfig.pwa
   });
 
+  themeConfig.heroImage = themeConfig.heroImage || "https://source.unsplash.com/random"
+
   const defaultBlogPluginOptions = {
     directories: [
       {
