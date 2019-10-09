@@ -347,16 +347,6 @@ location: Hangzhou
 ---
 ```
 
-### published
-
-Published state: if it does not exists in frontmatter Post will not be shown
-
-```markdown
----
-published: true
----
-```
-
 ### description
 
 Post summary

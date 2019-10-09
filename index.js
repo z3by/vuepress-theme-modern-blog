@@ -23,7 +23,7 @@ module.exports = (themeConfig, ctx) => {
         itemLayout: "Post",
         itemPermalink: "/:year/:month/:day/:slug",
         pagination: {
-          lengthPerPage: 5
+          lengthPerPage: 2
         }
       }
     ],

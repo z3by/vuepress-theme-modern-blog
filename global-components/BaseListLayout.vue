@@ -6,12 +6,11 @@
     </header>
     <div class="ui-posts" align="left">
       <h2>Latest Articles</h2>
-      <div class="ui-post" v-for="page in pages" v-if="page.frontmatter.published">
+      <div class="ui-post" v-for="page in pages" :key="page.id">
         <div
           class="ui-post-image"
           :style="{backgroundImage: `url(${page.frontmatter.image})`}"
-          v-if="page.frontmatter.image
-          "
+          v-if="page.frontmatter.image"
         ></div>
         <div class="ui-post-body">
           <div class="ui-post-title">
