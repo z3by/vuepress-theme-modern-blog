@@ -3,7 +3,7 @@
     <div align="center" class="card">
       <div class="card-header">
         <img :src="$themeConfig.about.image" :alt="$themeConfig.about.fullName" class="card-img" />
-        <h1>{{ $themeConfig.fullName }}</h1>
+        <h1>{{ $themeConfig.about.fullName }}</h1>
       </div>
       <p>{{ $themeConfig.about.bio }}</p>
       <hr />

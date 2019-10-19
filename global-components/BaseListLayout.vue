@@ -2,11 +2,11 @@
   <div id="base-list-layout" align="center">
     <header class="home-hero" :style="{backgroundImage: 'url(' + $themeConfig.heroImage + ')'}">
       <h1>{{ $site.title }}</h1>
-      <h3>{{ $site.description }}</h3>
+      <h2>{{ $site.description }}</h2>
     </header>
     <div class="ui-posts" align="left">
       <h2>Latest Articles</h2>
-      <div class="ui-post" v-for="page in pages" :key="page.id">
+      <div class="ui-post" v-for="page in pages" :key="page.key">
         <div
           class="ui-post-image"
           :style="{backgroundImage: `url(${page.frontmatter.image})`}"
@@ -16,7 +16,14 @@
           <div class="ui-post-title">
             <NavLink :link="page.path">{{ page.title }}</NavLink>
           </div>
-          <div class="ui-post-description">{{ page.frontmatter.description || page.description }}...</div>
+          <div
+            class="ui-post-description"
+            v-if="page.frontmatter.description"
+          >{{ page.frontmatter.description || page.description }}</div>
+          <div class="ui-post-summary" v-if="page.summary">
+            {{ page.summary }}
+            <router-link :to="page.path" class="read-more">Read more</router-link>
+          </div>
         </div>
         <hr />
         <PostInfo
@@ -102,7 +109,7 @@ header.home-hero {
     }
   }
 
-  h3 {
+  h2 {
     color: darken(white, 9%);
     margin-top: 0;
     max-width: 600px;
@@ -144,6 +151,10 @@ header.home-hero {
 
 .ui-post-body {
   padding: 15px;
+}
+
+.read-more {
+  color: $secondaryColor;
 }
 
 .ui-post-image {

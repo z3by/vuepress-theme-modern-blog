@@ -7,7 +7,7 @@
         </div>
         <div class="header-right-wrap">
           <ul class="nav" v-if="$themeConfig.nav">
-            <li class="nav-item" v-for="item in $themeConfig.nav">
+            <li class="nav-item" v-for="item in $themeConfig.nav" :key="item.text">
               <NavLink :link="item.link">{{ item.text }}</NavLink>
             </li>
           </ul>

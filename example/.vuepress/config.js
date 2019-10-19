@@ -3,9 +3,10 @@ module.exports = {
   description: "This is a blog example built by VuePress",
   theme: require.resolve("../../"),
   themeConfig: {
+    summary: true,
     nav: [
       {
-        text: "Blog",
+        text: "Home",
         link: "/"
       },
       {
