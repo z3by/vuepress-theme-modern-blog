@@ -1,5 +1,5 @@
 <template>
-  <div class="featured-posts">
+  <div class="featured-posts" v-if="posts.length">
     <PostsList :posts="posts" title="Continue Reading" />
   </div>
 </template>
