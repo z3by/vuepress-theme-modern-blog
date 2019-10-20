@@ -17,6 +17,7 @@
           <router-link :to="'/tag/'+tag">{{tag}}</router-link>
         </span>
       </div>
+      <FeaturedPosts></FeaturedPosts>
       <ClientOnly v-if="$themeConfig.disqus">
         <Disqus :shortname="$themeConfig.disqus" class="disqus-comments" />
       </ClientOnly>
@@ -27,11 +28,13 @@
 <script>
 import Toc from "@theme/components/Toc.vue";
 import PostInfo from "@theme/components/PostInfo.vue";
+import FeaturedPosts from "@theme/components/FeaturedPosts.vue";
 
 export default {
   components: {
     Toc,
-    PostInfo
+    PostInfo,
+    FeaturedPosts
   }
 };
 </script>
@@ -47,7 +50,8 @@ export default {
 
 .post-tags {
   padding: 0;
-  margin-top: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .disqus-comments {
