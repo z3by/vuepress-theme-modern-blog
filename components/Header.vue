@@ -3,11 +3,21 @@
     <header id="header">
       <div class="header-wrapper">
         <div class="title">
-          <NavLink link="/" class="home-link">{{ $site.title }}</NavLink>
+          <NavLink
+            link="/"
+            class="home-link"
+          >{{ $site.title }}</NavLink>
         </div>
         <div class="header-right-wrap">
-          <ul class="nav" v-if="$themeConfig.nav">
-            <li class="nav-item" v-for="item in $themeConfig.nav" :key="item.text">
+          <ul
+            class="nav"
+            v-if="$themeConfig.nav"
+          >
+            <li
+              class="nav-item"
+              v-for="item in $themeConfig.nav"
+              :key="item.text"
+            >
               <NavLink :link="item.link">{{ item.text }}</NavLink>
             </li>
           </ul>
@@ -94,9 +104,13 @@ export default {
           text-decoration: none;
           transition: color 0.3s;
 
+          &:hover {
+            color: white;
+          }
+
           &.router-link-exact-active.router-link-active {
             color: #fff;
-            font-weight bold;
+            font-weight: 600;
           }
         }
       }
@@ -109,7 +123,7 @@ export default {
         border-radius: 20px;
         transition: all 0.5s;
         border: 1px solid #cecece;
-        background rgba(255, 255, 255, 0.4)
+        min-width: 5rem;
 
         &:hover {
           border: 1px solid $accentColor;

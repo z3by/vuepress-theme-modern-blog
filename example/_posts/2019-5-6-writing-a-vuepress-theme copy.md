@@ -5,7 +5,6 @@ tags:
   - blog
   - vuepress
 author: ULIVZ
-featured: true
 location: Shanghai
 title: Writing a VuePress theme
 image: https://source.unsplash.com/random  

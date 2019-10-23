@@ -1,11 +1,30 @@
 <template>
-  <div id="base-list-layout" align="center">
-    <header class="home-hero" :style="{backgroundImage: 'url(' + $themeConfig.heroImage + ')'}">
+  <div
+    id="base-list-layout"
+    align="center"
+  >
+    <header
+      class="home-hero"
+      :style="{backgroundImage: 'url(' + $themeConfig.heroImage + ')'}"
+    >
       <h1>{{ $site.title }}</h1>
       <h2>{{ $site.description }}</h2>
     </header>
-    <PostsList :posts="pages" title="Latest Posts"/>
-    <component v-if="$pagination.length > 1 && paginationComponent" :is="paginationComponent"></component>
+    <main class="posts-wrapper">
+      <featured-posts
+        :autoplay="true"
+        :items="3"
+        :dots="true"
+      />
+      <PostsList
+        :posts="pages"
+        title="Latest Posts"
+      />
+    </main>
+    <component
+      v-if="$pagination.length > 1 && paginationComponent"
+      :is="paginationComponent"
+    ></component>
   </div>
 </template>
 
@@ -22,24 +41,24 @@ import {
 export default {
   components: { PostsList },
 
-  data() {
+  data () {
     return {
       paginationComponent: null
     };
   },
 
-  created() {
+  created () {
     this.paginationComponent = this.getPaginationComponent();
   },
 
   computed: {
-    pages() {
+    pages () {
       return this.$pagination.pages;
     }
   },
 
   methods: {
-    getPaginationComponent() {
+    getPaginationComponent () {
       const n = THEME_BLOG_PAGINATION_COMPONENT;
       if (n === "Pagination") {
         return Pagination;
@@ -87,10 +106,15 @@ header.home-hero {
     margin-right: auto;
     margin-left: auto;
     font-weight: 300;
+    border: none;
+    font-size: 1.2rem;
   }
+}
+
+.posts-wrapper {
+  max-width: 920px;
 }
 </style>
 
-<style src="prismjs/themes/prism-okaidia.css"></style>
 
 

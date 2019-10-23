@@ -1,4 +1,5 @@
 const removeMd = require("remove-markdown");
+const resolve = require("path").resolve
 
 module.exports = (themeConfig, ctx) => {
   themeConfig = Object.assign(themeConfig, {
@@ -52,6 +53,7 @@ module.exports = (themeConfig, ctx) => {
   const plugins = [
     "disqus",
     "seo",
+    resolve("../vuepress-plugin-featured/"),
     "reading-time",
     "smooth-scroll",
     "reading-progress",
