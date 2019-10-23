@@ -53,7 +53,6 @@ module.exports = (themeConfig, ctx) => {
   const plugins = [
     "disqus",
     "seo",
-    resolve("../vuepress-plugin-featured/"),
     "reading-time",
     "smooth-scroll",
     "reading-progress",
@@ -118,7 +117,7 @@ module.exports = (themeConfig, ctx) => {
    * Generate summary.
    */
   if (themeConfig.summary) {
-    config.extendPageData = function(pageCtx) {
+    config.extendPageData = function (pageCtx) {
       const strippedContent = pageCtx._strippedContent;
       if (!strippedContent) {
         return;

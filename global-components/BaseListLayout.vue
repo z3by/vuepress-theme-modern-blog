@@ -10,12 +10,8 @@
       <h1>{{ $site.title }}</h1>
       <h2>{{ $site.description }}</h2>
     </header>
+
     <main class="posts-wrapper">
-      <featured-posts
-        :autoplay="true"
-        :items="3"
-        :dots="true"
-      />
       <PostsList
         :posts="pages"
         title="Latest Posts"
@@ -86,8 +82,10 @@ header.home-hero {
   background-size: cover;
   background-attachment: fixed;
   display: flex;
+  background-color: #888;
   flex-direction: column;
   justify-content: center;
+  background-blend-mode: multiply;
 
   h1 {
     color: white;

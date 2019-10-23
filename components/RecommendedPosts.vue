@@ -1,6 +1,13 @@
 <template>
-  <div class="featured-posts" v-if="posts.length">
-    <PostsList :posts="posts" title="Continue Reading" />
+  <div
+    class="recommended-posts"
+    v-if="posts.length"
+  >
+    <PostsList
+      :posts="posts"
+      title="Continue Reading"
+      type="horizontal"
+    />
   </div>
 </template>
 
@@ -12,7 +19,7 @@ export default {
     PostsList
   },
   computed: {
-    posts() {
+    posts () {
       const postTags = this.$page.frontmatter.tags;
       if (!postTags) {
         return [];
@@ -33,18 +40,14 @@ export default {
 </script>
 
 <style lang="stylus">
-.featured-posts {
+.recommended-posts {
   margin-top: 4rem;
   margin-bottom: 4rem;
+  min-width: 1200px;
 
-  .featured-post-group {
-    list-style-type: none;
-    padding: 0;
-
-    .featured-post {
-      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
-      padding: 0.3rem;
-    }
+  .ui-post {
+    margin-right: 1rem;
+    min-height: 100%;
   }
 }
 </style>

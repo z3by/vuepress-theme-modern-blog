@@ -8628,10 +8628,10 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-vuepress-plugin-blog-featured@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-blog-featured/-/vuepress-plugin-blog-featured-0.0.3.tgz#1d1f652073a4f91d52547d70e8af3aeb9f915b35"
-  integrity sha512-Wjz9qk4cYu6kz0PGjaAbz+kn1XPOoHxPEl7A9q3ROxqRKbxEwTeLYHvq+/GxSYqmLWjOo9lj1R3TBk+yIUnQLw==
+vuepress-plugin-blog-featured@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-blog-featured/-/vuepress-plugin-blog-featured-0.0.4.tgz#91533062200f02f36c0497c0442b28a08af0baa5"
+  integrity sha512-W0v3ZfVLCL5znJvR+e9WnNxOeOhMpSwlyCgUDb8tquVfjKt2IG9LmX8B0zJICO+g1EcOwbtn7IAUH74zp83agw==
   dependencies:
     vue-owl-carousel "^2.0.3"
 

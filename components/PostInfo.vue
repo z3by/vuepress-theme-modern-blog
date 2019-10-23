@@ -4,7 +4,10 @@
       <CalendarIcon />
       {{ new Date(date.trim()).toDateString() }}
     </div>
-    <div class="post-info-item" v-if="timeToRead">
+    <div
+      class="post-info-item"
+      v-if="timeToRead"
+    >
       <ClockIcon />
       {{ timeToRead }}
     </div>
@@ -28,11 +31,13 @@ export default {
 .ui-post-info {
   display: flex;
   align-items: center;
-  justify-content: center;
   font-size: 12px;
+  background: lighten($accentColor, 98%);
+  border-radius: 10px;
   color: rgba(0, 0, 0, 0.54);
   font-weight: 200;
   padding: 15px 0px 15px 15px;
+  margin-top: 1rem;
 
   div.post-info-item {
     margin-right: 10px;

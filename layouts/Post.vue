@@ -1,25 +1,37 @@
 <template>
   <div id="vuperess-theme-blog__post-layout">
     <main class="vuepress-blog-theme-content">
-      <img :src="$frontmatter.image" :alt="$frontmatter.title" v-if="$frontmatter.image" />
+      <img
+        :src="$frontmatter.image"
+        :alt="$frontmatter.title"
+        v-if="$frontmatter.image"
+      />
       <h1 align="center">{{ $frontmatter.title }}</h1>
       <PostInfo
         :date="$frontmatter.date"
         :timeToRead="$page.readingTime.text"
         :location="$frontmatter.location"
+        style="justify-content: center"
       />
       <hr />
       <Content />
       <Toc />
       <hr />
       <div class="post-tags">
-        <span v-for="tag in $page.frontmatter.tags" :key="tag" class="blog-tag">
+        <span
+          v-for="tag in $page.frontmatter.tags"
+          :key="tag"
+          class="blog-tag"
+        >
           <router-link :to="'/tag/'+tag">{{tag}}</router-link>
         </span>
       </div>
-      <FeaturedPosts></FeaturedPosts>
+      <RecommendedPosts></RecommendedPosts>
       <ClientOnly v-if="$themeConfig.disqus">
-        <Disqus :shortname="$themeConfig.disqus" class="disqus-comments" />
+        <Disqus
+          :shortname="$themeConfig.disqus"
+          class="disqus-comments"
+        />
       </ClientOnly>
     </main>
   </div>
@@ -28,20 +40,20 @@
 <script>
 import Toc from "@theme/components/Toc.vue";
 import PostInfo from "@theme/components/PostInfo.vue";
-import FeaturedPosts from "@theme/components/FeaturedPosts.vue";
+import RecommendedPosts from "@theme/components/RecommendedPosts.vue";
 
 export default {
   components: {
     Toc,
     PostInfo,
-    FeaturedPosts
+    RecommendedPosts
   }
 };
 </script>
 
 <style lang="stylus">
 .vuepress-blog-theme-content {
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing: 0px;
   color: #2c3e50;
   position: relative;
