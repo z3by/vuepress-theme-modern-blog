@@ -63,8 +63,8 @@ export default {
     cursor: pointer;
   }
 
-  a {
-    text-decoration: none;
+   & a {
+    text-decoration: none !important;
   }
 
   &:last-child {
@@ -82,6 +82,10 @@ export default {
 
   .read-more {
     color: $secondaryColor;
+
+    &:hover {
+      text-decoration: underline !important;
+    }
   }
 
   .ui-post-image {
@@ -118,6 +122,7 @@ export default {
   .ui-post-summary {
     color: gray;
   }
+
   .ui-post-author {
     display: flex;
     align-items: center;
