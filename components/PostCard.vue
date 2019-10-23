@@ -115,6 +115,9 @@ export default {
     font-weight: 200;
   }
 
+  .ui-post-summary {
+    color: gray;
+  }
   .ui-post-author {
     display: flex;
     align-items: center;

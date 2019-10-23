@@ -82,7 +82,7 @@ header.home-hero {
   background-size: cover;
   background-attachment: fixed;
   display: flex;
-  background-color: #888;
+  background-color: #aaa;
   flex-direction: column;
   justify-content: center;
   background-blend-mode: multiply;
