@@ -6,7 +6,9 @@ tags:
 author: ULIVZ
 location: Hangzhou
 title: Markdown Slot
-image: https://source.unsplash.com/random  
+image: https://source.unsplash.com/random/800x600
+featured: true
+
 ---
 
 # Markdown Slot

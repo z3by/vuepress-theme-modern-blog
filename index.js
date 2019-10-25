@@ -6,12 +6,12 @@ module.exports = (themeConfig, ctx) => {
     summaryLength:
       typeof themeConfig.summaryLength === "number"
         ? themeConfig.summaryLength
-        : 200,
+        : 300,
     pwa: !!themeConfig.pwa
   });
 
   themeConfig.heroImage =
-    themeConfig.heroImage || "https://source.unsplash.com/random";
+    themeConfig.heroImage || "https://source.unsplash.com/random/800x600";
 
   const defaultBlogPluginOptions = {
     directories: [
@@ -72,14 +72,6 @@ module.exports = (themeConfig, ctx) => {
       "sitemap",
       {
         hostname: themeConfig.hostname
-      }
-    ]);
-  }
-  if (themeConfig.socialShare && themeConfig.socialShareNetworks) {
-    plugins.push([
-      "social-share",
-      {
-        networks: themeConfig.socialShareNetworks
       }
     ]);
   }

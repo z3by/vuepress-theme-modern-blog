@@ -1,14 +1,28 @@
 <template>
   <div>
-    <div align="center" class="card">
+    <div
+      align="center"
+      class="card"
+    >
       <div class="card-header">
-        <img :src="$themeConfig.about.image" :alt="$themeConfig.about.fullName" class="card-img" />
+        <img
+          :src="$themeConfig.about.image"
+          :alt="$themeConfig.about.fullName"
+          class="card-img"
+        />
         <h1>{{ $themeConfig.about.fullName }}</h1>
       </div>
       <p>{{ $themeConfig.about.bio }}</p>
       <hr />
-      <ul class="contact" v-if="contact">
-        <li class="contact-item" v-for="item in contact" :key="item.text">
+      <ul
+        class="contact"
+        v-if="contact"
+      >
+        <li
+          class="contact-item"
+          v-for="item in contact"
+          :key="item.text"
+        >
           <NavLink :link="item.link">
             <component :is="item.iconComponent"></component>
             {{ item.text }}
@@ -24,6 +38,7 @@ import {
   GithubIcon,
   FacebookIcon,
   TwitterIcon,
+  YoutubeIcon,
   InstagramIcon,
   LinkedinIcon
 } from "vue-feather-icons";
@@ -33,12 +48,13 @@ export default {
     GithubIcon,
     FacebookIcon,
     TwitterIcon,
+    YoutubeIcon,
     InstagramIcon,
     LinkedinIcon
   },
 
   methods: {
-    getIconComponentName(contactType) {
+    getIconComponentName (contactType) {
       switch (contactType) {
         case "github":
           return "GithubIcon";
@@ -50,6 +66,8 @@ export default {
           return "InstagramIcon";
         case "linkedin":
           return "LinkedinIcon";
+        case "youtube":
+          return "YoutubeIcon";
         default:
           return "";
       }
@@ -57,7 +75,7 @@ export default {
   },
 
   computed: {
-    contact() {
+    contact () {
       return (
         (this.$themeConfig.footer && this.$themeConfig.footer.contact) ||
         []
@@ -71,7 +89,7 @@ export default {
         .filter(({ iconComponent }) => iconComponent);
     },
 
-    copyright() {
+    copyright () {
       return (
         (this.$themeConfig.footer && this.$themeConfig.footer.copyright) || []
       );
@@ -84,20 +102,20 @@ export default {
 .card {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   border-radius: 50px;
-  max-width: 450px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 100px;
+  max-width: 400px;
+  margin: 100px auto 120px auto;
   overflow: hidden;
   transition: all 0.4s ease;
 
   .card-img {
     transition: all 0.4s ease;
+    max-width: 12rem;
   }
 
   .card-header {
-    background: linear-gradient(to right, lighten($accentColor, 20%), lighten($secondaryColor, 30%));
+    background: linear-gradient(to right, lighten($accentColor, 40%), $secondaryColor);
     padding-top: 50px;
+    min-height: 300px;
   }
 
   h1 {

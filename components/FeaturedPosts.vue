@@ -1,50 +1,38 @@
 <template>
-  <div class="featured-posts" v-if="posts.length">
-    <PostsList :posts="posts" title="Continue Reading" />
+  <div class="featured-posts">
+    <el-carousel
+      :interval="4000"
+      type="card"
+      height="400px"
+    >
+      <el-carousel-item
+        v-for="post in posts"
+        :key="post.key"
+        class="bg-light bg-cover border-10"
+        :style="{'background-image': post.frontmatter.image ? `url(${post.frontmatter.image})`: 'none', 'background-blend-mode': 'multiply'}"
+      >
+        <div class="carousel-card-content d-flex justify-content-center align-items-center flex-column h-100">
+          <h2 class="story-title text-light text-center h3 mb-3">{{ post.title }}</h2>
+          <el-button type="primary">Read this Post <i class="el-icon-arrow-right"></i></el-button>
+        </div>
+      </el-carousel-item>
+    </el-carousel>
   </div>
 </template>
 
 <script>
-import PostsList from "@theme/components/PostsList.vue";
-
 export default {
-  components: {
-    PostsList
-  },
+  name: 'featured-posts',
   computed: {
-    posts() {
-      const postTags = this.$page.frontmatter.tags;
-      if (!postTags) {
-        return [];
-      }
-      return this.$site.pages
-        .filter(
-          p =>
-            p.frontmatter.tags &&
-            p.key !== this.$page.key &&
-            p.frontmatter.tags.includes(
-              postTags[Math.floor(Math.random() * postTags.length)]
-            )
-        )
-        .slice(0, 3);
+    posts () {
+      return this.$site.pages.filter(page => page.frontmatter.featured == true)
     }
   }
 };
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .featured-posts {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-
-  .featured-post-group {
-    list-style-type: none;
-    padding: 0;
-
-    .featured-post {
-      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
-      padding: 0.3rem;
-    }
-  }
+  margin-top: -5rem;
 }
 </style>

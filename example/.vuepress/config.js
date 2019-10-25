@@ -7,15 +7,13 @@ module.exports = {
     nav: [
       {
         text: "Home",
-        link: "/"
-      },
-      {
-        text: "Tags",
-        link: "/tag/"
+        link: "/",
+        icon: "el-icon-house"
       },
       {
         text: "About",
-        link: "/about/"
+        link: "/about/",
+        icon: "el-icon-user"
       }
     ],
     sitemap: true, // enables sitemap plugin
