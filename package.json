@@ -1,10 +1,11 @@
 {
   "name": "vuepress-theme-modern-blog",
-  "version": "1.1.2",
+  "version": "2.0.0",
   "description": "Modern blog theme for VuePress",
   "main": "index.js",
   "files": [
     "index.js",
+    "enhanceApp.js",
     "styles",
     "layouts",
     "global-components",
