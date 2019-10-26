@@ -1,5 +1,8 @@
 <template>
-  <header id="header" class="border-bottom">
+  <header
+    id="header"
+    class="border-bottom"
+  >
     <div class="py-5">
       <router-link
         to="/"
@@ -16,7 +19,6 @@
         :default-active="activeIndex"
         mode="horizontal"
         class="border-0"
-        @select="handleSelect"
       >
         <el-menu-item
           v-for="(item, index) in $themeConfig.nav"
@@ -50,10 +52,11 @@ export default {
       activeIndex: '0',
     };
   },
-  methods: {
-    handleSelect (key, keyPath) {
-      console.log(key, keyPath);
-    }
-  }
 };
 </script>
+
+<style lang="stylus">
+.el-menu-item.is-active {
+  border-bottom: 3px solid $accentColor !important;
+}
+</style>

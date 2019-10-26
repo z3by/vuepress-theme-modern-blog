@@ -42,10 +42,10 @@
         />
 
         <div class="d-flex">
-          <Pagination
-            align="center"
-            class="mx-auto mb-5"
-          />
+          <component
+            v-if="$pagination.length > 1 && paginationComponent"
+            :is="paginationComponent"
+          ></component>
         </div>
       </div>
     </div>
@@ -58,13 +58,13 @@
 import Vue from "vue";
 import PostsList from "@theme/components/PostsList.vue";
 import FeaturedPosts from "@theme/components/FeaturedPosts";
-import {
-  Pagination,
-} from "@vuepress/plugin-blog/lib/client/components";
-
+import { Pagination, SimplePagination } from '@vuepress/plugin-blog/lib/client/components'
 
 export default {
   components: { PostsList, Pagination, FeaturedPosts },
+  created () {
+    this.paginationComponent = this.getPaginationComponent()
+  },
   computed: {
     pages () {
       return this.$pagination.pages;
@@ -73,6 +73,18 @@ export default {
       return this.$tag.list
     }
   },
+  methods: {
+    getPaginationComponent () {
+      const n = THEME_BLOG_PAGINATION_COMPONENT
+      if (n === 'Pagination') {
+        return Pagination
+      }
+      if (n === 'SimplePagination') {
+        return SimplePagination
+      }
+      return Vue.component(n) || Pagination
+    },
+  }
 };
 </script>
 
