@@ -30,9 +30,9 @@ export default {
 <style lang="stylus">
 div.post-info-item {
   margin-right: 1rem;
+  font-size: .8rem;
 
   svg {
-    margin-right: 5px;
     width: 17px;
     height: 17px;
   }

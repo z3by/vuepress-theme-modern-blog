@@ -8,23 +8,10 @@
       <h2>{{ $site.description }}</h2>
     </header>
     <featured-posts class="mb-5"></featured-posts>
-    <div class="row container-fluid">
-      <div class="col-sm-12 col-lg-9">
-        <PostsList
-          :posts="pages"
-          title="Latest Posts"
-        />
-
-        <div class="d-flex">
-          <Pagination
-            align="center"
-            class="mx-auto mb-5"
-          />
-        </div>
-      </div>
+    <div class="row container-fluid flex-row-reverse">
       <aside class="col-sm-12 col-lg-3">
         <div>
-          <h3 class="mt-3">Tags</h3>
+          <h3>Tags</h3>
           <hr>
           <ul class="list-unstyled">
             <li
@@ -48,6 +35,19 @@
           </ul>
         </div>
       </aside>
+      <div class="col-sm-12 col-lg-9">
+        <PostsList
+          :posts="pages"
+          title="Latest Posts"
+        />
+
+        <div class="d-flex">
+          <Pagination
+            align="center"
+            class="mx-auto mb-5"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>

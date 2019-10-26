@@ -97,7 +97,7 @@ body {
 a {
   font-weight: 500;
   color: $accentColor;
-  text-decoration: underline;
+  text-decoration: none;
 
   &:hover {
     color: darken($accentColor, 20%);
@@ -254,4 +254,15 @@ th, td {
 .font-dancing {
   font-family: 'Great Vibes', cursive;
   letter-spacing: 0.1em;
+}
+
+.el-button--primary {
+  background-color: $accentColor;
+  border-color: $accentColor;
+
+  &:hover {
+    background-color: lighten($accentColor, 10%);
+    border-color: $accentColor;
+
+  }
 }

@@ -13,7 +13,10 @@
       >
         <div class="carousel-card-content d-flex justify-content-center align-items-center flex-column h-100">
           <h2 class="story-title text-light text-center h3 mb-3">{{ post.title }}</h2>
-          <el-button type="primary">Read this Post <i class="el-icon-arrow-right"></i></el-button>
+          <router-link
+            :to="post.path"
+            class="el-button el-button--primary"
+          >Read this Post <i class="el-icon-arrow-right"></i></router-link>
         </div>
       </el-carousel-item>
     </el-carousel>
