@@ -12,7 +12,6 @@
       <aside class="col-sm-12 col-lg-3">
         <div>
           <h3>Tags</h3>
-          <hr>
           <ul class="list-unstyled">
             <li
               v-for="tag in tags"

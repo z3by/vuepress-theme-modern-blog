@@ -1,12 +1,12 @@
 <template>
-  <main>
-    <h3>{{title}}</h3>
-    <hr>
-    <div class="container">
+  <main class="px-5">
+    <h2>{{title}}</h2>
+    <div class="container px-0">
       <el-card
         v-for="post in posts"
         :key="post.key"
         class="my-3 cursor-pointer"
+        :body-style="{ padding: '.5rem' }"
         shadow="hover"
       >
         <div
@@ -23,7 +23,7 @@
               class="w-100 rounded"
             >
           </div>
-          <div class="ui-post-body col-sm-12 col-md-8 text-secondary">
+          <div class="ui-post-body col-sm-12 col-md-8">
             <h3 class="mt-3">
               <router-link
                 :to="post.path"
@@ -33,7 +33,7 @@
               </router-link>
             </h3>
             <div
-              class="ui-post-summary mt-2  h-50"
+              class="ui-post-summary text-secondary my-2 pr-3"
               v-if="post.summary"
             >
               {{ post.summary }}
@@ -42,16 +42,14 @@
                 class="read-more"
               >Read more</router-link>
             </div>
+            <div class="my-3 d-flex justify-content-end text-secondary">
+              <PostInfo
+                :date="post.frontmatter.date"
+                :timeToRead="post.readingTime.text"
+                :location="post.frontmatter.location"
+              />
+            </div>
           </div>
-        </div>
-        <div class="ui-post-footer">
-          <hr>
-          <PostInfo
-            :date="post.frontmatter.date"
-            :timeToRead="post.readingTime.text"
-            :location="post.frontmatter.location"
-            class="my-3 d-flex justify-content-end text-secondary"
-          />
         </div>
       </el-card>
     </div>

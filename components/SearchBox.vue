@@ -6,6 +6,7 @@
       placeholder="Please input"
       @select="handleSelect"
       prefix-icon="el-icon-search"
+      class="d-flex flex-grow-1"
     ></el-autocomplete>
   </div>
 </template>

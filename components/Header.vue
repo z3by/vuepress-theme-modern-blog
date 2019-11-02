@@ -3,27 +3,29 @@
     id="header"
     class="border-bottom"
   >
-    <div class="py-5">
+    <div class="p-4 row align-items-center justify-content-between">
       <router-link
         to="/"
-        class="text-decoration-none"
+        class="text-decoration-none col-md-12 col-lg-9"
       >
-        <h1 class="text-center m-0 font-dancing">
+        <h2 class="mx-3 font-dancing">
           {{ $site.title }}
-        </h1>
+        </h2>
       </router-link>
+      <SearchBox class="col-md-12 col-lg-3 mt-4 d-flex justify-content-end" />
     </div>
-    <nav class="d-flex justify-content-between align-items-center px-5">
+    <nav class="px-5">
       <el-menu
         v-if="$themeConfig.nav"
         :default-active="activeIndex"
         mode="horizontal"
-        class="border-0"
+        class="d-flex justify-content-center border-0"
       >
         <el-menu-item
           v-for="(item, index) in $themeConfig.nav"
           :index="index.toString()"
           :key="item.text"
+          @click="$router.push(item.link)"
         >
           <router-link
             :to="item.link"
@@ -37,7 +39,6 @@
           </router-link>
         </el-menu-item>
       </el-menu>
-      <SearchBox />
     </nav>
   </header>
 </template>
