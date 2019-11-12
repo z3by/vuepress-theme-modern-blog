@@ -14,6 +14,11 @@ module.exports = {
         text: "About",
         link: "/about/",
         icon: "el-icon-user"
+      },
+      {
+        text: "Projects",
+        link: "/projects/",
+        icon: "el-icon-folder"
       }
     ],
     sitemap: true, // enables sitemap plugin

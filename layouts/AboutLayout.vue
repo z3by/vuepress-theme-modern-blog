@@ -1,36 +1,42 @@
 <template>
-  <div>
-    <div
-      align="center"
-      class="card"
-    >
-      <div class="card-header">
-        <img
-          :src="$themeConfig.about.image"
-          :alt="$themeConfig.about.fullName"
-          class="card-img"
-        />
-        <h1>{{ $themeConfig.about.fullName }}</h1>
-      </div>
-      <p>{{ $themeConfig.about.bio }}</p>
-      <hr />
-      <ul
-        class="contact"
-        v-if="contact"
+  <el-container>
+    <el-main>
+      <el-card
+        align="center"
+        class="card"
+        body-style="padding: 0"
       >
-        <li
-          class="contact-item"
-          v-for="item in contact"
-          :key="item.text"
+        <div
+          class="card-header"
         >
-          <NavLink :link="item.link">
-            <component :is="item.iconComponent"></component>
-            {{ item.text }}
-          </NavLink>
-        </li>
-      </ul>
-    </div>
-  </div>
+          <img
+            :src="$themeConfig.about.image"
+            :alt="$themeConfig.about.fullName"
+            class="card-img"
+          />
+          <h1>{{ $themeConfig.about.fullName }}</h1>
+        </div>
+
+        <p>{{ $themeConfig.about.bio }}</p>
+        <hr />
+        <ul
+          class="contact"
+          v-if="contact"
+        >
+          <li
+            class="contact-item"
+            v-for="item in contact"
+            :key="item.text"
+          >
+            <NavLink :link="item.link">
+              <component :is="item.iconComponent"></component>
+              {{ item.text }}
+            </NavLink>
+          </li>
+        </ul>
+      </el-card>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
@@ -114,6 +120,7 @@ export default {
 
   .card-header {
     background: linear-gradient(to right, lighten($accentColor, 40%), $secondaryColor);
+    padding: 0;
     padding-top: 50px;
     min-height: 300px;
   }
