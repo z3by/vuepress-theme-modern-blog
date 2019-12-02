@@ -2,7 +2,7 @@
   <div id="base-list-layout">
     <header
       class="home-hero"
-      :style="{backgroundImage: 'url(' + $themeConfig.heroImage + ')'}"
+      :style="{backgroundImage: 'url(' + $withBase($themeConfig.heroImage) + ')'}"
     >
       <h1 class="font-dancing">{{ $site.title }}</h1>
       <h2>{{ $site.description }}</h2>
