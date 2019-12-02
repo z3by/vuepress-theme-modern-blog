@@ -1,9 +1,9 @@
 <template>
-  <div class="featured-posts">
+  <div class="container featured-posts mt-n5" v-if="posts.length">
     <el-carousel
       :interval="4000"
       type="card"
-      height="400px"
+      height="300px"
     >
       <el-carousel-item
         v-for="post in posts"
@@ -33,9 +33,3 @@ export default {
   }
 };
 </script>
-
-<style lang="stylus" scoped>
-.featured-posts {
-  margin-top: -5rem;
-}
-</style>

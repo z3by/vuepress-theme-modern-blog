@@ -8,7 +8,7 @@
       <h2>{{ $site.description }}</h2>
     </header>
     <featured-posts class="mb-5"></featured-posts>
-    <div class="row container-fluid flex-row-reverse">
+    <div class="row container-fluid flex-row-reverse p-5">
       <aside class="col-sm-12 col-lg-3">
         <div>
           <h3>Tags</h3>

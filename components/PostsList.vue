@@ -1,12 +1,12 @@
 <template>
-  <main class="px-5">
+  <main>
     <h2>{{title}}</h2>
-    <div class="container px-0">
+    <div>
       <el-card
         v-for="post in posts"
         :key="post.key"
         class="my-3 cursor-pointer"
-        :body-style="{ padding: '.5rem' }"
+        :body-style="{ padding: '1rem' }"
         shadow="hover"
       >
         <div
@@ -24,7 +24,7 @@
             >
           </div>
           <div class="ui-post-body col-sm-12 col-md-8">
-            <h3 class="mt-3">
+            <h3 class="mt-2">
               <router-link
                 :to="post.path"
                 class="text-decoration-none"

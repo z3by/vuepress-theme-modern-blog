@@ -7,7 +7,7 @@ tags:
 author: ULIVZ
 location: Shanghai
 title: Writing a VuePress theme
-image: https://source.unsplash.com/random/800x600
+image: https://picsum.photos/id/50/800/600
 featured: true
 ---
 
