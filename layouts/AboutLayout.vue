@@ -10,7 +10,7 @@
           class="card-header"
         >
           <img
-            :src="$themeConfig.about.image"
+            :src="$withBase($themeConfig.about.image)"
             :alt="$themeConfig.about.fullName"
             class="card-img"
           />

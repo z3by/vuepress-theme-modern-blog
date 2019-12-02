@@ -1,5 +1,5 @@
 <template>
-  <div class="container featured-posts mt-n5" v-if="posts.length">
+  <div class="container featured-posts" v-if="posts.length">
     <el-carousel
       :interval="4000"
       type="card"
@@ -12,7 +12,7 @@
         :style="{'background-image': post.frontmatter.image ? `url(${post.frontmatter.image})`: 'none', 'background-blend-mode': 'multiply'}"
       >
         <div class="carousel-card-content d-flex justify-content-center align-items-center flex-column h-100">
-          <h2 class="story-title text-light text-center h3 mb-3">{{ post.title }}</h2>
+          <h4 class="story-title text-center h4 mb-3">{{ post.title }}</h4>
           <router-link
             :to="post.path"
             class="el-button el-button--primary"

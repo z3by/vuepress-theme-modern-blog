@@ -1,11 +1,10 @@
 <template>
   <main>
-    <h2>{{title}}</h2>
     <div>
       <el-card
         v-for="post in posts"
         :key="post.key"
-        class="my-3 cursor-pointer"
+        class="mb-4 cursor-pointer"
         :body-style="{ padding: '1rem' }"
         shadow="hover"
       >
@@ -18,7 +17,7 @@
             v-if="post.frontmatter.image"
           >
             <img
-              :src="post.frontmatter.image"
+              :src="$withBase(post.frontmatter.image)"
               :alt="post.title"
               class="w-100 rounded"
             >

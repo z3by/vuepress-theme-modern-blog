@@ -38,6 +38,15 @@ body {
   border-bottom: 1px solid $borderColor;
 }
 
+.el-card {
+  border-radius: 20px;
+}
+
+.el-card.is-always-shadow, .el-card.is-hover-shadow:focus, .el-card.is-hover-shadow:hover {
+  box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
 .sidebar-mask {
   position: fixed;
   z-index: 9;
@@ -65,10 +74,6 @@ body {
 
 {$contentClass}:not(.custom) {
   @extend $wrapper;
-
-  > *:first-child {
-    margin-top: $navbarHeight;
-  }
 
   a:hover {
     text-decoration: underline;
@@ -263,6 +268,5 @@ th, td {
   &:hover {
     background-color: lighten($accentColor, 10%);
     border-color: $accentColor;
-
   }
 }

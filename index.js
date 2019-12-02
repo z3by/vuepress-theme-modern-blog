@@ -67,6 +67,12 @@ module.exports = (themeConfig, ctx) => {
     ]
   ];
 
+  if (themeConfig.socialShare && themeConfig.socialShareNetworks) {
+    plugins.push(
+      ["social-share", { networks: themeConfig.socialShareNetworks }]
+    )
+  }
+
   if (themeConfig.sitemap && themeConfig.hostname) {
     plugins.push([
       "sitemap",
@@ -108,7 +114,7 @@ module.exports = (themeConfig, ctx) => {
    * Generate summary.
    */
   if (themeConfig.summary) {
-    config.extendPageData = function(pageCtx) {
+    config.extendPageData = function (pageCtx) {
       const strippedContent = pageCtx._strippedContent;
       if (!strippedContent) {
         return;

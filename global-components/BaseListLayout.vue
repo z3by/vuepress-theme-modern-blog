@@ -7,11 +7,13 @@
       <h1 class="font-dancing">{{ $site.title }}</h1>
       <h2>{{ $site.description }}</h2>
     </header>
-    <featured-posts class="mb-5"></featured-posts>
+    <featured-posts class="my-3"></featured-posts>
     <div class="row container-fluid flex-row-reverse p-5">
-      <aside class="col-sm-12 col-lg-3">
-        <div>
-          <h3>Tags</h3>
+      <aside class="col-sm-12 col-lg-4">
+        <el-card
+          shadow="hover"
+          :body-style="{ padding: '1rem' }"
+        >
           <ul class="list-unstyled">
             <li
               v-for="tag in tags"
@@ -32,9 +34,9 @@
               </el-badge>
             </li>
           </ul>
-        </div>
+        </el-card>
       </aside>
-      <div class="col-sm-12 col-lg-9">
+      <div class="col-sm-12 col-lg-8">
         <PostsList
           :posts="pages"
           title="Latest Posts"

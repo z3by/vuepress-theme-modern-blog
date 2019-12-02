@@ -6,7 +6,7 @@
       placeholder="Please input"
       @select="handleSelect"
       prefix-icon="el-icon-search"
-      class="d-flex flex-grow-1"
+      class="d-flex flex-grow-1 rounded"
     ></el-autocomplete>
   </div>
 </template>
@@ -16,14 +16,17 @@
 export default {
   data () {
     return {
-      query: 'f',
+      query: '',
       state: '',
     }
   },
   methods: {
     querySearchAsync (query, cb) {
-      if (!query) {
-        return cb([])
+      if (!query || query.length == 1) {
+        return cb([{
+          link: "#",
+          value: "Enter a search term"
+        }])
       }
       query = query.trim().toLowerCase()
       const { pages } = this.$site
@@ -51,6 +54,7 @@ export default {
           }
         }
       }
+
       cb(res)
     },
     handleSelect (item) {
