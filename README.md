@@ -6,6 +6,7 @@
 
 - builtin comments support
 - Sitemap generator support
+- Comments support
 - Auto meta tags
 - Better SEO experience
 - Social Sharing
@@ -13,7 +14,6 @@
 - Smooth Scrolling
 - Reading Time
 - Reading Progress
-- Back to Top button
 - PWA Support
 
 
