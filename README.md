@@ -6,14 +6,14 @@
 
 - builtin comments support
 - Sitemap generator support
+- Auto meta tags
+- Better SEO experience
 - Social Sharing
 - Google Analytics
 - Smooth Scrolling
 - Reading Time
-- Drafting
 - Reading Progress
 - Back to Top button
-- Seo enhanced experience
 - PWA Support
 
 
