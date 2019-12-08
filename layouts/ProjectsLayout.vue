@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-main>
+    <el-main class="my-5">
       <el-row
         :gutter="10"
         align="center"
@@ -12,10 +12,8 @@
           v-for="project in projects"
           :key="project.name"
         >
-          <el-card class="card project-card">
-            <div
-              class="project-card-header"
-            >
+          <el-card class="card project-card zoomIn">
+            <div class="project-card-header">
               <div class="project-icon">
                 <i class="el-icon-folder"></i>
               </div>
@@ -61,7 +59,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .el-container {
   max-width: 1100px;
   margin-right: auto !important;
@@ -75,7 +73,7 @@ export default {
 
     .project-card-header {
       display: flex;
-      margin-bottom 1rem;
+      margin-bottom: 1rem;
       justify-content: space-between;
       align-items: center;
 

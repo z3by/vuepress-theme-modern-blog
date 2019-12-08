@@ -1,12 +1,12 @@
 <template>
-  <div class="search-box">
+  <div class="search-box px-0">
     <el-autocomplete
       v-model="state"
       :fetch-suggestions="querySearchAsync"
-      placeholder="Please input"
+      placeholder="Search"
       @select="handleSelect"
       prefix-icon="el-icon-search"
-      class="d-flex flex-grow-1 rounded"
+      class="rounded"
     ></el-autocomplete>
   </div>
 </template>

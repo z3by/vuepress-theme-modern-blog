@@ -1,42 +1,31 @@
 <template>
-  <div id="base-list-layout">
+  <div id="base-list-layout" class="zoomIn">
     <header
       class="home-hero"
       :style="{backgroundImage: 'url(' + $withBase($themeConfig.heroImage) + ')'}"
     >
-      <h1 class="font-dancing">{{ $site.title }}</h1>
-      <h2>{{ $site.description }}</h2>
-    </header>
-    <featured-posts class="my-3"></featured-posts>
-    <div class="row container-fluid flex-row-reverse p-5">
-      <aside class="col-sm-12 col-lg-4">
-        <el-card
-          shadow="hover"
-          :body-style="{ padding: '1rem' }"
-        >
-          <ul class="list-unstyled">
-            <li
-              v-for="tag in tags"
-              :key="tag.name"
-              class="d-inline-block mx-1 my-2"
-            >
-              <el-badge
-                :value="tag.pages.length"
-                class="item"
-              >
-                <router-link
-                  :to="tag.path"
-                  class="el-button el-button--small text-decoration-none"
-                >
+      <div class="p-3 text-center text-light">
+        <h1 class="display-3">{{ $site.title }}</h1>
+        <h2 class="font-weight-light">{{ $site.description }}</h2>
+        <a
+          href="#posts"
+          class="el-button el-button--primary my-3"
+        >Latest Posts</a>
+      </div>
 
-                  {{tag.name}}
-                </router-link>
-              </el-badge>
-            </li>
-          </ul>
-        </el-card>
+    </header>
+    <featured-posts class="mt-5 d-sm-none d-lg-block"></featured-posts>
+    <el-container class="row flex-row-reverse p-2">
+      <aside class="col-sm-12 col-lg-3 mb-2 mt-5 p-3">
+        <h2 class="mb-3 h4 font-weight-bold">
+          <span class="text-primary">#</span> Tags
+        </h2>
+        <BlogTags :tags="tags" />
       </aside>
-      <div class="col-sm-12 col-lg-8">
+      <div
+        class="col-sm-12 col-lg-9"
+        id="posts"
+      >
         <PostsList
           :posts="pages"
           title="Latest Posts"
@@ -49,7 +38,7 @@
           ></component>
         </div>
       </div>
-    </div>
+    </el-container>
   </div>
 </template>
 
@@ -89,47 +78,15 @@ export default {
 };
 </script>
 
-<style lang="stylus">
-.common-layout {
-  .content-wrapper {
-    padding-bottom: 80px;
-  }
-}
-
-header.home-hero {
-  height: 680px;
-  background-size: cover;
-  background-color: #aaa;
-  background-blend-mode: multiply;
-  background-attachment: fixed;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  h1 {
-    color: white;
-    margin: 0;
-    font-size: 4em;
-    text-align: center;
-
-    @media (max-width: 600px) {
-      font-size: 2em;
-    }
-  }
-
-  h2 {
-    color: darken(white, 9%);
-    margin-top: 0;
-    max-width: 600px;
-    margin-right: auto;
-    margin-left: auto;
-    font-weight: 300;
-  }
-}
-</style>
-
-
 <style src="prismjs/themes/prism-okaidia.css"></style>
 
 
+<style>
+header.home-hero {
+  background-color: #999;
+  background-blend-mode: multiply;
+  padding: 10rem 0rem;
+  background-repeat: none;
+  background-size: cover;
+}
+</style>

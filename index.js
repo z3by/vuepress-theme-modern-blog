@@ -57,7 +57,6 @@ module.exports = (themeConfig, ctx) => {
     "reading-progress",
     "@vuepress/medium-zoom",
     "@vuepress/nprogress",
-    "@vuepress/back-to-top",
     ["@vuepress/blog", blogPluginOptions],
     [
       "@vuepress/search",

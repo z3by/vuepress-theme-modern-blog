@@ -93,9 +93,6 @@ export default {
   padding: 15px;
   max-width: 860px !important;
 
-  p {
-    font-size: 1.2rem;
-  }
 }
 
 .post-tags {
@@ -108,43 +105,6 @@ export default {
   margin-top: 0rem;
 }
 
-.blog-tag {
-  display: inline-flex;
-  align-items: center;
-  height: 45px;
-  word-break: break-word;
-  font-size: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  padding: 0 15px;
-  border-radius: 5px;
-  font-weight: 300;
-  text-align: left;
-  box-sizing: border-box;
-  transition: background-color 0.3s;
-  color: #222;
-  border: 1px solid #222;
-  transition: all 0.5s;
-
-  &:hover {
-    color: $accentColor !important;
-    border: 1px solid $accentColor;
-    box-shadow: 0 0 5px $accentColor;
-  }
-
-  a {
-    text-decoration: none !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .blog-tag {
-    font-size: 14px;
-    padding: 3px 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-}
 </style>
 
 <style src="prismjs/themes/prism-okaidia.css"></style>

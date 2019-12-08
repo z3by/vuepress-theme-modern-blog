@@ -3,28 +3,28 @@
     <el-main>
       <el-card
         align="center"
-        class="card"
-        body-style="padding: 0"
+        class="mx-auto my-5 zoomIn"
       >
-        <div
-          class="card-header"
-        >
-          <img
-            :src="$withBase($themeConfig.about.image)"
-            :alt="$themeConfig.about.fullName"
-            class="card-img"
-          />
-          <h1>{{ $themeConfig.about.fullName }}</h1>
+        <div class="card-header rounded p-3">
+          <div class="rounded-circle card-img-bg d-inline-block">
+            <img
+              :src="$withBase($themeConfig.about.image)"
+              :alt="$themeConfig.about.fullName"
+              width="200px"
+            />
+          </div>
+          <h1 class="mt-2 text-light">{{ $themeConfig.about.fullName }}</h1>
         </div>
-
-        <p>{{ $themeConfig.about.bio }}</p>
-        <hr />
+        <div class="p-3">
+          <p>{{ $themeConfig.about.bio }}</p>
+        </div>
+        <hr class="mt-0"/>
         <ul
-          class="contact"
+          class="list-inline m-0"
           v-if="contact"
         >
           <li
-            class="contact-item"
+            class="list-inline-item"
             v-for="item in contact"
             :key="item.text"
           >
@@ -104,46 +104,22 @@ export default {
 };
 </script>
 
-<style scoped lang="stylus">
-.card {
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-  border-radius: 50px;
-  max-width: 400px;
-  margin: 100px auto 120px auto;
-  overflow: hidden;
-  transition: all 0.4s ease;
+<style lang="stylus" scoped>
+main.el-main {
+  min-height: calc(100vh - 193px );
 
-  .card-img {
-    transition: all 0.4s ease;
-    max-width: 12rem;
-  }
+  .el-card {
+    max-width: 30rem;
 
-  .card-header {
-    background: linear-gradient(to right, lighten($accentColor, 40%), $secondaryColor);
-    padding: 0;
-    padding-top: 50px;
-    min-height: 300px;
-  }
+    .card-header {
+      min-height: 220px;
+      background-color: darken($accentColor, 50%);
+    }
 
-  h1 {
-    margin-top: 0;
-    margin-bottom: 0;
-    color: white;
-    text-transform: uppercase;
-  }
-
-  p {
-    padding: 20px 40px 0px 40px;
-  }
-
-  .contact {
-    display: flex;
-    list-style: none;
-    justify-content: center;
-
-    .contact-item {
-      margin: 0 5px;
+    .card-img-bg {
+      background-color: darken($accentColor, 20%);
     }
   }
 }
+
 </style>

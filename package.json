@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-modern-blog",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Modern blog theme for VuePress",
   "main": "index.js",
   "files": [
@@ -41,7 +41,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@vuepress/plugin-back-to-top": "^1.0.0-rc.1",
     "@vuepress/plugin-blog": "^1.2.5",
     "@vuepress/plugin-google-analytics": "^1.1.0",
     "@vuepress/plugin-medium-zoom": "1.0.0",
@@ -50,7 +49,7 @@
     "@vuepress/plugin-search": "1.0.0",
     "@vuepress/theme-blog": "^1.2.5",
     "bootstrap": "^4.3.1",
-    "element-ui": "^2.12.0",
+    "element-ui": "^2.13.0",
     "remove-markdown": "^0.3.0",
     "vue-feather-icons": "^4.21.0",
     "vuepress-plugin-disqus": "^0.1.1",

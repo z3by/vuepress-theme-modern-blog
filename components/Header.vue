@@ -1,18 +1,16 @@
 <template>
   <header
     id="header"
-    class="border-bottom"
+    class="shadow"
   >
-    <div class="p-4 row align-items-center justify-content-between">
+    <div class="p-3 d-flex justify-content-between">
       <router-link
         to="/"
-        class="text-decoration-none col-md-12 col-lg-9"
+        class="text-decoration-none h4"
       >
-        <h2 class="mx-3 font-dancing">
-          {{ $site.title }}
-        </h2>
+        {{ $site.title }}
       </router-link>
-      <SearchBox class="col-md-12 col-lg-3 mt-4 d-flex justify-content-end" />
+      <SearchBox />
     </div>
     <nav class="px-5">
       <el-menu
@@ -25,7 +23,6 @@
           v-for="(item, index) in $themeConfig.nav"
           :index="index.toString()"
           :key="item.text"
-          @click="$router.push(item.link)"
         >
           <router-link
             :to="item.link"

@@ -1,3 +1,15 @@
+## [2.1.1](https://github.com/z3by/vuepress-theme-modern-blog/compare/v2.1.0...v2.1.1) (2019-12-02)
+
+
+
+# [2.1.0](https://github.com/z3by/vuepress-theme-modern-blog/compare/v2.0.4...v2.1.0) (2019-12-02)
+
+
+
+# [2.1.0](https://github.com/z3by/vuepress-theme-modern-blog/compare/v2.0.4...v2.1.0) (2019-12-02)
+
+
+
 # [2.1.0](https://github.com/z3by/vuepress-theme-modern-blog/compare/v2.0.4...v2.1.0) (2019-12-02)
 
 

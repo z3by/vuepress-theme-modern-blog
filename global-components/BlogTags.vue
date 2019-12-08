@@ -1,9 +1,29 @@
 <template>
-  <div class="blog-tags">
-    <main>
-      <BlogTag v-for="tag in tags" :key="tag.name" :tag="tag" />
-    </main>
-  </div>
+  <el-card
+    shadow="hover"
+    :body-style="{ padding: '1rem' }"
+  >
+    <ul class="list-unstyled">
+      <li
+        v-for="tag in tags"
+        :key="tag.name"
+        class="d-inline-block mx-1 my-2"
+      >
+        <el-badge
+          :value="tag.pages.length"
+          class="item"
+        >
+          <router-link
+            :to="tag.path"
+            class="el-button el-button--small text-decoration-none"
+          >
+
+            {{tag.name}}
+          </router-link>
+        </el-badge>
+      </li>
+    </ul>
+  </el-card>
 </template>
 
 <script>
@@ -11,18 +31,3 @@ export default {
   props: ["tags"]
 };
 </script>
-
-<style lang="stylus">
-.blog-tags {
-  width: 66%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px;
-}
-
-@media screen and (max-width: 1000px) {
-  .blog-tags {
-    width: 90%;
-  }
-}
-</style>
