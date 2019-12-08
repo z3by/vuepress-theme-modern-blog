@@ -1,9 +1,12 @@
 <template>
   <el-container>
-    <el-main class="my-5">
+    <el-main class="">
+      <h1 class="display-4">{{$page.frontmatter.title || $page.title}}</h1>
+      <p class="text-secondary h3">{{$page.frontmatter.description}}</p>
       <el-row
         :gutter="10"
         align="center"
+        class="py-3"
       >
         <el-col
           :sm="24"
@@ -18,10 +21,10 @@
                 <i class="el-icon-folder"></i>
               </div>
               <div class="project-card--links">
-
                 <el-link
+                  v-if="project.github"
                   class="p-2"
-                  :href="project.link"
+                  :href="project.github"
                   target="_blank"
                 >
                   <GithubIcon />
@@ -29,6 +32,7 @@
 
                 <el-link
                   class="p-2"
+                  v-if="project.link"
                   :href="project.link"
                   target="_blank"
                 >
@@ -81,7 +85,7 @@ export default {
 
   .project-card.card {
     margin: 8px;
-    background-color: darken($accentColor, 50%);
+    background: linear-gradient(60deg, darken($accentColor, 40%), darken($accentColor, 70%));
     color: lighten($accentColor, 80%);
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
     transition: all 0.4s;
