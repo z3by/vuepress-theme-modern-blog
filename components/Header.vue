@@ -23,6 +23,7 @@
           v-for="(item, index) in $themeConfig.nav"
           :index="index.toString()"
           :key="item.text"
+          @click="$router.push(item.link)"
         >
           <router-link
             :to="item.link"

@@ -1,29 +1,29 @@
 <template>
-  <div id="base-list-layout" class="zoomIn">
+  <div
+    id="base-list-layout"
+    class="zoomIn"
+  >
     <header
       class="home-hero"
       :style="{backgroundImage: 'url(' + $withBase($themeConfig.heroImage) + ')'}"
     >
       <div class="p-3 text-center text-light">
         <h1 class="display-3">{{ $site.title }}</h1>
-        <h2 class="font-weight-light">{{ $site.description }}</h2>
+        <p class="font-weight-light h3 text-light">{{ $site.description }}</p>
         <a
           href="#posts"
           class="el-button el-button--primary my-3"
         >Latest Posts</a>
       </div>
-
     </header>
     <featured-posts class="mt-5 d-sm-none d-lg-block"></featured-posts>
-    <el-container class="row flex-row-reverse p-2">
-      <aside class="col-sm-12 col-lg-3 mb-2 mt-5 p-3">
-        <h2 class="mb-3 h4 font-weight-bold">
-          <span class="text-primary">#</span> Tags
-        </h2>
+    <el-container class="row p-3">
+      <aside class="col-sm-12 col-lg-3 py-3 my-2">
+        <About />
         <BlogTags :tags="tags" />
       </aside>
       <div
-        class="col-sm-12 col-lg-9"
+        class="col-sm-12 col-lg-8 mx-auto"
         id="posts"
       >
         <PostsList
@@ -47,11 +47,12 @@
 
 import Vue from "vue";
 import PostsList from "@theme/components/PostsList.vue";
+import About from "@theme/components/About.vue";
 import FeaturedPosts from "@theme/components/FeaturedPosts";
 import { Pagination, SimplePagination } from '@vuepress/plugin-blog/lib/client/components'
 
 export default {
-  components: { PostsList, Pagination, FeaturedPosts },
+  components: { PostsList, Pagination, FeaturedPosts, About },
   created () {
     this.paginationComponent = this.getPaginationComponent()
   },

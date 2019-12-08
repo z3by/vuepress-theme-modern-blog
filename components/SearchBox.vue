@@ -64,3 +64,12 @@ export default {
   }
 }
 </script>
+
+<style>
+.search-box {
+  width: 17rem;
+}
+.search-box input {
+  width: 17rem;
+}
+</style>

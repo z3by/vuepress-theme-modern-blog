@@ -17,13 +17,24 @@
               <div class="project-icon">
                 <i class="el-icon-folder"></i>
               </div>
-              <el-link
-                style="float: right; padding: 3px 0;"
-                :href="project.link"
-                target="_blank"
-              >
-                <GithubIcon />
-              </el-link>
+              <div class="project-card--links">
+
+                <el-link
+                  class="p-2"
+                  :href="project.link"
+                  target="_blank"
+                >
+                  <GithubIcon />
+                </el-link>
+
+                <el-link
+                  class="p-2"
+                  :href="project.link"
+                  target="_blank"
+                >
+                  <LinkIcon />
+                </el-link>
+              </div>
             </div>
             <div>
               <h4>{{ project.title }}</h4>
@@ -45,11 +56,13 @@
 <script>
 import {
   GithubIcon,
+  LinkIcon,
 } from "vue-feather-icons";
 
 export default {
   components: {
-    GithubIcon
+    GithubIcon,
+    LinkIcon
   },
   computed: {
     projects () {
@@ -70,6 +83,13 @@ export default {
     margin: 8px;
     background-color: darken($accentColor, 50%);
     color: lighten($accentColor, 80%);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
+    transition: all 0.4s;
+
+    &:hover {
+      transform: scale(0.99);
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+    }
 
     .project-card-header {
       display: flex;

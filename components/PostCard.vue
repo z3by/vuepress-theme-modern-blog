@@ -1,15 +1,15 @@
 <template>
   <el-card
     class="mb-4 cursor-pointer"
-    :body-style="{ padding: '1rem' }"
+    :body-style="{ padding: '0rem' }"
     shadow="hover"
   >
     <div
-      class="ui-post row"
+      class="ui-post row px-3"
       @click="go(post.path)"
     >
       <div
-        class="ui-post-image col-sm-12 col-md-4"
+        class="ui-post-image col-sm-12 col-md-6 col-lg-5 py-3"
         v-if="post.frontmatter.image"
       >
         <img
@@ -18,7 +18,7 @@
           class="w-100 rounded"
         >
       </div>
-      <div class="col-sm-12 col-md-8">
+      <div class="col-sm-12 col-md-6 col-lg-7 py-4">
         <div>
           <h3>
             <router-link
@@ -30,7 +30,7 @@
           </h3>
         </div>
         <div
-          class="ui-post-summary text-secondary my-2 pr-3"
+          class="ui-post-summary text-secondary my-2"
           v-if="post.summary"
         >
           {{ post.summary }}
@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-end text-secondary pt-3 mt-2 border-top border-light">
+    <div class="d-flex justify-content-end text-secondary p-4 mt-2 border-top border-light">
       <PostInfo
         :date="post.frontmatter.date"
         :timeToRead="post.readingTime.text"

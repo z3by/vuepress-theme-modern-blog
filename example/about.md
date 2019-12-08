@@ -1,4 +1,0 @@
----
-layout: AboutLayout
----
-# About Me

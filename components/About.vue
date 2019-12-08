@@ -1,42 +1,41 @@
 <template>
-  <el-container>
-    <el-main>
-      <el-card
-        align="center"
-        class="mx-auto my-5 zoomIn"
+  <div>
+    <el-card
+      align="center"
+      class="mx-auto zoomIn mb-3"
+      shadow="hover"
+    >
+      <div class="card-header rounded p-3">
+        <div class="rounded-circle card-img-bg d-inline-block">
+          <img
+            :src="$withBase($themeConfig.about.image)"
+            :alt="$themeConfig.about.fullName"
+            width="160px"
+          />
+        </div>
+        <h1 class="mt-2 text-light">{{ $themeConfig.about.fullName }}</h1>
+      </div>
+      <div class="p-3">
+        <p>{{ $themeConfig.about.bio }}</p>
+      </div>
+      <hr class="mt-0" />
+      <ul
+        class="list-inline m-0"
+        v-if="contact"
       >
-        <div class="card-header rounded p-3">
-          <div class="rounded-circle card-img-bg d-inline-block">
-            <img
-              :src="$withBase($themeConfig.about.image)"
-              :alt="$themeConfig.about.fullName"
-              width="200px"
-            />
-          </div>
-          <h1 class="mt-2 text-light">{{ $themeConfig.about.fullName }}</h1>
-        </div>
-        <div class="p-3">
-          <p>{{ $themeConfig.about.bio }}</p>
-        </div>
-        <hr class="mt-0"/>
-        <ul
-          class="list-inline m-0"
-          v-if="contact"
+        <li
+          class="list-inline-item"
+          v-for="item in contact"
+          :key="item.text"
         >
-          <li
-            class="list-inline-item"
-            v-for="item in contact"
-            :key="item.text"
-          >
-            <NavLink :link="item.link">
-              <component :is="item.iconComponent"></component>
-              {{ item.text }}
-            </NavLink>
-          </li>
-        </ul>
-      </el-card>
-    </el-main>
-  </el-container>
+          <NavLink :link="item.link">
+            <component :is="item.iconComponent"></component>
+            {{ item.text }}
+          </NavLink>
+        </li>
+      </ul>
+    </el-card>
+  </div>
 </template>
 
 <script>
@@ -105,21 +104,15 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-main.el-main {
-  min-height: calc(100vh - 193px );
+.el-card {
+  .card-header {
+    min-height: 220px;
+    background-color: darken($accentColor, 10%);
+  }
 
-  .el-card {
-    max-width: 30rem;
-
-    .card-header {
-      min-height: 220px;
-      background-color: darken($accentColor, 50%);
-    }
-
-    .card-img-bg {
-      background-color: darken($accentColor, 20%);
-    }
+  .card-img-bg {
+    background: $accentColor;
+    background: linear-gradient(to right, $accentColor, lighten($accentColor, 30%));
   }
 }
-
 </style>

@@ -1,9 +1,6 @@
 <template>
-  <main class="my-5">
+  <main class="my-2">
     <div class="p-3">
-      <h2 class="mb-3 h4 font-weight-bold">
-        <span class="text-primary">#</span> {{title}}
-      </h2>
       <post-card
         v-for="post in posts"
         :key="post.key"

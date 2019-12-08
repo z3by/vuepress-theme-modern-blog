@@ -141,7 +141,7 @@ export default {
   max-width: 220px;
   overflow-y: auto;
   padding-top: $navbarHeight;
-  top: 10rem;
+  top: 5rem;
   left: 1rem;
   box-sizing: border-box;
   /* background: #fff; */
