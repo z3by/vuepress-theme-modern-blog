@@ -4,6 +4,7 @@
   "description": "Modern blog theme for VuePress",
   "main": "index.js",
   "files": [
+    "assets",
     "index.js",
     "enhanceApp.js",
     "styles",
