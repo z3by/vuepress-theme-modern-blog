@@ -58,7 +58,8 @@
     "vuepress-plugin-seo": "^0.1.2",
     "vuepress-plugin-sitemap": "^2.1.2",
     "vuepress-plugin-smooth-scroll": "^0.0.4",
-    "vuepress-plugin-social-share": "^0.0.6"
+    "vuepress-plugin-social-share": "^0.0.6",
+    "vuepress-theme-vuetify": "^1.0.0"
   },
   "devDependencies": {
     "conventional-changelog-cli": "^2.0.1",
