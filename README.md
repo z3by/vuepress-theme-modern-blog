@@ -271,6 +271,7 @@ to enable this plugin you need to define:
 
 ```js
 ...
+  sitemap: true,
   hostname: "https://ahmadmostafa.com/" // your own hostname
 ...
 ```
@@ -289,7 +290,15 @@ to enable this plugin you need also to define:
 
 refer to [docs](https://sns.goyfe.com/)
 
+e.g
+
+```js
+  socialShare: true,
+  socialShareNetworks: ["twitter", "facebook"],
+```
+
 ### googleAnalytics
+Google analytics tracking ID
 
 - Type: `string`
 - Default: `undefined`
@@ -348,7 +357,7 @@ Author name
 
 ```markdown
 ---
-author: ULIVZ
+author: Ahmad Mostafa
 ---
 ```
 
@@ -356,7 +365,7 @@ author: ULIVZ
 
 ```markdown
 ---
-location: Hangzhou
+location: Jordan
 ---
 ```
 
