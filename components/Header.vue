@@ -20,10 +20,10 @@
         class="d-flex justify-content-center border-0"
       >
         <el-menu-item
-          v-for="(item, index) in $themeConfig.nav"
-          :index="index.toString()"
-          :key="item.text"
-          @click="$router.push(item.link)"
+          v-for="item in $themeConfig.nav"
+          :index="item.link"
+          :key="item.link"
+          @click="activeIndex !== item.link && $router.push(item.link)"
         >
           <router-link
             :to="item.link"
@@ -46,11 +46,11 @@ import SearchBox from "./SearchBox";
 
 export default {
   components: { SearchBox },
-  data () {
-    return {
-      activeIndex: '0',
-    };
-  },
+  computed: {
+    activeIndex() {
+      return this.$route.path
+    }
+  }
 };
 </script>
 

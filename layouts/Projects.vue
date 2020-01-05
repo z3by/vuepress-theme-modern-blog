@@ -9,7 +9,6 @@
         <el-col
           :sm="24"
           :md="12"
-          :lg="8"
           v-for="project in projects"
           :key="project.name"
         >
@@ -86,8 +85,8 @@ export default {
   min-height: 80vh;
 
   .project-card.card {
-    margin: 8px;
-    background: linear-gradient(60deg, darken($accentColor, 40%), darken($accentColor, 70%));
+    margin: .5rem;
+    background: linear-gradient(45deg, darken($accentColor, 30%), darken($accentColor, 70%));
     color: lighten($accentColor, 80%);
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
     transition: all 0.4s;
