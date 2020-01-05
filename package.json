@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-modern-blog",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "description": "Modern blog theme for VuePress",
   "main": "index.js",
   "files": [
