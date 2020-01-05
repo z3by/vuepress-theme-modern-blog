@@ -26,6 +26,18 @@ module.exports = (themeConfig, ctx) => {
         pagination: {
           lengthPerPage: 10
         }
+      },
+      {
+        id: "project",
+        dirname: "_projects",
+        path: "/projects/",
+        layout: "Projects",
+        itemLayout: "Project",
+        frontmatter: { title: "Project" },
+        itemPermalink: "/projects/:slug",
+        pagination: {
+          lengthPerPage: 10
+        }
       }
     ],
     frontmatters: [

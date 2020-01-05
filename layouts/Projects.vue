@@ -1,8 +1,6 @@
 <template>
   <el-container>
     <el-main class="">
-      <h1 class="display-4">{{$page.frontmatter.title || $page.title}}</h1>
-      <p class="text-secondary h3">{{$page.frontmatter.description}}</p>
       <el-row
         :gutter="10"
         align="center"
@@ -16,40 +14,44 @@
           :key="project.name"
         >
           <el-card class="card project-card zoomIn">
-            <div class="project-card-header">
-              <div class="project-icon">
-                <i class="el-icon-folder"></i>
-              </div>
-              <div class="project-card--links">
-                <el-link
-                  v-if="project.github"
-                  class="p-2"
-                  :href="project.github"
-                  target="_blank"
-                >
-                  <GithubIcon />
-                </el-link>
+            <router-link :to="project.regularPath">
+              <div class="project-card-header">
+                <div class="project-icon">
+                  <i class="el-icon-folder"></i>
+                </div>
+                <div class="project-card--links">
+                  <el-link
+                    :underline="false"
+                    v-if="project.frontmatter.github"
+                    class="p-2"
+                    :href="project.frontmatter.github"
+                    target="_blank"
+                  >
+                    <GithubIcon />
+                  </el-link>
 
-                <el-link
-                  class="p-2"
-                  v-if="project.link"
-                  :href="project.link"
-                  target="_blank"
-                >
-                  <LinkIcon />
-                </el-link>
+                  <el-link
+                    :underline="false"
+                    class="p-2"
+                    v-if="project.frontmatter.link"
+                    :href="project.frontmatter.link"
+                    target="_blank"
+                  >
+                    <LinkIcon />
+                  </el-link>
+                </div>
               </div>
-            </div>
-            <div>
-              <h4>{{ project.title }}</h4>
-              <p class="project-description">{{project.description}}</p>
-              <ul class="languages-list">
-                <li
-                  v-for="lang in project.languages"
-                  :key="lang"
-                >{{lang}}</li>
-              </ul>
-            </div>
+              <div>
+                <h4>{{ project.frontmatter.title || project.title }}</h4>
+                <p class="project-description">{{project.frontmatter.description}}</p>
+                <ul class="languages-list">
+                  <li
+                    v-for="lang in project.frontmatter.languages"
+                    :key="lang"
+                  >{{lang}}</li>
+                </ul>
+              </div>
+            </router-link>
           </el-card>
         </el-col>
       </el-row>
@@ -70,7 +72,7 @@ export default {
   },
   computed: {
     projects () {
-      return this.$page.frontmatter.projects
+      return this.$pagination._matchedPages
     }
   }
 }
@@ -90,9 +92,21 @@ export default {
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
     transition: all 0.4s;
 
+    a:hover {
+      text-decoration: none;
+    }
+
     &:hover {
       transform: scale(0.99);
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card--links a {
+      color: $accentColor;
+
+      &:hover {
+        color: lighten($accentColor, 30%);
+      }
     }
 
     .project-card-header {
