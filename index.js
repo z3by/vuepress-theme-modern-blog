@@ -112,20 +112,25 @@ module.exports = (themeConfig, ctx) => {
   /**
    * Generate summary.
    */
-  if (themeConfig.summary) {
-    config.extendPageData = function (pageCtx) {
-      const strippedContent = pageCtx._strippedContent;
-      if (!strippedContent) {
-        return;
-      }
+  config.extendPageData = function (pageCtx) {
+    const strippedContent = pageCtx._strippedContent;
+    if (!strippedContent) {
+      return;
+    }
+
+    const sanitizedContent = strippedContent
+      .trim()
+      .replace(/^#+\s+(.*)/, "")
+
+    if (themeConfig.summary) {
       pageCtx.summary =
         removeMd(
-          strippedContent
-            .trim()
-            .replace(/^#+\s+(.*)/, "")
+            sanitizedContent    
             .slice(0, themeConfig.summaryLength)
         ) + " ...";
     };
+
+    pageCtx.content = removeMd(sanitizedContent)
   }
 
   return config;

@@ -1,75 +1,140 @@
 <template>
-  <div class="search-box px-0">
+  <div class="search-wrapper u-px3">
     <el-autocomplete
-      v-model="state"
+      ref="searchInput"
+      slot="reference"
+      v-model="query"
+      size="small"
       :fetch-suggestions="querySearchAsync"
       placeholder="Search"
       @select="handleSelect"
-      prefix-icon="el-icon-search"
-      class="rounded"
-    ></el-autocomplete>
+      popper-class="components-search"
+      :trigger-on-focus="false"
+      placement="bottom-end"
+      :debounce="200"
+    >
+      <template slot-scope="props">
+        <li
+          role="option"
+          v-html="props.item.value"
+        ></li>
+      </template>
+
+    </el-autocomplete>
   </div>
 </template>
 
 <script>
-/* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS */
+import Flexsearch from "flexsearch";
+
 export default {
   data () {
     return {
-      query: '',
-      state: '',
-    }
+      index: null,
+      query: ""
+    };
+  },
+  mounted () {
+    this.index = new Flexsearch({
+      tokenize: "forward",
+      doc: {
+        id: "key",
+        field: ["title", "content"]
+      }
+    });
+    const { pages } = this.$site;
+    this.index.add(pages);
   },
   methods: {
-    querySearchAsync (query, cb) {
-      if (!query || query.length == 1) {
-        return cb([{
-          link: "#",
-          value: "Enter a search term"
-        }])
+    querySearchAsync (queryString, cb) {
+      const { pages, themeConfig } = this.$site;
+      const query = queryString.trim().toLowerCase();
+      const usingGoogleSearch =
+        themeConfig.googleCustomSearchEngineID && themeConfig.googleAPIKey;
+      const max = themeConfig.searchMaxSuggestions || 20;
+      if (this.index === null || query.length < 1) {
+        return cb([]);
       }
-      query = query.trim().toLowerCase()
-      const { pages } = this.$site
-      const max = SEARCH_MAX_SUGGESTIONS
-      const matches = item => (
-        item.title
-        && item.title.toLowerCase().indexOf(query) > -1
-      )
-      const res = []
-      for (let i = 0; i < pages.length; i++) {
-        if (res.length >= max) break
-        const p = pages[i]
-        if (matches(p)) {
-          res.push(p)
-        } else if (p.headers) {
-          for (let j = 0; j < p.headers.length; j++) {
-            if (res.length >= max) break
-            const h = p.headers[j]
-            if (matches(h)) {
-              res.push({
-                link: p.path + '#' + h.slug,
-                value: h.title
-              })
+      this.index.search(
+        query,
+        {
+          limit: max,
+          threshold: 4,
+          encode: 'extra'
+        },
+        (result) => {
+          if (result.length) {
+            const resolvedResult = result.map(page => {
+              return {
+                link: page.path,
+                value: this.getQuerySnippet(page)
+              };
+            });
+            return cb(resolvedResult);
+          } else {
+            if (usingGoogleSearch) {
+              return cb([
+                {
+                  value: `Search the entire site for "${query}"`,
+                  link: `/search?q=${query}`
+                }
+              ]);
+            } else {
+              cb([{ value: `No results! Try something else.`, link: '' }]);
             }
           }
         }
+      );
+    },
+    getQuerySnippet (page) {
+      const queryPosition = page.content.toLowerCase().indexOf(this.query)
+      const startIndex = queryPosition - 20 < 0 ? 0 : queryPosition - 20
+      const endIndex = queryPosition + 30
+      const querySnippet = page.content.slice(startIndex, endIndex)
+        .toLowerCase()
+        .replace(this.query, `<strong class="text--primary">${this.query}</strong>`)
+        .split(' ')
+        .slice(1, -1)
+        .join(' ')
+      if (querySnippet) {
+        return `<strong class="text--primary">${page.title}</strong> > .. ${querySnippet} ..`
+          .replace(/\|/g, ' ')
+          .replace(/:::/g, ' ')
+      } else {
+        return page.title
       }
-
-      cb(res)
     },
     handleSelect (item) {
-      this.$router.push(item.link)
-      this.state = ''
+      if (item.link) {
+        this.$router.push(item.link);
+      }
+      this.query = "";
     }
   }
-}
+};
 </script>
 
-<style>
-.search-box {
-  width: 17rem;
+<style lang="stylus">
+.search-wrapper {
+  .el-input__inner {
+    height: 2rem !important;
+  }
+
+  .search-wrapper input {
+    width: 160px;
+    transition: all 0.5s ease;
+  }
+
+  .el-autocomplete-suggestion__wrap, .el-autocomplete-suggestion {
+    width: 100%;
+  }
+
+  .el-input__suffix {
+    line-height: 2rem;
+  }
 }
-.search-box input {
-  width: 17rem;
+
+.components-search {
+  width: 30rem !important;
 }
 </style>
