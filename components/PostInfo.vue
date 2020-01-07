@@ -11,7 +11,9 @@
       <ClockIcon />
       {{ timeToRead }}
     </div>
-    <div class="post-info-item">
+    <div class="post-info-item"
+         v-if="location"
+    >
       <NavigationIcon />
       {{ location }}
     </div>
