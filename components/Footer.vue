@@ -38,7 +38,8 @@ export default {
     TwitterIcon,
     InstagramIcon,
     LinkedinIcon,
-    YoutubeIcon
+    YoutubeIcon,
+    PhoneIcon
   },
 
   methods: {
@@ -56,6 +57,8 @@ export default {
           return "LinkedinIcon";
         case "youtube":
           return "YoutubeIcon";
+         case "phone";
+          return "PhoneIcon"
         default:
           return "";
       }
