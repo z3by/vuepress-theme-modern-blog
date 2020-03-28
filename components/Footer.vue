@@ -28,7 +28,8 @@ import {
   TwitterIcon,
   InstagramIcon,
   LinkedinIcon,
-  YoutubeIcon
+  YoutubeIcon,
+  PhoneIcon
 } from "vue-feather-icons";
 
 export default {
@@ -57,7 +58,7 @@ export default {
           return "LinkedinIcon";
         case "youtube":
           return "YoutubeIcon";
-         case "phone";
+         case "phone":
           return "PhoneIcon"
         default:
           return "";

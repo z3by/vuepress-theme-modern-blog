@@ -105,6 +105,7 @@ For now `ContactType` supports following enums:
 - twitter
 - instagram
 - linkedin
+- phone
 
 ::: tip
 Welcome contribution of adding more built-in contact type.
