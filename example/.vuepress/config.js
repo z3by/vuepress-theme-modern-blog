@@ -36,15 +36,15 @@ module.exports = {
         },
         {
           type: "instagram",
-          link: "#"
+          link: "https://instagram.com"
         },
         {
           type: "linkedin",
-          link: "#"
+          link: "https://linkedin.com"
         },
         {
           type: "twitter",
-          link: "#"
+          link: "https://twitter.com"
         }
       ],
       copyright: [
