@@ -1,5 +1,5 @@
 <template>
-  <div class="search-wrapper u-px3">
+  <div class="search-wrapper u-px3 d-flex align-items-center">
     <el-autocomplete
       ref="searchInput"
       slot="reference"
