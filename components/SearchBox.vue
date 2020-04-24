@@ -6,7 +6,7 @@
       v-model="query"
       size="small"
       :fetch-suggestions="querySearchAsync"
-      :placeholder="$themeConfig.searchPlaceholder"
+      :placeholder="$themeConfig.searchPlaceholder || 'Search'"
       @select="handleSelect"
       popper-class="components-search"
       :trigger-on-focus="false"
