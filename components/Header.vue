@@ -8,6 +8,13 @@
         to="/"
         class="text-decoration-none h4"
       >
+        <div v-if="$themeConfig.logo" class="card-img-bg d-inline-block">
+          <img
+            v-if="$themeConfig.logo"
+            :src="$themeConfig.logo"
+            height="70px"
+          />
+        </div>
         {{ $site.title }}
       </router-link>
       <SearchBox />
