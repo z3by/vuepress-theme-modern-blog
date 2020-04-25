@@ -19,7 +19,7 @@
     <featured-posts class="my-5 d-sm-none d-lg-block"></featured-posts>
     <el-container class="row p-3">
       <aside class="col-sm-12 col-lg-3 py-3 my-2">
-        <About />
+        <About v-if="$themeConfig.about" />
         <BlogTags :tags="tags" />
       </aside>
       <div
