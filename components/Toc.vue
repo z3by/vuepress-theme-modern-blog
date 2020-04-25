@@ -135,14 +135,12 @@ export default {
 }
 
 .vuepress-toc {
-  position: fixed;
+  position: absolute;
   display: none;
   max-height: 100vh;
   max-width: 220px;
   overflow-y: auto;
-  padding-top: $navbarHeight;
-  top: 5rem;
-  left: 1rem;
+  padding-top: 2rem;
   box-sizing: border-box;
   /* background: #fff; */
   z-index: 0;

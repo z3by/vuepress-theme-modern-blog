@@ -1,5 +1,6 @@
 <template>
   <div id="vuperess-theme-blog__post-layout">
+    <Toc />
     <main class="vuepress-blog-theme-content">
       <el-card
         body-style="padding: 0"
@@ -50,7 +51,6 @@
           >#{{tag}}</router-link>
         </div>
       </el-card>
-      <Toc />
       <ClientOnly v-if="$themeConfig.disqus">
         <el-card class="comments-area my-4">
           <div
@@ -85,6 +85,10 @@ export default {
 </script>
 
 <style lang="stylus">
+#vuperess-theme-blog__post-layout {
+  position: relative;
+}
+
 .vuepress-blog-theme-content {
   font-size: 16px;
   letter-spacing: 0px;
