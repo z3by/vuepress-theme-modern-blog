@@ -1,6 +1,6 @@
 <template>
-  <main class="my-2">
-    <div class="p-3">
+  <main class="">
+    <div class="">
       <post-card
         v-for="post in posts"
         :key="post.key"

@@ -17,13 +17,13 @@
       </div>
     </header>
     <featured-posts class="my-5 d-sm-none d-lg-block"></featured-posts>
-    <el-container class="row p-3">
-      <aside class="col-sm-12 col-lg-3 py-3 my-2">
+    <el-container class="row py-4 px-3">
+      <aside class="col-sm-12 col-lg-3 py-0 py-lg-3">
         <About v-if="$themeConfig.about" />
         <BlogTags :tags="tags" />
       </aside>
       <div
-        class="col-sm-12 col-lg-8 mx-auto"
+        class="col-sm-12 col-lg-9 py-3 py-lg-3"
         id="posts"
       >
         <PostsList

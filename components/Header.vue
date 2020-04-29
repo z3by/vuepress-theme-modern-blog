@@ -3,66 +3,74 @@
     id="header"
     class="shadow"
   >
-    <nav class="p-3 d-flex justify-content-between">
-      <router-link
-        to="/"
-        class="text-decoration-none h4 m-0"
-      >
-        <div v-if="$themeConfig.logo" class="card-img-bg d-inline-block">
-          <img
-            :src="$themeConfig.logo"
-            height="70px"
-          />
-        </div>
-        {{ $site.title }}
-      </router-link>
-
-      <el-menu
-        v-if="$themeConfig.nav"
-        :default-active="activeIndex"
-        mode="horizontal"
-        class="d-flex justify-content-center border-0 align-items-end"
-      >
-        <el-menu-item
-          v-for="item in $themeConfig.nav"
-          :index="item.link"
-          :key="item.link"
-          @click="activeIndex !== item.link && $router.push(item.link)"
-          class="mb-n3"
+    <nav class="p-3 d-flex menu-wrapper justify-content-between">
+      <div class="d-flex blog-info-wrapper">
+        <router-link
+          to="/"
+          class="text-decoration-none m-0"
         >
-          <router-link
-            :to="item.link"
-            class="text-decoration-none d-block h-100 w-100"
-          >
-            <i
-              v-if="item.icon"
-              :class="item.icon"
-            ></i>
-            {{ item.text }}
-          </router-link>
-        </el-menu-item>
-      </el-menu>
+          <div v-if="$themeConfig.logo" class="card-img-bg d-inline-block blog-logo">
+            <img
+              :src="$themeConfig.logo"
+              height="70px"
+            />
+          </div>
+        </router-link>
 
+        <div class="h4 blog-title text-center">{{ $site.title }}</div>
+      </div>
+
+      <Menu />
       <SearchBox />
+      <Toggle :isToggleActive="isToggleActive" @onActivateToggle="isToggleActive = !isToggleActive" />
     </nav>
+
+    <Menu :class="{ mobileVisible: isToggleActive }" />
   </header>
 </template>
 
 <script>
+import Menu from "./Menu";
 import SearchBox from "./SearchBox";
+import Toggle from "./Toggle";
 
 export default {
-  components: { SearchBox },
-  computed: {
-    activeIndex() {
-      return this.$route.path
+  components: {
+    Menu,
+    SearchBox,
+    Toggle,
+  },
+  data() {
+    return {
+      isToggleActive: false
     }
-  }
+  },
 };
 </script>
 
 <style lang="stylus">
-.el-menu-item.is-active {
-  border-bottom: 3px solid $accentColor !important;
+.menu-wrapper {
+  position: relative
+}
+
+.blog-title {
+  color: $accentColor;
+  margin: auto !important;
+}
+
+@media only screen and (max-width: $MQMobile) {
+  .blog-info-wrapper {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: $MQMobile) {
+  .menu-wrapper > .el-menu .search-wrapper {
+    display: none !important;
+  }
+
+  #header > .el-menu {
+    display: none !important;
+  }
 }
 </style>
