@@ -24,7 +24,7 @@
       </router-link>
     </el-menu-item>
 
-    <el-menu-item>
+    <el-menu-item :class="{'is-active': false}">
       <SearchBox />
     </el-menu-item>
   </el-menu>
