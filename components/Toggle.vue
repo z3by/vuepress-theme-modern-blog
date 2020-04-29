@@ -27,13 +27,6 @@ export default {
   display: none;
   margin: auto 0;
 
-  /*
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  */
-
   .span {
     border-radius: 10px;
     background: $accentColor;

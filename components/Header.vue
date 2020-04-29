@@ -3,7 +3,7 @@
     id="header"
     class="shadow"
   >
-    <nav class="p-3 d-flex menu-wrapper justify-content-between">
+    <nav class="p-3 d-flex desktop-menu justify-content-between">
       <div class="d-flex blog-info-wrapper">
         <router-link
           to="/"
@@ -25,7 +25,10 @@
       <Toggle :isToggleActive="isToggleActive" @onActivateToggle="isToggleActive = !isToggleActive" />
     </nav>
 
-    <Menu :class="{ mobileVisible: isToggleActive }" />
+    <div class="flex-column align-items-center mobile-menu pb-4" :class="{ mobileVisible: isToggleActive }">
+      <Menu />
+      <SearchBox />
+    </div>
   </header>
 </template>
 
@@ -49,10 +52,6 @@ export default {
 </script>
 
 <style lang="stylus">
-.menu-wrapper {
-  position: relative
-}
-
 .blog-title {
   color: $accentColor;
   margin: auto !important;
@@ -62,14 +61,33 @@ export default {
   .blog-info-wrapper {
     width: 100%;
   }
+
+  .desktop-menu {
+    .el-menu {
+      display: none !important;
+    }
+
+    .search-wrapper {
+      display: none !important;
+    }
+  }
+
+  .mobile-menu {
+    display: flex;
+    border-top: 1px solid #eee !important;
+
+    &:not(.mobileVisible) {
+      display: none !important;
+    }
+  }
 }
 
 @media only screen and (min-width: $MQMobile) {
-  .menu-wrapper > .el-menu .search-wrapper {
+  #header > .el-menu {
     display: none !important;
   }
 
-  #header > .el-menu {
+  .mobile-menu {
     display: none !important;
   }
 }
