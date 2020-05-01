@@ -10,7 +10,6 @@
         shadow="hover"
       >
       </post-card>
-
     </div>
   </main>
 </template>

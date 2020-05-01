@@ -150,7 +150,7 @@ module.exports = {
         itemLayout: 'Writing',
         itemPermalink: '/writings/:year/:month/:day/:slug',
         pagination: {
-          perPagePosts: 5,
+          lengthPerPage: 5,
         },
       }
       blogPlugnOptions.directories.push(writingDirectoryClassifier)
@@ -173,7 +173,7 @@ Here is the default blog plugin options:
       itemLayout: 'Post',
       itemPermalink: '/:year/:month/:day/:slug',
       pagination: {
-        perPagePosts: 5,
+        lengthPerPage: 5,
       },
     },
     {
@@ -184,7 +184,7 @@ Here is the default blog plugin options:
       itemLayout: 'Post',
       itemPermalink: '/archive/:year/:month/:day/:slug',
       pagination: {
-        perPagePosts: 5,
+        lengthPerPage: 5,
       },
     },
   ],
@@ -197,7 +197,7 @@ Here is the default blog plugin options:
       frontmatter: { title: 'Tags' },
       itemlayout: 'Tag',
       pagination: {
-        perPagePosts: 5
+        lengthPerPage: 5
       }
     },
   ]
@@ -311,13 +311,13 @@ Google analytics tracking ID
 
 Custom the pagination component.
 
-The default is the 
-[pagination component](https://vuepress-plugin-blog.ulivz.com/components/#pagination) powerful by 
+The default is the
+[pagination component](https://vuepress-plugin-blog.ulivz.com/components/#pagination) powerful by
 [@vuepress/plugin-blog](https://github.com/ulivz/vuepress-plugin-blog):
 
 <img src="./assets/pagination.png" width="250" height="" style=""/>
 
-You can set this option to `SimplePagination` to enable another out-of-box 
+You can set this option to `SimplePagination` to enable another out-of-box
 [simple pagination component](https://vuepress-plugin-blog.ulivz.com/components/#simplepagination):
 
 <img src="./assets/simple-pagination.png" width="250" height="" style=""/>
@@ -336,7 +336,7 @@ e.g.
 
 ```markdown
 ---
-tags: 
+tags:
   - JavaScript
   - DOM
 ---
