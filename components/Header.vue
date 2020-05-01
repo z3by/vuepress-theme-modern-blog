@@ -5,10 +5,7 @@
   >
     <nav class="p-3 d-flex desktop-menu justify-content-between">
       <div class="d-flex blog-info-wrapper">
-        <router-link
-          to="/"
-          class="text-decoration-none m-0"
-        >
+        <router-link to="/" class="text-decoration-none m-0">
           <div v-if="$themeConfig.logo" class="card-img-bg d-inline-block blog-logo">
             <img
               :src="$themeConfig.logo"
@@ -17,7 +14,9 @@
           </div>
         </router-link>
 
-        <div class="h4 blog-title text-center">{{ $site.title }}</div>
+        <router-link to="/" class="blog-title">
+          <div class="h4 text-center">{{ $site.title }}</div>
+        </router-link>
       </div>
 
       <Menu />
@@ -27,7 +26,7 @@
 
     <div class="flex-column align-items-center mobile-menu pb-4" :class="{ mobileVisible: isToggleActive }">
       <Menu />
-      <SearchBox />
+      <SearchBox class="pt-4" />
     </div>
   </header>
 </template>
@@ -55,6 +54,7 @@ export default {
 .blog-title {
   color: $accentColor;
   margin: auto !important;
+  text-decoration: none !important;
 }
 
 @media only screen and (max-width: $MQMobile) {
