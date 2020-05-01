@@ -137,4 +137,10 @@ export default {
 .components-search {
   width: 30rem !important;
 }
+
+@media only screen and (max-width: $MQMobile) {
+  .components-search {
+    width: calc(100% - 10px) !important;
+  }
+}
 </style>
