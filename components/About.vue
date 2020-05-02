@@ -1,10 +1,6 @@
 <template>
   <div>
-    <el-card
-      align="center"
-      class="mx-auto zoomIn mb-3"
-      shadow="hover"
-    >
+    <el-card align="center" class="mx-auto zoomIn mb-3" shadow="hover">
       <div class="card-header rounded p-3">
         <div class="rounded-circle card-img-bg d-inline-block">
           <img
@@ -19,15 +15,8 @@
         <p>{{ $themeConfig.about.bio }}</p>
       </div>
       <hr class="mt-0" />
-      <ul
-        class="list-inline m-0"
-        v-if="contact"
-      >
-        <li
-          class="list-inline-item"
-          v-for="item in contact"
-          :key="item.text"
-        >
+      <ul class="list-inline m-0" v-if="contact">
+        <li class="list-inline-item" v-for="item in contact" :key="item.text">
           <NavLink :link="item.link">
             <component :is="item.iconComponent"></component>
             {{ item.text }}
@@ -59,7 +48,7 @@ export default {
   },
 
   methods: {
-    getIconComponentName (contactType) {
+    getIconComponentName(contactType) {
       switch (contactType) {
         case "github":
           return "GithubIcon";
@@ -80,7 +69,7 @@ export default {
   },
 
   computed: {
-    contact () {
+    contact() {
       return (
         (this.$themeConfig.footer && this.$themeConfig.footer.contact) ||
         []
@@ -94,7 +83,7 @@ export default {
         .filter(({ iconComponent }) => iconComponent);
     },
 
-    copyright () {
+    copyright() {
       return (
         (this.$themeConfig.footer && this.$themeConfig.footer.copyright) || []
       );

@@ -1,6 +1,6 @@
 <template>
   <main class="">
-    <div class="">
+    <div class="posts-list">
       <post-card
         v-for="post in posts"
         :key="post.key"
@@ -8,8 +8,7 @@
         class="mb-4 cursor-pointer"
         :body-style="{ padding: '1rem' }"
         shadow="hover"
-      >
-      </post-card>
+      />
     </div>
   </main>
 </template>
@@ -20,7 +19,7 @@ import PostCard from "@theme/components/PostCard.vue";
 export default {
   props: ["posts", "title"],
   components: {
-    'post-card': PostCard
+    "post-card": PostCard
   }
 };
 </script>
