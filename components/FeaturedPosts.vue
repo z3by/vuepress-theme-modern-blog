@@ -30,10 +30,6 @@
 <script>
 export default {
   name: "featured-posts",
-  computed: {
-    posts() {
-      return this.$site.pages.filter(page => page.frontmatter.featured == true);
-    }
-  }
+  props: ["posts"]
 };
 </script>
