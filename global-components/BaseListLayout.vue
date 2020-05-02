@@ -54,7 +54,7 @@ import { Pagination, SimplePagination } from '@vuepress/plugin-blog/lib/client/c
 export default {
   components: { PostsList, Pagination, FeaturedPosts, About },
   created () {
-    this.paginationComponent = this.getPaginationComponent()
+    this.paginationComponent = this.getPaginationComponent();
   },
   computed: {
     pages () {
@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     getPaginationComponent () {
-      const n = THEME_BLOG_PAGINATION_COMPONENT
+      const n = THEME_BLOG_PAGINATION_COMPONENT;
       if (n === 'Pagination') {
         return Pagination
       }
