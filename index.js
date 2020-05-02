@@ -2,7 +2,7 @@ const removeMd = require("remove-markdown");
 
 module.exports = (themeConfig, ctx) => {
   themeConfig = Object.assign(themeConfig, {
-    summary: !!themeConfig.summary,
+    summary: themeConfig.summary || true,
     summaryLength:
       typeof themeConfig.summaryLength === "number"
         ? themeConfig.summaryLength
@@ -134,15 +134,57 @@ module.exports = (themeConfig, ctx) => {
       .trim()
       .replace(/^#+\s+(.*)/, "")
 
-    if (themeConfig.summary) {
-      pageCtx.summary =
-        removeMd(
-            sanitizedContent    
-            .slice(0, themeConfig.summaryLength)
-        ) + " ...";
-    };
+    pageCtx.content = removeMd(sanitizedContent);
 
-    pageCtx.content = removeMd(sanitizedContent)
+    if (themeConfig.summary) {
+      if (
+        typeof themeConfig.summary === "object" &&
+        themeConfig.summary !== null
+      ) {
+        // set the default options for the complex summary object
+        themeConfig.summary = Object.assign(themeConfig.summary, {
+          paragraphs: themeConfig.summary.paragraphs || 0,
+          paragraphsSeparator: themeConfig.summary.paragraphsSeparator || "\n\n",
+          paragraphsJoiner: themeConfig.summary.paragraphsJoiner || "<br><br>",
+          stopSymbol: themeConfig.summary.stopSymbol || '',
+          prepend: themeConfig.summary.prepend || '',
+          append: themeConfig.summary.append || '',
+        });
+
+        // paragraphs
+        if (themeConfig.summary.paragraphs > 0) {
+          const {
+            paragraphs,
+            paragraphsSeparator,
+            paragraphsJoiner
+          } = themeConfig.summary;
+
+          chunks = pageCtx.content.split(paragraphsSeparator);
+          pageCtx.summary = chunks.slice(0, paragraphs).join(paragraphsJoiner);
+        }
+
+        // stopSymbol
+        if (themeConfig.summary.stopSymbol.length > 0) {
+          let pos = pageCtx.content.indexOf(themeConfig.summary.stopSymbol);
+          if (pos == -1) {
+            pos = themeConfig.summaryLength;
+          }
+          pageCtx.summary = pageCtx.content.slice(0, pos);
+        }
+
+        // prepend and/or append
+        if (themeConfig.summary.prepend.length > 0) {
+          pageCtx.summary = themeConfig.summary.prepend + pageCtx.summary;
+        }
+
+        if (themeConfig.summary.append.length > 0) {
+          pageCtx.summary += themeConfig.summary.append;
+        }
+      } else if(themeConfig.summary) {
+        pageCtx.summary = pageCtx.content
+                          .slice(0, themeConfig.summaryLength) + " ...";
+      }
+    };
   }
 
   return config;

@@ -33,7 +33,7 @@
           class="ui-post-summary text-secondary my-2"
           v-if="post.summary"
         >
-          {{ post.summary }}
+          <div v-html="post.summary"></div>
           <router-link
             :to="post.path"
             class="read-more"
