@@ -7,7 +7,7 @@
       <li
         v-for="tag in tags"
         :key="tag.name"
-        class="d-inline-block mx-1 my-2"
+        class="d-inline-block mx-2 my-2"
       >
         <el-badge
           :value="tag.pages.length"
@@ -31,3 +31,9 @@ export default {
   props: ["tags"]
 };
 </script>
+
+<style lang="stylus">
+.el-badge__content {
+  z-index: 10;
+}
+</style>
