@@ -6,21 +6,14 @@
     class="d-flex justify-content-center border-0"
   >
     <el-menu-item
+      router
       v-for="item in $themeConfig.nav"
       :index="item.link"
       :key="item.link"
       @click="activeIndex !== item.link && $router.push(item.link)"
     >
-      <router-link
-        :to="item.link"
-        class="text-decoration-none d-block h-100 w-100"
-      >
-        <i
-          v-if="item.icon"
-          :class="item.icon"
-        ></i>
-        {{ item.text }}
-      </router-link>
+      <i v-if="item.icon" :class="item.icon"></i>
+      {{ item.text }}
     </el-menu-item>
   </el-menu>
 </template>
@@ -29,10 +22,10 @@
 export default {
   computed: {
     activeIndex() {
-      return this.$route.path
+      return this.$route.path;
     }
-  },
-}
+  }
+};
 </script>
 
 <style lang="stylus">
@@ -64,6 +57,4 @@ export default {
     }
   }
 }
-
-
 </style>

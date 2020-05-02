@@ -1,71 +1,59 @@
 <template>
   <div id="vuperess-theme-blog__post-layout">
     <Toc />
-    <main class="vuepress-blog-theme-content">
-      <el-card
-        body-style="padding: 0"
-        class="mb-4"
-      >
-        <img
-          :src="$withBase($frontmatter.image)"
-          :alt="$frontmatter.title"
-          v-if="$frontmatter.image"
-          class="w-100"
-        />
-        <div class="p-3">
-          <h1 align="center">{{ $frontmatter.title }}</h1>
-          <PostInfo
-            :date="$frontmatter.date"
-            :timeToRead="$page.readingTime.text"
-            :location="$frontmatter.location"
-            class="text-secondary d-flex justify-content-center my-3"
+    <transition name="el-fade-in-linear">
+      <main class="vuepress-blog-theme-content">
+        <el-card body-style="padding: 0" class="mb-4">
+          <img
+            :src="$withBase($frontmatter.image)"
+            :alt="$frontmatter.title"
+            v-if="$frontmatter.image"
+            class="w-100"
           />
-        </div>
-      </el-card>
-
-      <el-card body-style="padding: 1rem 2rem;">
-        <Content />
-      </el-card>
-      <el-card class="my-4">
-        <div
-          slot="header"
-          class="clearfix"
-        >
-          <h5 class="m-0">Read More</h5>
-        </div>
-        <FeaturedPosts class="my-4" />
-      </el-card>
-      <el-card>
-        <div
-          slot="header"
-          class="clearfix"
-        >
-          <h5 class="m-0">Tags</h5>
-        </div>
-        <div>
-          <router-link
-            :to="'/tag/'+tag"
-            v-for="tag in $page.frontmatter.tags"
-            :key="tag"
-            class="el-button el-button--small text-decoration-none d-inline-block"
-          >#{{tag}}</router-link>
-        </div>
-      </el-card>
-      <ClientOnly v-if="$themeConfig.disqus">
-        <el-card class="comments-area my-4">
-          <div
-            slot="header"
-            class="clearfix"
-          >
-            <h5 class="m-0">Leave a comment!</h5>
+          <div class="p-3">
+            <h1 align="center">{{ $frontmatter.title }}</h1>
+            <PostInfo
+              :date="$frontmatter.date"
+              :timeToRead="$page.readingTime.text"
+              :location="$frontmatter.location"
+              class="text-secondary d-flex justify-content-center my-3"
+            />
           </div>
-          <Disqus
-            :shortname="$themeConfig.disqus"
-            class="disqus-comments"
-          />
         </el-card>
-      </ClientOnly>
-    </main>
+
+        <el-card body-style="padding: 1rem 2rem;">
+          <Content />
+        </el-card>
+        <el-card class="my-4">
+          <div slot="header" class="clearfix">
+            <h5 class="m-0">Read More</h5>
+          </div>
+          <FeaturedPosts class="my-4" />
+        </el-card>
+        <el-card>
+          <div slot="header" class="clearfix">
+            <h5 class="m-0">Tags</h5>
+          </div>
+          <div>
+            <router-link
+              :to="'/tag/' + tag"
+              v-for="tag in $page.frontmatter.tags"
+              :key="tag"
+              class="el-button el-button--small text-decoration-none d-inline-block"
+              >#{{ tag }}</router-link
+            >
+          </div>
+        </el-card>
+        <ClientOnly v-if="$themeConfig.disqus">
+          <el-card class="comments-area my-4">
+            <div slot="header" class="clearfix">
+              <h5 class="m-0">Leave a comment!</h5>
+            </div>
+            <Disqus :shortname="$themeConfig.disqus" class="disqus-comments" />
+          </el-card>
+        </ClientOnly>
+      </main>
+    </transition>
   </div>
 </template>
 
@@ -74,12 +62,11 @@ import Toc from "@theme/components/Toc.vue";
 import PostInfo from "@theme/components/PostInfo.vue";
 import FeaturedPosts from "@theme/components/FeaturedPosts.vue";
 
-
 export default {
   components: {
     Toc,
     PostInfo,
-    FeaturedPosts,
+    FeaturedPosts
   }
 };
 </script>
@@ -108,8 +95,6 @@ export default {
 .disqus-comments {
   margin-top: 0rem;
 }
-
 </style>
 
 <style src="prismjs/themes/prism-okaidia.css"></style>
-

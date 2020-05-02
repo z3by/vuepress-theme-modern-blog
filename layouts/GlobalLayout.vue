@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="global-layout d-flex flex-column">
     <Header />
     <DefaultGlobalLayout />
     <Footer />
@@ -18,13 +18,13 @@ export default {
     Footer
   },
 
-  data () {
+  data() {
     return {
       isMobileHeaderOpen: false
     };
   },
 
-  mounted () {
+  mounted() {
     this.$router.afterEach(() => {
       this.isMobileHeaderOpen = false;
     });

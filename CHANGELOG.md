@@ -1,3 +1,11 @@
+# [2.8.0](https://github.com/z3by/vuepress-theme-modern-blog/compare/v2.7.0...v2.8.0) (2020-05-02)
+
+
+
+# [2.7.0](https://github.com/z3by/vuepress-theme-modern-blog/compare/v2.5.0...v2.7.0) (2020-05-01)
+
+
+
 # [2.7.0](https://github.com/z3by/vuepress-theme-modern-blog/compare/v2.5.0...v2.7.0) (2020-05-01)
 
 

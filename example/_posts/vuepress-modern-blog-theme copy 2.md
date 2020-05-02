@@ -4,9 +4,6 @@ slug: vuepress-modern-blog-theme
 tags:
 - vue.js
 - blog
-- vuepress
-- vuepress-theme
-- javascript
 title: Create a modern vuepress blog in 5 minutes!
 description: Create a modern vuepress blog in 5 minutes!
 author: Ahmad Mostafa

@@ -14,12 +14,8 @@
       :debounce="200"
     >
       <template slot-scope="props">
-        <li
-          role="option"
-          v-html="props.item.value"
-        ></li>
+        <li role="option" v-html="props.item.value"></li>
       </template>
-
     </el-autocomplete>
   </div>
 </template>
@@ -28,13 +24,13 @@
 import Flexsearch from "flexsearch";
 
 export default {
-  data () {
+  data() {
     return {
       index: null,
       query: ""
     };
   },
-  mounted () {
+  mounted() {
     this.index = new Flexsearch({
       tokenize: "forward",
       doc: {
@@ -46,7 +42,7 @@ export default {
     this.index.add(pages);
   },
   methods: {
-    querySearchAsync (queryString, cb) {
+    querySearchAsync(queryString, cb) {
       const { pages, themeConfig } = this.$site;
       const query = queryString.trim().toLowerCase();
       const usingGoogleSearch =
@@ -60,9 +56,9 @@ export default {
         {
           limit: max,
           threshold: 4,
-          encode: 'extra'
+          encode: "extra"
         },
-        (result) => {
+        result => {
           if (result.length) {
             const resolvedResult = result.map(page => {
               return {
@@ -80,31 +76,37 @@ export default {
                 }
               ]);
             } else {
-              cb([{ value: `No results! Try something else.`, link: '' }]);
+              cb([{ value: `No results! Try something else.`, link: "" }]);
             }
           }
         }
       );
     },
-    getQuerySnippet (page) {
-      const queryPosition = page.content.toLowerCase().indexOf(this.query)
-      const startIndex = queryPosition - 20 < 0 ? 0 : queryPosition - 20
-      const endIndex = queryPosition + 30
-      const querySnippet = page.content.slice(startIndex, endIndex)
+    getQuerySnippet(page) {
+      const queryPosition = page.content.toLowerCase().indexOf(this.query);
+      const startIndex = queryPosition - 20 < 0 ? 0 : queryPosition - 20;
+      const endIndex = queryPosition + 30;
+      const querySnippet = page.content
+        .slice(startIndex, endIndex)
         .toLowerCase()
-        .replace(this.query, `<strong class="text--primary">${this.query}</strong>`)
-        .split(' ')
+        .replace(
+          this.query,
+          `<strong class="text--primary">${this.query}</strong>`
+        )
+        .split(" ")
         .slice(1, -1)
-        .join(' ')
+        .join(" ");
       if (querySnippet) {
-        return `<strong class="text--primary">${page.title}</strong> > .. ${querySnippet} ..`
-          .replace(/\|/g, ' ')
-          .replace(/:::/g, ' ')
+        return `
+        <strong class="text--primary">${page.title}</strong>\n
+        <div class="text-muted pl-2"> ${querySnippet} ..</div>`
+          .replace(/\|/g, " ")
+          .replace(/:::/g, " ");
       } else {
-        return page.title
+        return page.title;
       }
     },
-    handleSelect (item) {
+    handleSelect(item) {
       if (item.link) {
         this.$router.push(item.link);
       }
