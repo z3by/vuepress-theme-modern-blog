@@ -1,5 +1,5 @@
 <template>
-  <div class="container featured-posts" v-if="posts.length">
+  <div class="container featured-posts" v-if="posts && posts.length">
     <el-carousel :interval="4000" type="card" height="300px">
       <el-carousel-item
         v-for="post in posts"
