@@ -5,6 +5,33 @@ module.exports = {
   summaryLength: 500,
   themeConfig: {
     summary: true,
+
+    // Example of advanced summary usage
+    /*
+    summary: {
+      // Use the first two paragraphs
+      paragraphs: 2,
+
+      // Let's assume that a paragraph is anything that ends with "..." and a new line
+      paragraphsSeparator: "...\n",
+
+      // And let's assume that we want to join back the extracted paragraphs with an empty space.
+      paragraphsJoiner: "",
+
+      // If we didn't want to use the "paragraphs" functionalty, and istead we
+      // want to extract a summary up until the first occurrence of a text, we'd
+      // use the "stopSymbol" functionality. Let's assume that we want to get
+      // all the text up until the first ";" followed by a new line appears in
+      // our text.
+      stopSymbol: ";\n",
+
+      // How about we add an emoji at the beginning of our summary?
+      prepend: "🔈",
+
+      // ... what about at the end?
+      append: "📖",
+    },
+    */
     nav: [
       {
         text: "Home",
