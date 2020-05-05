@@ -211,10 +211,44 @@ Here is the default blog plugin options:
 
 ### summary
 
-- Type: `boolean`
+- Type: `boolean` or `object`
 - Default: `true`
 
-Whether to extract summary from source markdowns.
+Whether to extract summary from source markdowns. If this value is set to `true`,
+the `summaryLenth` will be used to slice the text. If, on the other hand, this
+value is set to an object, you'll be able to specify a more complex pattern for
+the extraction of the summary. Available options:
+
+```js
+{
+  /*
+  Get as many paragraphs as the value of this property is set to. A paragraph
+  is considered to be a chunk of text followed by a "\n\n", but you can use
+  "paragraphsSeparator" in order to specify your own separator.
+
+  Once the chunks of text are splitted (with "paragraphsSeparator"), the first N
+  (as specified by the "paragraphs" property) chunks are obtained and joined
+  using the "paragrahpsJoiner" text, which is "<br><br>" by default.
+  */
+  paragraphs: 0,
+  paragraphsSeparator: "\n\n",
+  paragrahpsJoiner: "<br><br>",
+
+  /*
+  If you want the summary to extend until a given text pattern is found, use
+  this option. If the "stopSymbol" symbol is not found, the "summaryLength" will
+  be used as a safe fallback.
+  */
+  stopSymbol: '',
+
+  /*
+  Use these two options to append and/or prepend any text you want to the
+  summary.
+  */
+  prepend: ''
+  append: '',
+}
+```
 
 
 ### summaryLength
