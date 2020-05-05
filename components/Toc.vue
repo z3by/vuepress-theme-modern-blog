@@ -144,7 +144,7 @@ export default {
 
   beforeDestroy() {
     window.removeEventListener("scroll", this._onScroll);
-    window.removeEventListener("hashchange", this._onHashChange);
+    // window.removeEventListener("hashchange", this._onHashChange);
   }
 };
 </script>
