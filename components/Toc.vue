@@ -135,7 +135,6 @@ export default {
 }
 
 .vuepress-toc {
-  position: absolute;
   display: none;
   max-height: 100vh;
   max-width: 220px;
