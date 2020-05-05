@@ -21,15 +21,17 @@
           </div>
         </el-card>
 
-        <el-card body-style="padding: 1rem 2rem;">
+        <el-card class="py-3 px-3 mb-4">
           <Content />
         </el-card>
-        <el-card class="my-4">
+
+        <el-card class="mb-4" v-if="featured_posts.length">
           <div slot="header" class="clearfix">
             <h5 class="m-0">Read More</h5>
           </div>
-          <FeaturedPosts class="my-4" />
+          <FeaturedPosts class="my-4" :posts="featured_posts" />
         </el-card>
+
         <el-card>
           <div slot="header" class="clearfix">
             <h5 class="m-0">Tags</h5>
@@ -44,6 +46,7 @@
             >
           </div>
         </el-card>
+
         <ClientOnly v-if="$themeConfig.disqus">
           <el-card class="comments-area my-4">
             <div slot="header" class="clearfix">
@@ -67,6 +70,11 @@ export default {
     Toc,
     PostInfo,
     FeaturedPosts
+  },
+  computed: {
+    featured_posts() {
+      return this.$site.pages.filter(page => page.frontmatter.featured == true);
+    }
   }
 };
 </script>
