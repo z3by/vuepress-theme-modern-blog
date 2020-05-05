@@ -18,7 +18,7 @@ module.exports = {
       // And let's assume that we want to join back the extracted paragraphs with an empty space.
       paragraphsJoiner: "",
 
-      // If we didn't want to use the "paragraphs" functionalty, and istead we
+      // If we didn't want to use the "paragraphs" functionality, and instead we
       // want to extract a summary up until the first occurrence of a text, we'd
       // use the "stopSymbol" functionality. Let's assume that we want to get
       // all the text up until the first ";" followed by a new line appears in
