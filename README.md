@@ -69,6 +69,33 @@ module.exports = {
 }
 ```
 
+### posts
+
+#### posts.prepend
+
+- Type: `String`
+- Default: `undefined`
+
+Prepend a chunk of text or HTML to the body of each post.
+
+#### posts.append
+
+- Type: `String`
+- Default: `undefined`
+
+Append a chunk of text or HTML to the body of each post.
+
+```js
+module.exports = {
+  themeConfig: {
+    posts: {
+      prepend: "Hi, I hope you'll <i>enjoy</i> this post!",
+      append: "Hi, I hope you've <b>enjoyed</b> this post!",
+    },
+  },
+}
+```
+
 ### footer
 
 #### footer.contact

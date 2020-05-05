@@ -21,8 +21,16 @@
           </div>
         </el-card>
 
+        <el-card class="py-3 px-3 mb-4" v-if="$themeConfig.posts && $themeConfig.posts.prepend && $themeConfig.posts.prepend.length > 0">
+          <span v-html="$themeConfig.posts.prepend"></span>
+        </el-card>
+
         <el-card class="py-3 px-3 mb-4">
           <Content />
+        </el-card>
+
+        <el-card class="py-3 px-3 mb-4" v-if="$themeConfig.posts && $themeConfig.posts.append && $themeConfig.posts.append.length > 0">
+          <span v-html="$themeConfig.posts.append"></span>
         </el-card>
 
         <el-card class="mb-4" v-if="featured_posts.length">

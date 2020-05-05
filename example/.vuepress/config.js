@@ -44,6 +44,12 @@ module.exports = {
         icon: "el-icon-folder"
       }
     ],
+    // Let's say that we want to add a small message at the beginning or at the
+    // end of each post. This is the place!
+    posts: {
+      prepend: "Hi, I hope you'll <i>enjoy</i> this post!",
+      append: "Hi, I hope you've <b>enjoyed</b> this post!",
+    },
     sitemap: true, // enables sitemap plugin
     hostname: "https://ahmadmostafa.com/", // required for sitemap
     disqus: "disquswebsiteshortname", // if you want to incorporate Disqus for comments replace this value else just get rid of it
