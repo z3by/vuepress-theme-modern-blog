@@ -454,10 +454,21 @@ title: Front Matter in VuePress
 
 ### image
 
-header image for the post item
+header image for the post item and the preview image in the list of posts.
 
 ```markdown
 ---
 image: https://source.unsplash.com/random
+---
+```
+
+### postcard_image
+
+preview image for the post item in the list of posts. This property will
+override the "image" property.
+
+```markdown
+---
+postcard_image: https://source.unsplash.com/random
 ---
 ```
