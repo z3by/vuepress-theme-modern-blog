@@ -49,7 +49,7 @@
               :to="'/tag/' + tag"
               v-for="tag in $page.frontmatter.tags"
               :key="tag"
-              class="el-button el-button--small text-decoration-none d-inline-block"
+              class="el-button el-button--small text-decoration-none d-inline-block mb-3"
               >#{{ tag }}</router-link
             >
           </div>
