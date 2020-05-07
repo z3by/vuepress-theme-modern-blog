@@ -65,6 +65,26 @@ export default {
   },
 
   methods: {
+    throttle(func, limit) {
+      let lastFunc, lastRan;
+      return () => {
+        const context = this;
+        const args = arguments;
+        if (!lastRan) {
+          func.apply(context, args);
+          lastRan = Date.now();
+        } else {
+          clearTimeout(lastFunc);
+          lastFunc = setTimeout(() => {
+            if ((Date.now() - lastRan) >= limit) {
+              func.apply(context, args);
+              lastRan = Date.now();
+            }
+          }, limit - (Date.now() - lastRan));
+        }
+      }
+    },
+
     onScroll() {
       if (initTop === undefined) {
         initTop = getAbsoluteTop(this.$el);
@@ -118,13 +138,13 @@ export default {
       const dom = hash && document.getElementById(hash);
       if (dom) window.scrollTo(0, getAbsoluteTop(dom) - 20);
     };
-    window.addEventListener("scroll", this._onScroll);
+    window.addEventListener("scroll", this.throttle(this._onScroll, 500));
     // window.addEventListener('hashchange', this._onHashChange);
   },
 
   beforeDestroy() {
     window.removeEventListener("scroll", this._onScroll);
-    window.removeEventListener("hashchange", this._onHashChange);
+    // window.removeEventListener("hashchange", this._onHashChange);
   }
 };
 </script>
@@ -135,7 +155,6 @@ export default {
 }
 
 .vuepress-toc {
-  position: absolute;
   display: none;
   max-height: 100vh;
   max-width: 220px;
