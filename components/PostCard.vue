@@ -8,10 +8,10 @@
       <div class="ui-post row px-3" @click="go(post.path)">
         <div
           class="ui-post-image col-sm-12 col-md-6 col-lg-5 py-3"
-          v-if="post.frontmatter.image"
+          v-if="post.frontmatter.postcard_image || post.frontmatter.image"
         >
           <img
-            :src="$withBase(post.frontmatter.image)"
+            :src="$withBase(post.frontmatter.postcard_image || post.frontmatter.image)"
             :alt="post.title"
             class="w-100 rounded"
           />
