@@ -48,7 +48,7 @@ module.exports = {
 - Default: `undefined`
 
 This theme supports fully localizable UI strings, which means that you can
-translate any UI text (e.g. "Read more" link at the botton of each post card).
+translate any UI text (e.g. the "Read more" link at the botton of each post card).
 If no translation string is provided for a particular key, the built-in English
 string will be used.
 
