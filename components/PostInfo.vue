@@ -2,14 +2,22 @@
   <div class="ui-post-info d-flex">
     <div class="post-info-item">
       <CalendarIcon />
-      {{ new Date(date.trim()).toDateString() }}
+      {{ new Date(date.trim()).toLocaleDateString(undefined, {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      }) }}
     </div>
     <div
       class="post-info-item"
       v-if="timeToRead"
     >
       <ClockIcon />
-      {{ timeToRead }}
+      {{ $t("time_to_read", {
+        rounded_time: Math.round(timeToRead.time / 60000),
+        raw_obj: timeToRead
+      }) }}
     </div>
     <div class="post-info-item"
          v-if="location"

@@ -6,7 +6,6 @@
         :key="post.key"
         :post="post"
         class="mb-4 cursor-pointer"
-        :body-style="{ padding: '1rem' }"
         shadow="hover"
       />
     </div>
@@ -17,7 +16,7 @@
 import PostCard from "@theme/components/PostCard.vue";
 
 export default {
-  props: ["posts", "title"],
+  props: ["posts"],
   components: {
     "post-card": PostCard
   }

@@ -4,6 +4,7 @@
 
 ## Features
 
+- UI strings localization support
 - builtin comments support
 - Sitemap generator support
 - Comments support
@@ -40,6 +41,32 @@ module.exports = {
 ```
 
 ## Options
+
+### translations
+
+- Type: `Object<{ key: string, value: string }>`
+- Default: `undefined`
+
+This theme supports fully localizable UI strings, which means that you can
+translate any UI text (e.g. the "Read more" link at the botton of each post card).
+If no translation string is provided for a particular key, the built-in English
+string will be used.
+
+Some of the strings (where it makes sense) support interpolation. You can find
+all the localizable strings in the file `plugins/Translations/locale/en.js`.
+
+e.g.
+
+```js
+module.exports = {
+  themeConfig: {
+    translations: {
+      read_more: "Leer más",
+      time_to_read: "${rounded_time} min de lectura",
+    }
+  },
+}
+```
 
 ### nav
 

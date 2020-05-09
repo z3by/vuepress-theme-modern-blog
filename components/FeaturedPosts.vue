@@ -19,7 +19,7 @@
         >
           <h4 class="story-title text-center h4 mb-3 text-light">{{ post.title }}</h4>
           <router-link :to="post.path" class="el-button el-button--primary"
-            >Read this Post <i class="el-icon-arrow-right"></i
+            >$t("read_this_post") <i class="el-icon-arrow-right"></i
           ></router-link>
         </div>
       </el-carousel-item>

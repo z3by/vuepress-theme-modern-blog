@@ -35,7 +35,7 @@
 
         <el-card class="mb-4" v-if="featured_posts.length">
           <div slot="header" class="clearfix">
-            <h5 class="m-0">Read More</h5>
+            <h5 class="m-0">$t('read_more')</h5>
           </div>
           <FeaturedPosts class="my-4" :posts="featured_posts" />
         </el-card>
@@ -58,7 +58,7 @@
         <ClientOnly v-if="$themeConfig.disqus">
           <el-card class="comments-area my-4">
             <div slot="header" class="clearfix">
-              <h5 class="m-0">Leave a comment!</h5>
+              <h5 class="m-0">{{$t("leave_comment")}}</h5>
             </div>
             <Disqus :shortname="$themeConfig.disqus" class="disqus-comments" />
           </el-card>

@@ -6,7 +6,7 @@
       v-model="query"
       size="small"
       :fetch-suggestions="querySearchAsync"
-      :placeholder="$themeConfig.searchPlaceholder || 'Search'"
+      :placeholder="$t('search_placeholder')"
       @select="handleSelect"
       popper-class="components-search"
       :trigger-on-focus="false"
@@ -71,12 +71,12 @@ export default {
             if (usingGoogleSearch) {
               return cb([
                 {
-                  value: `Search the entire site for "${query}"`,
+                  value: this.$t("search_entire_site", {query}),
                   link: `/search?q=${query}`
                 }
               ]);
             } else {
-              cb([{ value: `No results! Try something else.`, link: "" }]);
+              cb([{ value: this.$t("no_results"), link: "" }]);
             }
           }
         }
