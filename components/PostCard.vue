@@ -27,7 +27,7 @@
           <div class="ui-post-summary text-secondary my-2" v-if="post.summary">
             <span v-html="post.summary"></span>
             <router-link :to="post.path" class="read-more"
-              >Read more</router-link
+              >{{$t('read_more', {x: 'pepe'})}}</router-link
             >
           </div>
         </div>
@@ -37,7 +37,7 @@
       >
         <PostInfo
           :date="post.frontmatter.date"
-          :timeToRead="post.readingTime.text"
+          :timeToRead="post.readingTime"
           :location="post.frontmatter.location"
         />
       </div>

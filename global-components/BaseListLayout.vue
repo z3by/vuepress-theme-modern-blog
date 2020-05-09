@@ -13,7 +13,7 @@
         <a
           href="#posts"
           class="el-button el-button--primary my-3"
-        >Latest Posts</a>
+        >{{$t("latest_posts")}}</a>
       </div>
     </header>
     <featured-posts class="my-5 d-sm-none d-lg-block"></featured-posts>
@@ -26,10 +26,7 @@
         class="col-sm-12 col-lg-9 py-3 py-lg-3"
         id="posts"
       >
-        <PostsList
-          :posts="pages"
-          title="Latest Posts"
-        />
+        <PostsList :posts="pages" />
 
         <div class="d-flex">
           <component
