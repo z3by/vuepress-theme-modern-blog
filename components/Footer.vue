@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer-left-wrap">
       <ul class="contact" v-if="contact">
-        <li class="contact-item" v-for="item in contact">
+        <li class="contact-item" v-for="(item, index) in contact" :key="index">
           <NavLink :link="item.link">
             <component :is="item.iconComponent"></component>
             {{ item.text }}
@@ -13,8 +13,13 @@
 
     <div class="footer-right-wrap">
       <ul class="copyright" v-if="copyright">
-        <li class="copyright-item" v-for="item in copyright">
-          <NavLink :link="item.link">{{ item.text }}</NavLink>
+        <li class="copyright-item" v-for="(item, index) in copyright" :key="index">
+          <template v-if="item.link">
+            <NavLink :link="item.link">{{ item.text }}</NavLink>
+          </template>
+          <template v-else>
+            <a>{{ item.text }}</a>
+          </template>
         </li>
       </ul>
     </div>
