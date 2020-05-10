@@ -4,6 +4,17 @@ module.exports = {
   theme: require.resolve("../../"),
   summaryLength: 500,
   themeConfig: {
+    translations: {
+      read_more: "Keep reading!",
+      read_this_post: "Read this post now!",
+    },
+
+    cookies: {
+        theme: "dark-lime",
+        buttonText: "Got it!",
+        message: "We use cookies!",
+    },
+
     summary: true,
 
     // Example of advanced summary usage

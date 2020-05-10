@@ -16,6 +16,7 @@
 - Reading Time
 - Reading Progress
 - PWA Support
+- GDPR Cookies notice
 
 ## Sites
 
@@ -41,6 +42,28 @@ module.exports = {
 ```
 
 ## Options
+
+### cookies
+
+- Type: `Object`
+- Default: `undefined`
+
+This theme supports GDPR cookies notice via the [apertureless/vue-cookie-law](https://github.com/apertureless/vue-cookie-law) package.
+If no options are created in the config, the message won't be shown. The options
+will be passed as-it to the plugin.
+
+e.g.
+
+```js
+module.export = {
+  theConfig: {
+    cookies: {
+        theme: "dark-lime",
+        buttonText: "Ok!",
+    }
+  },
+}
+```
 
 ### translations
 
