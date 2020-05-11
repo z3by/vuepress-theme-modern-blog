@@ -11,7 +11,8 @@
     "layouts",
     "global-components",
     "fonts",
-    "components"
+    "components",
+    "plugins"
   ],
   "keywords": [
     "vuepress",
