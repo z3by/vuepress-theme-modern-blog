@@ -14,7 +14,7 @@
             <h1 align="center">{{ $frontmatter.title }}</h1>
             <PostInfo
               :date="$frontmatter.date"
-              :timeToRead="$page.readingTime.text"
+              :timeToRead="$page.readingTime"
               :location="$frontmatter.location"
               class="text-secondary d-flex justify-content-center my-3"
             />
