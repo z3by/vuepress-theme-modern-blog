@@ -9,12 +9,11 @@
         <div
           class="ui-post-image col-sm-12 col-md-6 col-lg-5 py-3"
           v-if="post.frontmatter.postcard_image || post.frontmatter.image"
+          :style="{
+            backgroundImage: 'url(' + $withBase(post.frontmatter.postcard_image || post.frontmatter.image) + ')'
+          }"
+          :alt="post.title"
         >
-          <img
-            :src="$withBase(post.frontmatter.postcard_image || post.frontmatter.image)"
-            :alt="post.title"
-            class="w-100 rounded"
-          />
         </div>
         <div class="col-sm-12 col-md-6 col-lg-7 py-4">
           <div>
@@ -33,7 +32,7 @@
         </div>
       </div>
       <div
-        class="d-flex justify-content-end text-secondary p-4 mt-2 border-top border-light"
+        class="d-flex justify-content-end text-secondary p-4 border-top border-light"
       >
         <PostInfo
           :date="post.frontmatter.date"
@@ -62,4 +61,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.ui-post-image {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-origin: content-box;
+}
+</style>
