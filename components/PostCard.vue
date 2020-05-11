@@ -26,7 +26,7 @@
           <div class="ui-post-summary text-secondary my-2" v-if="post.summary">
             <span v-html="post.summary"></span>
             <router-link :to="post.path" class="read-more"
-              >{{$t('read_more', {x: 'pepe'})}}</router-link
+              >{{$t('read_more')}}</router-link
             >
           </div>
         </div>
