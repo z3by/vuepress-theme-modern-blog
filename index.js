@@ -2,12 +2,13 @@ const removeMd = require("remove-markdown");
 
 module.exports = (themeConfig, ctx) => {
   themeConfig = Object.assign(themeConfig, {
+    cookies: Object.assign({}, themeConfig.cookies),
     summary: themeConfig.summary || true,
     summaryLength:
       typeof themeConfig.summaryLength === "number"
         ? themeConfig.summaryLength
         : 400,
-    pwa: !!themeConfig.pwa
+    pwa: !!themeConfig.pwa,
   });
 
   themeConfig.heroImage =

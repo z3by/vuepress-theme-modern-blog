@@ -3,10 +3,14 @@
     <Header />
     <DefaultGlobalLayout />
     <Footer />
+    <ClientOnly v-if="showCookiesNotice">
+      <cookie-law v-bind="$themeConfig.cookies"></cookie-law>
+    </ClientOnly>
   </div>
 </template>
 
 <script>
+import CookieLaw from "vue-cookie-law";
 import GlobalLayout from "@app/components/GlobalLayout.vue";
 import Header from "@theme/components/Header.vue";
 import Footer from "@theme/components/Footer.vue";
@@ -15,19 +19,14 @@ export default {
   components: {
     DefaultGlobalLayout: GlobalLayout,
     Header,
-    Footer
+    Footer,
+    CookieLaw,
   },
 
-  data() {
-    return {
-      isMobileHeaderOpen: false
-    };
+  computed: {
+    showCookiesNotice() {
+      return Object.keys(this.$themeConfig.cookies).length > 0;
+    },
   },
-
-  mounted() {
-    this.$router.afterEach(() => {
-      this.isMobileHeaderOpen = false;
-    });
-  }
 };
 </script>
