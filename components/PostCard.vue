@@ -24,7 +24,7 @@
             </h3>
           </div>
           <div class="ui-post-summary text-secondary my-2" v-if="post.summary">
-            <span v-html="post.summary"></span>
+            <p align="justify" v-html="post.summary"></p>
             <router-link :to="post.path" class="read-more"
               >{{$t('read_more')}}</router-link
             >

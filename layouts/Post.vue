@@ -100,6 +100,21 @@ export default {
   padding: 15px;
   max-width: 860px !important;
 
+  @media only screen and (max-width: $MQMobile) {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+
+    .el-card__body {
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+    }
+  }
+
+  .content__default {
+    > p {
+      text-align: justify;
+    }
+  }
 }
 
 .post-tags {
