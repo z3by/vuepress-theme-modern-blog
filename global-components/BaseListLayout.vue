@@ -18,7 +18,7 @@
     </header>
     <featured-posts class="my-5 d-sm-none d-lg-block"></featured-posts>
     <el-container class="row py-4 px-3">
-      <aside class="col-sm-12 col-lg-3 py-0 py-lg-3">
+      <aside class="tags col-sm-12 col-lg-3 py-0 py-lg-3">
         <About v-if="$themeConfig.about" />
         <BlogTags :tags="tags" />
       </aside>
@@ -79,12 +79,19 @@ export default {
 <style src="prismjs/themes/prism-okaidia.css"></style>
 
 
-<style>
+<style lang="stylus">
 header.home-hero {
   background-color: #999;
   background-blend-mode: multiply;
   padding: 10rem 0rem;
   background-repeat: none;
   background-size: cover;
+}
+
+.tags, #posts {
+  @media only screen and (max-width: $MQMobile) {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 </style>

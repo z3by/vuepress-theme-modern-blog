@@ -38,9 +38,22 @@ export default {
 </script>
 
 <style lang="stylus">
+
+div.ui-post-info {
+  @media only screen and (max-width: $MQMobile) {
+    flex-direction: column !important;
+  }
+}
+
 div.post-info-item {
   margin-right: 1rem;
   font-size: .8rem;
+
+  @media only screen and (max-width: $MQMobile) {
+    margin-right: 0rem;
+    margin-top: .5rem;
+    text-align: center;
+  }
 
   svg {
     width: 17px;

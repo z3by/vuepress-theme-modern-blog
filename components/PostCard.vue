@@ -24,7 +24,7 @@
             </h3>
           </div>
           <div class="ui-post-summary text-secondary my-2" v-if="post.summary">
-            <span v-html="post.summary"></span>
+            <p align="justify" v-html="post.summary"></p>
             <router-link :to="post.path" class="read-more"
               >{{$t('read_more')}}</router-link
             >
@@ -32,7 +32,7 @@
         </div>
       </div>
       <div
-        class="d-flex justify-content-end text-secondary p-4 border-top border-light"
+        class="post-info d-flex justify-content-end text-secondary p-4 border-top border-light"
       >
         <PostInfo
           :date="post.frontmatter.date"
@@ -61,11 +61,25 @@ export default {
 };
 </script>
 
-<style>
+<style lang="stylus">
 .ui-post-image {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   background-origin: content-box;
 }
+
+.post-info {
+  @media only screen and (max-width: $MQMobile) {
+    padding-top: 0 !important;
+    justify-content: start !important;
+
+    div.post-info-item {
+      @media only screen and (max-width: $MQMobile) {
+        text-align: left;
+      }
+    }
+  }
+}
+
 </style>
