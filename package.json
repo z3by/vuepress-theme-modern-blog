@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-modern-blog",
-  "version": "2.12.0",
+  "version": "2.12.1",
   "description": "Modern blog theme for VuePress",
   "keywords": [
     "vue",
@@ -26,12 +26,10 @@
     "src"
   ],
   "scripts": {
-    "build": "cd example && vuepress build",
-    "dev": "cd example && nodemon --ext md,vue --watch ../ --watch . --exec vuepress dev",
-    "postinstall": "cd example && yarn",
+    "build": "vuepress build example",
+    "dev": "nodemon --ext md,vue --watch ../ --watch . --exec vuepress dev example",
     "lint": "eslint --ext .js,.vue src",
-    "prepublishOnly": "npm run build && conventional-changelog -p angular -r 2 -i CHANGELOG.md -s",
-    "test": "npm run lint && jest"
+    "prepublishOnly": "npm run build && conventional-changelog -p angular -r 2 -i CHANGELOG.md -s"
   },
   "husky": {
     "hooks": {
@@ -87,6 +85,10 @@
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
+    "@vuepress/plugin-google-analytics": "^1.4.0",
+    "@vuepress/plugin-medium-zoom": "1.0.0",
+    "@vuepress/plugin-nprogress": "1.0.0",
+    "@vuepress/plugin-pwa": "1.0.0",
     "conventional-changelog-cli": "^2.0.31",
     "eslint": "^6.3.0",
     "eslint-config-standard": "^14.1.0",
@@ -100,10 +102,17 @@
     "nodemon": "^2.0.4",
     "semantic-release": "^17.0.7",
     "sort-package-json": "^1.22.1",
-    "vuepress": "^1.4.0"
+    "vuepress": "^1.5.0",
+    "vuepress-plugin-crisp": "^1.0.0",
+    "vuepress-plugin-reading-progress": "^1.0.9",
+    "vuepress-plugin-reading-time": "^0.1.1",
+    "vuepress-plugin-seo": "^0.1.2",
+    "vuepress-plugin-sitemap": "^2.3.1",
+    "vuepress-plugin-smooth-scroll": "^0.0.4",
+    "vuepress-plugin-social-share": "^0.0.6"
   },
   "peerDependencies": {
-    "vuepress": "^1.4.0"
+    "vuepress": "^1.5.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
