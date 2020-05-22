@@ -6,14 +6,20 @@
         class="my-4"
       >
         <div>
-          <h1 class="text-center text-capitalize">{{ $page.frontmatter.title || $page.title }}</h1>
+          <h1 class="text-center text-capitalize">
+            {{ $page.frontmatter.title || $page.title }}
+          </h1>
           <hr>
-          <p class="text-secondary">{{$page.frontmatter.description}}</p>
+          <p class="text-secondary">
+            {{ $page.frontmatter.description }}
+          </p>
           <ul class="languages-list">
             <li
               v-for="lang in $page.frontmatter.languages"
               :key="lang"
-            >{{lang}}</li>
+            >
+              {{ lang }}
+            </li>
           </ul>
         </div>
       </el-card>
@@ -45,4 +51,3 @@ export default {
 }
 </style>
 <style src="prismjs/themes/prism-okaidia.css"></style>
-

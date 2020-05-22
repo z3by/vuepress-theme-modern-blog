@@ -13,14 +13,19 @@
 </template>
 
 <script>
-import PostCard from "@theme/components/PostCard.vue";
+import PostCard from '@theme/components/PostCard.vue'
 
 export default {
-  props: ["posts"],
   components: {
-    "post-card": PostCard
-  }
-};
+    'post-card': PostCard,
+  },
+  props: {
+    posts: {
+      type: Object,
+      default: () => [],
+    },
+  },
+}
 </script>
 
 <style lang="stylus">

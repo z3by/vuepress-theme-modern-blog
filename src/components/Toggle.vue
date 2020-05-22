@@ -1,19 +1,36 @@
 <template>
-  <div id="toggle" @click="activateToggle()" >
-    <div class="span" id="top" :class="{ active: isToggleActive }"></div>
-    <div class="span" id="middle" :class="{ active: isToggleActive }"></div>
-    <div class="span" id="bottom" :class="{ active: isToggleActive }"></div>
+  <div
+    id="toggle"
+    @click="activateToggle()"
+  >
+    <div
+      id="top"
+      class="span"
+      :class="{ active: isToggleActive }"
+    />
+    <div
+      id="middle"
+      class="span"
+      :class="{ active: isToggleActive }"
+    />
+    <div
+      id="bottom"
+      class="span"
+      :class="{ active: isToggleActive }"
+    />
   </div>
 </template>
 
 <script>
 export default {
-  props: ["isToggleActive"],
+  props: {
+    isToggleActive: Boolean,
+  },
   methods: {
-    activateToggle: function() {
-      this.$emit('onActivateToggle', !this.isToggleActive);
-    }
-  }
+    activateToggle: function () {
+      this.$emit('onActivateToggle', !this.isToggleActive)
+    },
+  },
 }
 </script>
 

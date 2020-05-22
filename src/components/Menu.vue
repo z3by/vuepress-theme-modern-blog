@@ -6,13 +6,16 @@
     class="d-flex justify-content-center border-0"
   >
     <el-menu-item
-      router
       v-for="item in $themeConfig.nav"
-      :index="item.link"
       :key="item.link"
+      router
+      :index="item.link"
       @click="activeIndex !== item.link && $router.push(item.link)"
     >
-      <i v-if="item.icon" :class="item.icon"></i>
+      <i
+        v-if="item.icon"
+        :class="item.icon"
+      />
       {{ item.text }}
     </el-menu-item>
   </el-menu>
@@ -21,11 +24,11 @@
 <script>
 export default {
   computed: {
-    activeIndex() {
-      return this.$route.path;
-    }
-  }
-};
+    activeIndex () {
+      return this.$route.path
+    },
+  },
+}
 </script>
 
 <style lang="stylus">

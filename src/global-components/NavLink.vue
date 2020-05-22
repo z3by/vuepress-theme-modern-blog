@@ -1,10 +1,10 @@
 <template>
   <router-link
-    :to="normalizedlink"
     v-if="!isExternal(normalizedlink)"
+    :to="normalizedlink"
     :exact="exact"
   >
-    <slot/>
+    <slot />
   </router-link>
   <a
     v-else
@@ -13,7 +13,7 @@
     :target="isMailto(normalizedlink) || isTel(normalizedlink) ? null : '_blank'"
     :rel="isMailto(normalizedlink) || isTel(normalizedlink) ? null : 'noopener noreferrer'"
   >
-    <slot/>
+    <slot />
   </a>
 </template>
 
@@ -23,8 +23,9 @@ import { isExternal, isMailto, isTel, ensureExt } from '../components/util'
 export default {
   props: {
     link: {
-      required: true
-    }
+      required: true,
+      type: String,
+    },
   },
 
   computed: {
@@ -37,14 +38,14 @@ export default {
         return Object.keys(this.$site.locales).some(rootLink => rootLink === this.normalizedlink)
       }
       return this.normalizedlink === '/'
-    }
+    },
   },
 
   methods: {
     isExternal,
     isMailto,
-    isTel
-  }
+    isTel,
+  },
 }
 </script>
 

@@ -11,18 +11,27 @@
             :src="$withBase($themeConfig.about.image)"
             :alt="$themeConfig.about.fullName"
             width="160px"
-          />
+          >
         </div>
-        <h1 class="mt-2 text-light">{{ $themeConfig.about.fullName }}</h1>
+        <h1 class="mt-2 text-light">
+          {{ $themeConfig.about.fullName }}
+        </h1>
       </div>
       <div class="p-3">
         <p>{{ $themeConfig.about.bio }}</p>
       </div>
-      <hr class="mt-0" />
-      <ul class="list-inline m-0" v-if="contact">
-        <li class="list-inline-item" v-for="item in contact" :key="item.text">
+      <hr class="mt-0">
+      <ul
+        v-if="contact"
+        class="list-inline m-0"
+      >
+        <li
+          v-for="item in contact"
+          :key="item.text"
+          class="list-inline-item"
+        >
           <NavLink :link="item.link">
-            <component :is="item.iconComponent"></component>
+            <component :is="item.iconComponent" />
             {{ item.text }}
           </NavLink>
         </li>
@@ -38,8 +47,8 @@ import {
   TwitterIcon,
   YoutubeIcon,
   InstagramIcon,
-  LinkedinIcon
-} from "vue-feather-icons";
+  LinkedinIcon,
+} from 'vue-feather-icons'
 
 export default {
   components: {
@@ -48,32 +57,11 @@ export default {
     TwitterIcon,
     YoutubeIcon,
     InstagramIcon,
-    LinkedinIcon
-  },
-
-  methods: {
-    getIconComponentName(contactType) {
-      switch (contactType) {
-        case "github":
-          return "GithubIcon";
-        case "facebook":
-          return "FacebookIcon";
-        case "twitter":
-          return "TwitterIcon";
-        case "instagram":
-          return "InstagramIcon";
-        case "linkedin":
-          return "LinkedinIcon";
-        case "youtube":
-          return "YoutubeIcon";
-        default:
-          return "";
-      }
-    }
+    LinkedinIcon,
   },
 
   computed: {
-    contact() {
+    contact () {
       return (
         (this.$themeConfig.footer && this.$themeConfig.footer.contact) ||
         []
@@ -81,19 +69,40 @@ export default {
         .map(({ type, link }) => {
           return {
             iconComponent: this.getIconComponentName(type),
-            link
-          };
+            link,
+          }
         })
-        .filter(({ iconComponent }) => iconComponent);
+        .filter(({ iconComponent }) => iconComponent)
     },
 
-    copyright() {
+    copyright () {
       return (
         (this.$themeConfig.footer && this.$themeConfig.footer.copyright) || []
-      );
-    }
-  }
-};
+      )
+    },
+  },
+
+  methods: {
+    getIconComponentName (contactType) {
+      switch (contactType) {
+        case 'github':
+          return 'GithubIcon'
+        case 'facebook':
+          return 'FacebookIcon'
+        case 'twitter':
+          return 'TwitterIcon'
+        case 'instagram':
+          return 'InstagramIcon'
+        case 'linkedin':
+          return 'LinkedinIcon'
+        case 'youtube':
+          return 'YoutubeIcon'
+        default:
+          return ''
+      }
+    },
+  },
+}
 </script>
 
 <style lang="stylus" scoped>

@@ -7,113 +7,117 @@
       size="small"
       :fetch-suggestions="querySearchAsync"
       :placeholder="$t('search_placeholder')"
-      @select="handleSelect"
       popper-class="components-search"
       :trigger-on-focus="false"
       placement="bottom-end"
       :debounce="200"
+      @select="handleSelect"
     >
       <template slot-scope="props">
-        <li role="option" v-html="props.item.value"></li>
+        <!-- eslint-disable-next-line -->
+        <li role="option" v-html="props.item.value"/>
       </template>
     </el-autocomplete>
   </div>
 </template>
 
 <script>
-import Flexsearch from "flexsearch";
+import Flexsearch from 'flexsearch'
 
 export default {
-  data() {
+  data () {
     return {
       index: null,
-      query: ""
-    };
+      query: '',
+    }
   },
-  mounted() {
+  mounted () {
     this.index = new Flexsearch({
-      tokenize: "forward",
+      tokenize: 'forward',
       doc: {
-        id: "key",
-        field: ["title", "content"]
-      }
-    });
-    const { pages } = this.$site;
-    this.index.add(pages);
+        id: 'key',
+        field: ['title', 'content'],
+      },
+    })
+    const { pages } = this.$site
+    this.index.add(pages)
   },
   methods: {
-    querySearchAsync(queryString, cb) {
-      const { pages, themeConfig } = this.$site;
-      const query = queryString.trim().toLowerCase();
+    querySearchAsync (queryString, cb) {
+      const { themeConfig } = this.$site
+      const query = queryString.trim().toLowerCase()
       const usingGoogleSearch =
-        themeConfig.googleCustomSearchEngineID && themeConfig.googleAPIKey;
-      const max = themeConfig.searchMaxSuggestions || 20;
+        themeConfig.googleCustomSearchEngineID && themeConfig.googleAPIKey
+      const max = themeConfig.searchMaxSuggestions || 20
       if (this.index === null || query.length < 1) {
-        return cb([]);
+        // eslint-disable-next-line
+        return cb([])
       }
       this.index.search(
         query,
         {
           limit: max,
           threshold: 4,
-          encode: "extra"
+          encode: 'extra',
         },
         result => {
           if (result.length) {
             const resolvedResult = result.map(page => {
               return {
                 link: page.path,
-                value: this.getQuerySnippet(page)
-              };
-            });
-            return cb(resolvedResult);
+                value: this.getQuerySnippet(page),
+              }
+            })
+            return cb(resolvedResult)
           } else {
             if (usingGoogleSearch) {
+              // eslint-disable-next-line
               return cb([
                 {
-                  value: this.$t("search_entire_site", {query}),
-                  link: `/search?q=${query}`
-                }
-              ]);
+                  value: this.$t('search_entire_site', { query }),
+                  link: `/search?q=${query}`,
+                },
+              ])
             } else {
-              cb([{ value: this.$t("no_results"), link: "" }]);
+              // eslint-disable-next-line
+              cb([{ value: this.$t('no_results'), link: '' }])
             }
           }
-        }
-      );
+        },
+      )
     },
-    getQuerySnippet(page) {
-      const queryPosition = page.content.toLowerCase().indexOf(this.query);
-      const startIndex = queryPosition - 20 < 0 ? 0 : queryPosition - 20;
-      const endIndex = queryPosition + 30;
+    getQuerySnippet (page) {
+      const queryPosition = page.content.toLowerCase().indexOf(this.query)
+      const startIndex = queryPosition - 20 < 0 ? 0 : queryPosition - 20
+      const endIndex = queryPosition + 30
       const querySnippet = page.content
         .slice(startIndex, endIndex)
         .toLowerCase()
         .replace(
           this.query,
-          `<strong class="text--primary">${this.query}</strong>`
+          `<strong class="text--primary">${this.query}</strong>`,
         )
-        .split(" ")
+        .split(' ')
         .slice(1, -1)
-        .join(" ");
+        .join(' ')
       if (querySnippet) {
         return `
         <strong class="text--primary">${page.title}</strong>\n
         <div class="text-muted pl-2"> ${querySnippet} ..</div>`
-          .replace(/\|/g, " ")
-          .replace(/:::/g, " ");
+          .replace(/\|/g, ' ')
+          .replace(/:::/g, ' ')
       } else {
-        return page.title;
+        return page.title
       }
     },
-    handleSelect(item) {
+    handleSelect (item) {
       if (item.link) {
-        this.$router.push(item.link);
+        this.$router.push(item.link)
       }
-      this.query = "";
-    }
-  }
-};
+      this.query = ''
+    },
+  },
+}
 </script>
 
 <style lang="stylus">

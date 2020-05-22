@@ -1,10 +1,17 @@
 <template>
   <footer class="footer">
     <div class="footer-left-wrap">
-      <ul class="contact" v-if="contact">
-        <li class="contact-item" v-for="(item, index) in contact" :key="index">
+      <ul
+        v-if="contact"
+        class="contact"
+      >
+        <li
+          v-for="(item, index) in contact"
+          :key="index"
+          class="contact-item"
+        >
           <NavLink :link="item.link">
-            <component :is="item.iconComponent"></component>
+            <component :is="item.iconComponent" />
             {{ item.text }}
           </NavLink>
         </li>
@@ -12,10 +19,19 @@
     </div>
 
     <div class="footer-right-wrap">
-      <ul class="copyright" v-if="copyright">
-        <li class="copyright-item" v-for="(item, index) in copyright" :key="index">
+      <ul
+        v-if="copyright"
+        class="copyright"
+      >
+        <li
+          v-for="(item, index) in copyright"
+          :key="index"
+          class="copyright-item"
+        >
           <template v-if="item.link">
-            <NavLink :link="item.link">{{ item.text }}</NavLink>
+            <NavLink :link="item.link">
+              {{ item.text }}
+            </NavLink>
           </template>
           <template v-else>
             <a>{{ item.text }}</a>
@@ -34,8 +50,8 @@ import {
   InstagramIcon,
   LinkedinIcon,
   YoutubeIcon,
-  PhoneIcon
-} from "vue-feather-icons";
+  PhoneIcon,
+} from 'vue-feather-icons'
 
 export default {
   components: {
@@ -45,34 +61,11 @@ export default {
     InstagramIcon,
     LinkedinIcon,
     YoutubeIcon,
-    PhoneIcon
-  },
-
-  methods: {
-    getIconComponentName(contactType) {
-      switch (contactType) {
-        case "github":
-          return "GithubIcon";
-        case "facebook":
-          return "FacebookIcon";
-        case "twitter":
-          return "TwitterIcon";
-        case "instagram":
-          return "InstagramIcon";
-        case "linkedin":
-          return "LinkedinIcon";
-        case "youtube":
-          return "YoutubeIcon";
-         case "phone":
-          return "PhoneIcon"
-        default:
-          return "";
-      }
-    }
+    PhoneIcon,
   },
 
   computed: {
-    contact() {
+    contact () {
       return (
         (this.$themeConfig.footer && this.$themeConfig.footer.contact) ||
         []
@@ -80,19 +73,42 @@ export default {
         .map(({ type, link }) => {
           return {
             iconComponent: this.getIconComponentName(type),
-            link
-          };
+            link,
+          }
         })
-        .filter(({ iconComponent }) => iconComponent);
+        .filter(({ iconComponent }) => iconComponent)
     },
 
-    copyright() {
+    copyright () {
       return (
         (this.$themeConfig.footer && this.$themeConfig.footer.copyright) || []
-      );
-    }
-  }
-};
+      )
+    },
+  },
+
+  methods: {
+    getIconComponentName (contactType) {
+      switch (contactType) {
+        case 'github':
+          return 'GithubIcon'
+        case 'facebook':
+          return 'FacebookIcon'
+        case 'twitter':
+          return 'TwitterIcon'
+        case 'instagram':
+          return 'InstagramIcon'
+        case 'linkedin':
+          return 'LinkedinIcon'
+        case 'youtube':
+          return 'YoutubeIcon'
+        case 'phone':
+          return 'PhoneIcon'
+        default:
+          return ''
+      }
+    },
+  },
+}
 </script>
 
 <style lang="stylus" scoped>
