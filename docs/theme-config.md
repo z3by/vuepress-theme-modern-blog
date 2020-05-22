@@ -12,17 +12,16 @@ module.exports = {
   themeConfig: {
     nav: [
       {
-        text: 'Home',
-        link: '/',
+        text: "Home",
+        link: "/",
+        icon: 'el-icon-house'
       },
       {
-        text: 'Archive',
-        link: '/archive/',
+        text: "Projects",
+        link: "/projects/",
+        icon: "el-icon-folder"
       },
-      {
-        text: 'Tags',
-        link: '/tag/',
-      },
+      // Add more
     ],
   },
 }
@@ -58,7 +57,6 @@ module.exports = {
 ## footer
 
 ### footer.contact
-
 
 - Type: `Array<{ type: ContactType, link: string }>`
 - Default: `undefined`
@@ -244,24 +242,6 @@ the extraction of the summary. Available options:
 
 Set the length of summary.
 
-## pwa
-
-- Type: `boolean`
-- Default: `false`
-
-Whether to enable PWA support. this option is powered by the [official
-PWA plugin](https://v1.vuepress.vuejs.org/plugin/official/plugin-pwa.html).
-
-if you enable this option, the default options of the internal PWA
-plugin is as follows:
-
-```js
-{
-  serviceWorker: true,
-  updatePopup: true
-}
-```
-
 ## about
 
 to make this works you need to create a new page and add the proper config to `themeConfig.nav`
@@ -282,13 +262,6 @@ then set the layout to `AboutLayout` in page frontmatter.
 
 Disqus website short name check [official website](https://disqus.com/)
 
-## sitemap
-
-- Type: `boolean`
-- Default: `false`
-
-to enable this plugin you need to define:
-
 
 ```js
 ...
@@ -296,33 +269,6 @@ to enable this plugin you need to define:
   hostname: "https://ahmadmostafa.com/" // your own hostname
 ...
 ```
-
-## socialShare
-
-- Type: `boolean`
-- Default: `false`
-
-to enable this plugin you need also to define:
-
-### socialShareNetworks
-
-- Type: `Array< string >`
-- Default: `undefined`
-
-refer to [docs](https://sns.goyfe.com/)
-
-e.g
-
-```js
-  socialShare: true,
-  socialShareNetworks: ["twitter", "facebook"],
-```
-
-## googleAnalytics
-Google analytics tracking ID
-
-- Type: `string`
-- Default: `undefined`
 
 ## paginationComponent
 

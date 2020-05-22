@@ -3,7 +3,7 @@
     <Header />
     <DefaultGlobalLayout />
     <Footer />
-    <ClientOnly v-if="showCookiesNotice">
+    <ClientOnly v-if="$themeConfig.cookies">
       <cookie-law v-bind="$themeConfig.cookies" />
     </ClientOnly>
   </div>
@@ -21,12 +21,6 @@ export default {
     Header,
     Footer,
     CookieLaw,
-  },
-
-  computed: {
-    showCookiesNotice () {
-      return Object.keys(this.$themeConfig.cookies).length > 0
-    },
   },
 }
 </script>

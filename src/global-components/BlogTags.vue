@@ -29,7 +29,7 @@
 export default {
   props: {
     tags: {
-      type: Object,
+      type: Array,
       default: () => [],
     },
   },
