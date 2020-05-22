@@ -33,6 +33,6 @@ module.exports = {
 
 1. Clone this repository.
 2. Navigate to the cloned repository `cd vuepress-theme-modern-blog`
-3. Cun `yarn && yarn dev # Or npm install && npm run dev `
+3. Run `yarn && yarn dev # Or npm install && npm run dev `
 4. Create a new feature.
 5. Submit a Pull Request.
