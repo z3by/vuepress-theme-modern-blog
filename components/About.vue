@@ -1,6 +1,10 @@
 <template>
   <div>
-    <el-card align="center" class="mx-auto zoomIn mb-3" shadow="hover">
+    <el-card
+      align="center"
+      class="mx-auto zoomIn mb-3 about-card"
+      shadow="hover"
+    >
       <div class="card-header rounded p-3">
         <div class="rounded-circle card-img-bg d-inline-block">
           <img
@@ -93,7 +97,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.el-card {
+.about-card {
+  max-width 35rem;
   .card-header {
     min-height: 220px;
     background-color: darken($accentColor, 10%);
