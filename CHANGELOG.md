@@ -1,3 +1,16 @@
+## [2.12.1](https://github.com/z3by/vuepress-theme-modern-blog/compare/v2.12.0...v2.12.1) (2020-05-22)
+
+
+
+# [2.12.0](https://github.com/z3by/vuepress-theme-modern-blog/compare/2.11.0...v2.12.0) (2020-05-22)
+
+
+### Bug Fixes
+
+* add missing dependencies for commitlint ([b1b3e54](https://github.com/z3by/vuepress-theme-modern-blog/commit/b1b3e5420df944189c431ddda02014bd2dfd09e9))
+
+
+
 # [2.12.0](https://github.com/z3by/vuepress-theme-modern-blog/compare/2.11.0...2.12.0) (2020-05-22)
 
 
