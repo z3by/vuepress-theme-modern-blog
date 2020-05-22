@@ -2,18 +2,7 @@
   "name": "vuepress-theme-modern-blog",
   "version": "2.10.2",
   "description": "Modern blog theme for VuePress",
-  "main": "index.js",
-  "files": [
-    "assets",
-    "index.js",
-    "enhanceApp.js",
-    "styles",
-    "layouts",
-    "global-components",
-    "fonts",
-    "components",
-    "plugins"
-  ],
+  "main": "src/index.js",
   "keywords": [
     "vuepress",
     "vuepress-theme",
@@ -26,11 +15,9 @@
   "scripts": {
     "test": "npm run lint && jest",
     "lint": "disable",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "example:dev": "vuepress dev example --temp example/.temp",
-    "example:build": "vuepress build example --temp example/.temp",
-    "prepublishOnly": "npm run example:build && conventional-changelog -p angular -r 2 -i CHANGELOG.md -s"
+    "dev": "vuepress dev example --temp example/.temp",
+    "build": "vuepress build example --temp example/.temp",
+    "prepublishOnly": "npm run build && conventional-changelog -p angular -r 2 -i CHANGELOG.md -s"
   },
   "repository": {
     "url": "z3by/vuepress-theme-modern-blog",
