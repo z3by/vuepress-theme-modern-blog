@@ -31,7 +31,7 @@
             :to="post.path"
             class="el-button el-button--primary"
           >
-            $t("read_this_post") <i class="el-icon-arrow-right" />
+            {{ $t("read_this_post") }} <i class="el-icon-arrow-right" />
           </router-link>
         </div>
       </el-carousel-item>
