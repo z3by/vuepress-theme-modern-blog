@@ -2,25 +2,30 @@
   <div class="ui-post-info d-flex">
     <div class="post-info-item">
       <CalendarIcon />
-      {{ new Date(date.trim()).toLocaleDateString(undefined, {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      }) }}
+      {{
+        new Date(date.trim()).toLocaleDateString(undefined, {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        })
+      }}
     </div>
     <div
-      class="post-info-item"
       v-if="timeToRead"
+      class="post-info-item"
     >
       <ClockIcon />
-      {{ $t("time_to_read", {
-        rounded_time: Math.round(timeToRead.time / 60000),
-        raw_obj: timeToRead
-      }) }}
+      {{
+        $t("time_to_read", {
+          rounded_time: Math.round(timeToRead.time / 60000),
+          raw_obj: timeToRead
+        })
+      }}
     </div>
-    <div class="post-info-item"
-         v-if="location"
+    <div
+      v-if="location"
+      class="post-info-item"
     >
       <NavigationIcon />
       {{ location }}
@@ -29,12 +34,21 @@
 </template>
 
 <script>
-import { NavigationIcon, ClockIcon, CalendarIcon } from "vue-feather-icons";
+import { NavigationIcon, ClockIcon, CalendarIcon } from 'vue-feather-icons'
 
 export default {
   components: { NavigationIcon, ClockIcon, CalendarIcon },
-  props: ["date", "timeToRead", "location"]
-};
+  props: {
+    date: { type: String, default: '2019-10-14' },
+    timeToRead: {
+      type: Object,
+      default: () => {
+        return { time: 60000 }
+      },
+    },
+    location: { type: String, default: null },
+  },
+}
 </script>
 
 <style lang="stylus">

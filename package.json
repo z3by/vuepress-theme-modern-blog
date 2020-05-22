@@ -2,33 +2,76 @@
   "name": "vuepress-theme-modern-blog",
   "version": "2.10.2",
   "description": "Modern blog theme for VuePress",
-  "main": "src/index.js",
   "keywords": [
+    "vue",
     "vuepress",
+    "blog",
     "vuepress-theme",
     "vuepress-blog",
-    "vuepress",
-    "vue",
     "vuepress-theme-blog",
     "vuepress-theme-modern-blog"
   ],
-  "scripts": {
-    "test": "npm run lint && jest",
-    "lint": "disable",
-    "dev": "vuepress dev example --temp example/.temp",
-    "build": "vuepress build example --temp example/.temp",
-    "prepublishOnly": "npm run build && conventional-changelog -p angular -r 2 -i CHANGELOG.md -s"
-  },
   "repository": {
-    "url": "z3by/vuepress-theme-modern-blog",
-    "type": "git"
-  },
-  "author": {
-    "email": "zoaby.am@gmail.com",
-    "name": "Ahmad Mostafa",
-    "url": "https://ahmadmostafa.com"
+    "type": "git",
+    "url": "z3by/vuepress-theme-modern-blog"
   },
   "license": "MIT",
+  "author": {
+    "name": "Ahmad Mostafa",
+    "email": "zoaby.am@gmail.com",
+    "url": "https://ahmadmostafa.com"
+  },
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "build": "vuepress build example --temp example/.temp",
+    "dev": "vuepress dev example --temp example/.temp",
+    "lint": "eslint --ext .js,.vue src",
+    "prepublishOnly": "npm run build && conventional-changelog -p angular -r 2 -i CHANGELOG.md -s",
+    "test": "npm run lint && jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "package.json": [
+      "sort-package-json",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard",
+      "plugin:vue/recommended"
+    ],
+    "rules": {
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "dot-notation": [
+        "error",
+        {
+          "allowPattern": "^$"
+        }
+      ]
+    },
+    "root": true
+  },
   "dependencies": {
     "@vuepress/plugin-blog": "^1.9.2",
     "@vuepress/plugin-google-analytics": "^1.4.0",
@@ -43,7 +86,6 @@
     "flexsearch": "^0.6.32",
     "vue-cookie-law": "1.12.0",
     "vue-feather-icons": "^4.21.0",
-    "vuepress": "^1.4.0",
     "vuepress-plugin-disqus": "^0.1.1",
     "vuepress-plugin-reading-progress": "^1.0.9",
     "vuepress-plugin-reading-time": "^0.1.1",
@@ -54,7 +96,21 @@
   },
   "devDependencies": {
     "conventional-changelog-cli": "^2.0.31",
-    "eslint-config-sherry": "0.0.1"
+    "eslint": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.1.2",
+    "husky": "^3.0.5",
+    "lint-staged": "10.2.4",
+    "semantic-release": "^17.0.7",
+    "sort-package-json": "^1.22.1",
+    "vuepress": "^1.4.0"
+  },
+  "peerDependencies": {
+    "vuepress": "^1.4.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

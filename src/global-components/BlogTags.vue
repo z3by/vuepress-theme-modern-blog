@@ -1,10 +1,20 @@
 <template>
-  <el-card shadow="hover" :body-style="{ padding: '1rem' }">
+  <el-card
+    shadow="hover"
+    :body-style="{ padding: '1rem' }"
+  >
     <ul class="list-unstyled">
-      <li v-for="tag in tags" :key="tag.name" class="d-inline-block mx-2 my-2">
-        <el-badge :value="tag.pages.length" class="item">
+      <li
+        v-for="tag in tags"
+        :key="tag.name"
+        class="d-inline-block mx-2 my-2"
+      >
+        <el-badge
+          :value="tag.pages.length"
+          class="item"
+        >
           <router-link
-            :to="{path: tag.path, hash: 'posts'}"
+            :to="{ path: tag.path, hash: 'posts' }"
             class="el-button el-button--small text-decoration-none"
           >
             {{ tag.name }}
@@ -17,8 +27,13 @@
 
 <script>
 export default {
-  props: ["tags"]
-};
+  props: {
+    tags: {
+      type: Object,
+      default: () => [],
+    },
+  },
+}
 </script>
 
 <style lang="stylus">

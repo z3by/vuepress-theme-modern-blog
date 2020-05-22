@@ -7,21 +7,21 @@
         class="py-3"
       >
         <el-col
-          :sm="24"
-          :md="12"
           v-for="project in projects"
           :key="project.name"
+          :sm="24"
+          :md="12"
         >
           <el-card class="card project-card zoomIn">
             <router-link :to="project.regularPath">
               <div class="project-card-header">
                 <div class="project-icon">
-                  <i class="el-icon-folder"></i>
+                  <i class="el-icon-folder" />
                 </div>
                 <div class="project-card--links">
                   <el-link
-                    :underline="false"
                     v-if="project.frontmatter.github"
+                    :underline="false"
                     class="p-2"
                     :href="project.frontmatter.github"
                     target="_blank"
@@ -30,9 +30,9 @@
                   </el-link>
 
                   <el-link
+                    v-if="project.frontmatter.link"
                     :underline="false"
                     class="p-2"
-                    v-if="project.frontmatter.link"
                     :href="project.frontmatter.link"
                     target="_blank"
                   >
@@ -42,12 +42,16 @@
               </div>
               <div>
                 <h4>{{ project.frontmatter.title || project.title }}</h4>
-                <p class="project-description">{{project.frontmatter.description}}</p>
+                <p class="project-description">
+                  {{ project.frontmatter.description }}
+                </p>
                 <ul class="languages-list">
                   <li
                     v-for="lang in project.frontmatter.languages"
                     :key="lang"
-                  >{{lang}}</li>
+                  >
+                    {{ lang }}
+                  </li>
                 </ul>
               </div>
             </router-link>
@@ -62,18 +66,18 @@
 import {
   GithubIcon,
   LinkIcon,
-} from "vue-feather-icons";
+} from 'vue-feather-icons'
 
 export default {
   components: {
     GithubIcon,
-    LinkIcon
+    LinkIcon,
   },
   computed: {
     projects () {
       return this.$pagination._matchedPages
-    }
-  }
+    },
+  },
 }
 </script>
 

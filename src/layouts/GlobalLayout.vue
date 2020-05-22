@@ -4,16 +4,16 @@
     <DefaultGlobalLayout />
     <Footer />
     <ClientOnly v-if="showCookiesNotice">
-      <cookie-law v-bind="$themeConfig.cookies"></cookie-law>
+      <cookie-law v-bind="$themeConfig.cookies" />
     </ClientOnly>
   </div>
 </template>
 
 <script>
-import CookieLaw from "vue-cookie-law";
-import GlobalLayout from "@app/components/GlobalLayout.vue";
-import Header from "@theme/components/Header.vue";
-import Footer from "@theme/components/Footer.vue";
+import CookieLaw from 'vue-cookie-law'
+import GlobalLayout from '@app/components/GlobalLayout.vue'
+import Header from '@theme/components/Header.vue'
+import Footer from '@theme/components/Footer.vue'
 
 export default {
   components: {
@@ -24,9 +24,9 @@ export default {
   },
 
   computed: {
-    showCookiesNotice() {
-      return Object.keys(this.$themeConfig.cookies).length > 0;
+    showCookiesNotice () {
+      return Object.keys(this.$themeConfig.cookies).length > 0
     },
   },
-};
+}
 </script>
