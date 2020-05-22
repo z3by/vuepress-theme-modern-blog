@@ -55,7 +55,7 @@
             class="clearfix"
           >
             <h5 class="m-0">
-              $t('read_more')
+              {{ $t('read_more') }}
             </h5>
           </div>
           <FeaturedPosts
