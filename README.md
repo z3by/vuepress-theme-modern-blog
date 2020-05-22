@@ -4,22 +4,6 @@
 
 ![Screen Shot](./docs/assets/screen-shot.png)
 
-## Features
-
-- UI strings localization support
-- builtin comments support
-- Sitemap generator support
-- Comments support
-- Auto meta tags
-- Better SEO experience
-- Social Sharing
-- Google Analytics
-- Smooth Scrolling
-- Reading Time
-- Reading Progress
-- PWA Support
-- GDPR Cookies notice
-
 ## Sites
 
 - [Live Example](https://vp-modern.z3by.com/)

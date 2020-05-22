@@ -2,13 +2,11 @@ const removeMd = require('remove-markdown')
 
 module.exports = (themeConfig, ctx) => {
   themeConfig = Object.assign(themeConfig, {
-    cookies: Object.assign({}, themeConfig.cookies),
     summary: themeConfig.summary || true,
     summaryLength:
       typeof themeConfig.summaryLength === 'number'
         ? themeConfig.summaryLength
         : 400,
-    pwa: !!themeConfig.pwa,
   })
 
   themeConfig.heroImage =
@@ -64,54 +62,10 @@ module.exports = (themeConfig, ctx) => {
 
   const plugins = [
     'disqus',
-    'seo',
     'reading-time',
-    'smooth-scroll',
-    'reading-progress',
-    '@vuepress/medium-zoom',
-    '@vuepress/nprogress',
+    'flexsearch',
     ['@vuepress/blog', blogPluginOptions],
-    [
-      '@vuepress/search',
-      {
-        searchMaxSuggestions: 10,
-      },
-    ],
   ]
-
-  if (themeConfig.socialShare && themeConfig.socialShareNetworks) {
-    plugins.push(
-      ['social-share', { networks: themeConfig.socialShareNetworks }],
-    )
-  }
-
-  if (themeConfig.sitemap && themeConfig.hostname) {
-    plugins.push([
-      'sitemap',
-      {
-        hostname: themeConfig.hostname,
-      },
-    ])
-  }
-
-  if (themeConfig.googleAnalytics) {
-    plugins.push([
-      '@vuepress/google-analytics',
-      {
-        ga: themeConfig.googleAnalytics,
-      },
-    ])
-  }
-
-  if (themeConfig.pwa) {
-    plugins.push([
-      '@vuepress/pwa',
-      {
-        serviceWorker: true,
-        updatePopup: true,
-      },
-    ])
-  }
 
   const config = {
     plugins,

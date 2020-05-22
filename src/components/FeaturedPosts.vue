@@ -44,7 +44,7 @@ export default {
   name: 'FeaturedPosts',
   props: {
     posts: {
-      type: Object,
+      type: Array,
       default: () => [],
     },
   },

@@ -1,19 +1,19 @@
 module.exports = {
-  title: "VuePress Blog Example",
-  description: "This is a blog example built by VuePress",
-  theme: require.resolve("../../"),
-  summaryLength: 500,
+  title: 'VuePress Blog Example',
+  description: 'This is a blog example built by VuePress',
+  theme: require.resolve('../../'), // replace it with ==> theme: 'modern-blog' to use this example project as a boilerplate.
+  summaryLength: 700,
   themeConfig: {
     translations: {
-      read_more: "Keep reading!",
-      read_this_post: "Read this post now!",
+      read_more: 'Keep reading!',
+      read_this_post: 'Read this post now!',
     },
 
-    cookies: {
-        theme: "dark-lime",
-        buttonText: "Got it!",
-        message: "We use cookies!",
-    },
+    // cookies: {
+    //   theme: 'dark-lime',
+    //   buttonText: 'Got it!',
+    //   message: 'We use cookies!',
+    // },
 
     summary: true,
 
@@ -45,15 +45,15 @@ module.exports = {
     */
     nav: [
       {
-        text: "Home",
-        link: "/",
-        icon: "el-icon-house"
+        text: 'Home',
+        link: '/',
+        icon: 'el-icon-house',
       },
       {
-        text: "Projects",
-        link: "/projects/",
-        icon: "el-icon-folder"
-      }
+        text: 'Projects',
+        link: '/projects/',
+        icon: 'el-icon-folder',
+      },
     ],
     // Let's say that we want to add a small message at the beginning or at the
     // end of each post. This is the place!
@@ -61,46 +61,64 @@ module.exports = {
       prepend: "Hi, I hope you'll <i>enjoy</i> this post!",
       append: "Hi, I hope you've <b>enjoyed</b> this post!",
     },
-    sitemap: true, // enables sitemap plugin
-    hostname: "https://ahmadmostafa.com/", // required for sitemap
-    disqus: "disquswebsiteshortname", // if you want to incorporate Disqus for comments replace this value else just get rid of it
-    socialShare: true, // enables social share
-    socialShareNetworks: ["facebook", "twitter"], // required for social share plugin
-    googleAnalytics: "", // Google Analytics tracking ID
+    disqus: 'disquswebsiteshortname', // if you want to incorporate Disqus for comments replace this value else just get rid of it
     about: {
-      fullName: "Ahmad Mostafa",
-      bio: "I am a passionate Software Engineer, I love Vue.js ♥ ...",
-      image: "https://www.ahmadmostafa.com/images/bg_1.png"
+      fullName: 'Ahmad Mostafa',
+      bio: 'I am a passionate Software Engineer, I love Vue.js ♥ ...',
+      image: 'https://www.ahmadmostafa.com/images/bg_1.png',
     },
     footer: {
       contact: [
         {
-          type: "github",
-          link: "https://github.com/z3by"
+          type: 'github',
+          link: 'https://github.com/z3by',
         },
         {
-          type: "instagram",
-          link: "https://instagram.com"
+          type: 'instagram',
+          link: 'https://instagram.com',
         },
         {
-          type: "linkedin",
-          link: "https://linkedin.com"
+          type: 'linkedin',
+          link: 'https://linkedin.com',
         },
         {
-          type: "twitter",
-          link: "https://twitter.com"
-        }
+          type: 'twitter',
+          link: 'https://twitter.com',
+        },
       ],
       copyright: [
         {
-          text: "Privacy Policy",
-          link: "https://policies.google.com/privacy?hl=en-US"
+          text: 'Privacy Policy',
+          link: 'https://policies.google.com/privacy?hl=en-US',
         },
         {
-          text: "MIT Licensed | Copyright © 2018-present Vue.js",
-          link: ""
-        }
-      ]
-    }
-  }
-};
+          text: 'MIT Licensed | Copyright © 2018-present Vue.js',
+          link: '',
+        },
+      ],
+    },
+  },
+  plugins: [
+    'crisp',
+    'seo',
+    'smooth-scroll',
+    'reading-progress',
+    '@vuepress/medium-zoom',
+    '@vuepress/nprogress',
+    'social-share',
+    '@vuepress/google-analytics',
+    [
+      '@vuepress/pwa',
+      {
+        serviceWorker: true,
+        updatePopup: true,
+      },
+    ],
+    [
+      'sitemap',
+      {
+        hostname: 'https://vp-modern.z3by.com',
+      },
+    ],
+  ],
+}

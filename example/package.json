@@ -1,0 +1,28 @@
+{
+  "name": "example-modern-blog",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Ahmad Mostafa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-google-analytics": "^1.4.0",
+    "@vuepress/plugin-medium-zoom": "1.0.0",
+    "@vuepress/plugin-nprogress": "1.0.0",
+    "@vuepress/plugin-pwa": "1.0.0",
+    "vue-cookie-law": "1.12.0",
+    "vuepress": "^1.5.0",
+    "vuepress-plugin-crisp": "^1.0.0",
+    "vuepress-plugin-reading-progress": "^1.0.9",
+    "vuepress-plugin-reading-time": "^0.1.1",
+    "vuepress-plugin-seo": "^0.1.2",
+    "vuepress-plugin-sitemap": "^2.3.1",
+    "vuepress-plugin-smooth-scroll": "^0.0.4",
+    "vuepress-plugin-social-share": "^0.0.6",
+    "vuepress-theme-modern-blog": "^2.11.0"
+  }
+}

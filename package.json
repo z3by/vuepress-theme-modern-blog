@@ -26,8 +26,9 @@
     "src"
   ],
   "scripts": {
-    "build": "vuepress build example --temp example/.temp",
-    "dev": "vuepress dev example --temp example/.temp",
+    "build": "cd example && vuepress build",
+    "dev": "cd example && nodemon --ext md,vue --watch ../ --watch . --exec vuepress dev",
+    "postinstall": "cd example && yarn",
     "lint": "eslint --ext .js,.vue src",
     "prepublishOnly": "npm run build && conventional-changelog -p angular -r 2 -i CHANGELOG.md -s",
     "test": "npm run lint && jest"
@@ -74,25 +75,14 @@
   },
   "dependencies": {
     "@vuepress/plugin-blog": "^1.9.2",
-    "@vuepress/plugin-google-analytics": "^1.4.0",
-    "@vuepress/plugin-medium-zoom": "1.0.0",
-    "@vuepress/plugin-nprogress": "1.0.0",
-    "@vuepress/plugin-pwa": "1.0.0",
-    "@vuepress/plugin-search": "1.0.0",
-    "@vuepress/theme-blog": "^1.7.1",
     "bootstrap": "^4.4.1",
     "core-js": "2",
     "element-ui": "^2.13.0",
-    "flexsearch": "^0.6.32",
     "vue-cookie-law": "1.12.0",
     "vue-feather-icons": "^4.21.0",
     "vuepress-plugin-disqus": "^0.1.1",
-    "vuepress-plugin-reading-progress": "^1.0.9",
-    "vuepress-plugin-reading-time": "^0.1.1",
-    "vuepress-plugin-seo": "^0.1.2",
-    "vuepress-plugin-sitemap": "^2.3.1",
-    "vuepress-plugin-smooth-scroll": "^0.0.4",
-    "vuepress-plugin-social-share": "^0.0.6"
+    "vuepress-plugin-flexsearch": "0.1.0",
+    "vuepress-plugin-reading-time": "^0.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
@@ -107,6 +97,7 @@
     "eslint-plugin-vue": "^6.1.2",
     "husky": "4.2.5",
     "lint-staged": "10.2.4",
+    "nodemon": "^2.0.4",
     "semantic-release": "^17.0.7",
     "sort-package-json": "^1.22.1",
     "vuepress": "^1.4.0"
