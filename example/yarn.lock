@@ -1122,11 +1122,6 @@
   dependencies:
     "@vuepress/shared-utils" "1.5.0"
 
-"@vuepress/plugin-search@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-1.0.0.tgz#56f4f441e5ad326b55b6c21c7646b197b22d68d4"
-  integrity sha512-IoJX+BpaZfp9LurVBGdteSxHlPBWwFYqfJo4y3ZC8JIVJIqelWw7CVvCoBUkLq59teYCiqw4CYg2i91rcv7ZCQ==
-
 "@vuepress/plugin-search@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-1.5.0.tgz#d47a29402945649b69aa6a9db15315075c1651ea"
@@ -1146,21 +1141,6 @@
     hash-sum "^1.0.2"
     semver "^6.0.0"
     upath "^1.1.0"
-
-"@vuepress/theme-blog@^1.7.1":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@vuepress/theme-blog/-/theme-blog-1.7.1.tgz#a223ddbd290fd20263edae498c5d5d6b11af2177"
-  integrity sha512-acbwDcviJ8L2IGtxbzGT2WbdMyrSeeiWpN2gvAvkuwLBJ87o3HVIs8heXJNRbiR2mxDA0yYprXUkyxfusxXV9g==
-  dependencies:
-    "@vuepress/plugin-blog" "^1.9.2"
-    "@vuepress/plugin-medium-zoom" "1.0.0"
-    "@vuepress/plugin-nprogress" "1.0.0"
-    "@vuepress/plugin-pwa" "1.0.0"
-    "@vuepress/plugin-search" "1.0.0"
-    dayjs "^1.8.19"
-    remove-markdown "^0.3.0"
-    vue-feather-icons "^4.21.0"
-    vuepress-plugin-smooth-scroll "^0.0.9"
 
 "@vuepress/theme-default@1.5.0":
   version "1.5.0"
@@ -6754,7 +6734,7 @@ relateurl@0.2.x:
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
 
-remove-markdown@0.3.0, remove-markdown@^0.3.0:
+remove-markdown@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/remove-markdown/-/remove-markdown-0.3.0.tgz#5e4b667493a93579728f3d52ecc1db9ca505dc98"
   integrity sha1-XktmdJOpNXlyjz1S7MHbnKUF3Jg=
@@ -8279,6 +8259,13 @@ vuepress-plugin-feed@^0.1.8:
     remove-markdown "0.3.0"
     striptags "3.1.1"
 
+vuepress-plugin-flexsearch@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-flexsearch/-/vuepress-plugin-flexsearch-0.1.0.tgz#2b8472de0b5c0804b09bb45ec7f789fb52bea895"
+  integrity sha512-lXQthnPoLNh2RHg1ZT4Acr/2/Kml0cMV+0t2E/n6flg03LgJ3nZAQYLdiUNR9RRFtGQR79+Ifl6T4yBIoGC0Ww==
+  dependencies:
+    flexsearch "^0.6.32"
+
 vuepress-plugin-mailchimp@^1.4.1:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-mailchimp/-/vuepress-plugin-mailchimp-1.4.2.tgz#373fa1df8f03a8993817b09ddfb8bd9d04a1c665"
@@ -8325,13 +8312,6 @@ vuepress-plugin-smooth-scroll@^0.0.4:
   dependencies:
     smoothscroll-polyfill "^0.4.4"
 
-vuepress-plugin-smooth-scroll@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-smooth-scroll/-/vuepress-plugin-smooth-scroll-0.0.9.tgz#6c5d01db60def3d7b976b53404e56b97da9e8f39"
-  integrity sha512-UXX+HLZO1NKVwyiOJlj0smh8F9dKnwybjEi7w/Mj9EYLhKrNYr5uXs+N+OTt8VwKCn3f0vZ1XAwFIjsPlD7GJA==
-  dependencies:
-    smoothscroll-polyfill "^0.4.4"
-
 vuepress-plugin-social-share@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-social-share/-/vuepress-plugin-social-share-0.0.6.tgz#c84035317eb27f8b58411d736ba88d5c33a42ef0"
@@ -8339,31 +8319,20 @@ vuepress-plugin-social-share@^0.0.6:
   dependencies:
     "@goy/vuepress-plugin-svg-icons" "^3.1.1"
 
-vuepress-theme-modern-blog@^2.11.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/vuepress-theme-modern-blog/-/vuepress-theme-modern-blog-2.11.0.tgz#9e2b6dae126786bd411877465f1c15a8d7302653"
-  integrity sha512-VX6strO2Ox6BTT9ZOtgVHWU/aRltwl0DsNITLGyD/9JjBoei4sc964jzzhg0znskmqnQnIwVSbk4Y3J+s/S8Jw==
+vuepress-theme-modern-blog@^2.12.0:
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/vuepress-theme-modern-blog/-/vuepress-theme-modern-blog-2.12.1.tgz#8ee84cb912402910c034e2628e984f0f38df118b"
+  integrity sha512-snvHj4+Rndrr3Imw+Jv7cy/d/A3aSDOlYmo/6xIGpBp/kTLki9RarUP+fNSz/w0tn23YhUR5v8HGbaeg7gfk3w==
   dependencies:
     "@vuepress/plugin-blog" "^1.9.2"
-    "@vuepress/plugin-google-analytics" "^1.4.0"
-    "@vuepress/plugin-medium-zoom" "1.0.0"
-    "@vuepress/plugin-nprogress" "1.0.0"
-    "@vuepress/plugin-pwa" "1.0.0"
-    "@vuepress/plugin-search" "1.0.0"
-    "@vuepress/theme-blog" "^1.7.1"
     bootstrap "^4.4.1"
     core-js "2"
     element-ui "^2.13.0"
-    flexsearch "^0.6.32"
     vue-cookie-law "1.12.0"
     vue-feather-icons "^4.21.0"
     vuepress-plugin-disqus "^0.1.1"
-    vuepress-plugin-reading-progress "^1.0.9"
+    vuepress-plugin-flexsearch "0.1.0"
     vuepress-plugin-reading-time "^0.1.1"
-    vuepress-plugin-seo "^0.1.2"
-    vuepress-plugin-sitemap "^2.3.1"
-    vuepress-plugin-smooth-scroll "^0.0.4"
-    vuepress-plugin-social-share "^0.0.6"
 
 vuepress@^1.5.0:
   version "1.5.0"
@@ -8556,9 +8525,9 @@ websocket-driver@>=0.5.1:
     websocket-extensions ">=0.1.1"
 
 websocket-extensions@>=0.1.1:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
-  integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.4.tgz#7f8473bc839dfd87608adb95d7eb075211578a42"
+  integrity sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg==
 
 whatwg-url@^7.0.0:
   version "7.1.0"
