@@ -1,5 +1,7 @@
 module.exports = {
   read_more: 'Read more',
+  continue_reading: 'Continue reading',
+  tags_header: 'Tags',
   read_this_post: 'Read this Post',
   search_placeholder: 'Search',
   // eslint-disable-next-line
