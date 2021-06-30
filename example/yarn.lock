@@ -1122,11 +1122,6 @@
   dependencies:
     "@vuepress/shared-utils" "1.5.0"
 
-"@vuepress/plugin-search@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-1.0.0.tgz#56f4f441e5ad326b55b6c21c7646b197b22d68d4"
-  integrity sha512-IoJX+BpaZfp9LurVBGdteSxHlPBWwFYqfJo4y3ZC8JIVJIqelWw7CVvCoBUkLq59teYCiqw4CYg2i91rcv7ZCQ==
-
 "@vuepress/plugin-search@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-1.5.0.tgz#d47a29402945649b69aa6a9db15315075c1651ea"
@@ -1146,21 +1141,6 @@
     hash-sum "^1.0.2"
     semver "^6.0.0"
     upath "^1.1.0"
-
-"@vuepress/theme-blog@^1.7.1":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@vuepress/theme-blog/-/theme-blog-1.7.1.tgz#a223ddbd290fd20263edae498c5d5d6b11af2177"
-  integrity sha512-acbwDcviJ8L2IGtxbzGT2WbdMyrSeeiWpN2gvAvkuwLBJ87o3HVIs8heXJNRbiR2mxDA0yYprXUkyxfusxXV9g==
-  dependencies:
-    "@vuepress/plugin-blog" "^1.9.2"
-    "@vuepress/plugin-medium-zoom" "1.0.0"
-    "@vuepress/plugin-nprogress" "1.0.0"
-    "@vuepress/plugin-pwa" "1.0.0"
-    "@vuepress/plugin-search" "1.0.0"
-    dayjs "^1.8.19"
-    remove-markdown "^0.3.0"
-    vue-feather-icons "^4.21.0"
-    vuepress-plugin-smooth-scroll "^0.0.9"
 
 "@vuepress/theme-default@1.5.0":
   version "1.5.0"
@@ -2209,15 +2189,6 @@ cli-boxes@^2.2.0:
   resolved "https://registry.yarnpkg.com/cli-boxes/-/cli-boxes-2.2.0.tgz#538ecae8f9c6ca508e3c3c95b453fe93cb4c168d"
   integrity sha512-gpaBrMAizVEANOpfZp/EEUixTXDyGt7DFzdK5hU+UbWt/J0lB0w20ncZj59Z9a93xHb9u12zF5BS6i9RKbtg4w==
 
-clipboard@^2.0.0:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-2.0.6.tgz#52921296eec0fdf77ead1749421b21c968647376"
-  integrity sha512-g5zbiixBRk/wyKakSwCKd7vQXDjFnAMGHoEyBogG/bw9kTD9GvdAvaoRR1ALcEzt3pVKxZR0pViekPMIS0QyGg==
-  dependencies:
-    good-listener "^1.2.2"
-    select "^1.1.2"
-    tiny-emitter "^2.0.0"
-
 cliui@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/cliui/-/cliui-5.0.0.tgz#deefcfdb2e800784aa34f46fa08e06851c7bbbc5"
@@ -2935,11 +2906,6 @@ delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
-
-delegate@^3.1.2:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/delegate/-/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
-  integrity sha512-IofjkYBZaZivn0V8nnsMJGBr4jVLxHDheKSW88PyxS5QC4Vo9ZbZVvhzlSxY87fVq3STR6r+4cGepyHkcWOQSw==
 
 depd@~1.1.2:
   version "1.1.2"
@@ -3854,13 +3820,6 @@ globby@^9.2.0:
     ignore "^4.0.3"
     pify "^4.0.1"
     slash "^2.0.0"
-
-good-listener@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/good-listener/-/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
-  integrity sha1-1TswzfkxPf+33JoNR3CWqm0UXFA=
-  dependencies:
-    delegate "^3.1.2"
 
 got@^9.6.0:
   version "9.6.0"
@@ -6404,11 +6363,9 @@ pretty@^2.0.0:
     js-beautify "^1.6.12"
 
 prismjs@^1.13.0:
-  version "1.20.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.20.0.tgz#9b685fc480a3514ee7198eac6a3bf5024319ff03"
-  integrity sha512-AEDjSrVNkynnw6A+B1DsFkd6AVdTnp+/WoUixFRULlCLZVRZlVQMVWio/16jv7G1FscUxQxOQhWwApgbnxr6kQ==
-  optionalDependencies:
-    clipboard "^2.0.0"
+  version "1.24.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.24.0.tgz#0409c30068a6c52c89ef7f1089b3ca4de56be2ac"
+  integrity sha512-SqV5GRsNqnzCL8k5dfAjCNhUrF3pR0A9lTDSCUZeh/LIshheXJEaP0hwLz2t4XHivd2J/v2HR+gRnigzeKe3cQ==
 
 private@^0.1.8:
   version "0.1.8"
@@ -6754,7 +6711,7 @@ relateurl@0.2.x:
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
 
-remove-markdown@0.3.0, remove-markdown@^0.3.0:
+remove-markdown@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/remove-markdown/-/remove-markdown-0.3.0.tgz#5e4b667493a93579728f3d52ecc1db9ca505dc98"
   integrity sha1-XktmdJOpNXlyjz1S7MHbnKUF3Jg=
@@ -6960,11 +6917,6 @@ select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
   integrity sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=
-
-select@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
-  integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
 
 selfsigned@^1.10.7:
   version "1.10.7"
@@ -7692,11 +7644,6 @@ tiny-cookie@^2.1.1:
   resolved "https://registry.yarnpkg.com/tiny-cookie/-/tiny-cookie-2.3.2.tgz#3b5fb4e0888cfa0b4728d5f6b7be3d3a88e6a5f0"
   integrity sha512-qbymkVh+6+Gc/c9sqnvbG+dOHH6bschjphK3SHgIfT6h/t+63GBL37JXNoXEc6u/+BcwU6XmaWUuf19ouLVtPg==
 
-tiny-emitter@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
-  integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
-
 to-arraybuffer@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/to-arraybuffer/-/to-arraybuffer-1.0.1.tgz#7d229b1fcc637e466ca081180836a7aabff83f43"
@@ -8279,6 +8226,13 @@ vuepress-plugin-feed@^0.1.8:
     remove-markdown "0.3.0"
     striptags "3.1.1"
 
+vuepress-plugin-flexsearch@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-flexsearch/-/vuepress-plugin-flexsearch-0.1.0.tgz#2b8472de0b5c0804b09bb45ec7f789fb52bea895"
+  integrity sha512-lXQthnPoLNh2RHg1ZT4Acr/2/Kml0cMV+0t2E/n6flg03LgJ3nZAQYLdiUNR9RRFtGQR79+Ifl6T4yBIoGC0Ww==
+  dependencies:
+    flexsearch "^0.6.32"
+
 vuepress-plugin-mailchimp@^1.4.1:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-mailchimp/-/vuepress-plugin-mailchimp-1.4.2.tgz#373fa1df8f03a8993817b09ddfb8bd9d04a1c665"
@@ -8325,13 +8279,6 @@ vuepress-plugin-smooth-scroll@^0.0.4:
   dependencies:
     smoothscroll-polyfill "^0.4.4"
 
-vuepress-plugin-smooth-scroll@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-smooth-scroll/-/vuepress-plugin-smooth-scroll-0.0.9.tgz#6c5d01db60def3d7b976b53404e56b97da9e8f39"
-  integrity sha512-UXX+HLZO1NKVwyiOJlj0smh8F9dKnwybjEi7w/Mj9EYLhKrNYr5uXs+N+OTt8VwKCn3f0vZ1XAwFIjsPlD7GJA==
-  dependencies:
-    smoothscroll-polyfill "^0.4.4"
-
 vuepress-plugin-social-share@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-social-share/-/vuepress-plugin-social-share-0.0.6.tgz#c84035317eb27f8b58411d736ba88d5c33a42ef0"
@@ -8339,31 +8286,20 @@ vuepress-plugin-social-share@^0.0.6:
   dependencies:
     "@goy/vuepress-plugin-svg-icons" "^3.1.1"
 
-vuepress-theme-modern-blog@^2.11.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/vuepress-theme-modern-blog/-/vuepress-theme-modern-blog-2.11.0.tgz#9e2b6dae126786bd411877465f1c15a8d7302653"
-  integrity sha512-VX6strO2Ox6BTT9ZOtgVHWU/aRltwl0DsNITLGyD/9JjBoei4sc964jzzhg0znskmqnQnIwVSbk4Y3J+s/S8Jw==
+vuepress-theme-modern-blog@^2.12.0:
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/vuepress-theme-modern-blog/-/vuepress-theme-modern-blog-2.12.1.tgz#8ee84cb912402910c034e2628e984f0f38df118b"
+  integrity sha512-snvHj4+Rndrr3Imw+Jv7cy/d/A3aSDOlYmo/6xIGpBp/kTLki9RarUP+fNSz/w0tn23YhUR5v8HGbaeg7gfk3w==
   dependencies:
     "@vuepress/plugin-blog" "^1.9.2"
-    "@vuepress/plugin-google-analytics" "^1.4.0"
-    "@vuepress/plugin-medium-zoom" "1.0.0"
-    "@vuepress/plugin-nprogress" "1.0.0"
-    "@vuepress/plugin-pwa" "1.0.0"
-    "@vuepress/plugin-search" "1.0.0"
-    "@vuepress/theme-blog" "^1.7.1"
     bootstrap "^4.4.1"
     core-js "2"
     element-ui "^2.13.0"
-    flexsearch "^0.6.32"
     vue-cookie-law "1.12.0"
     vue-feather-icons "^4.21.0"
     vuepress-plugin-disqus "^0.1.1"
-    vuepress-plugin-reading-progress "^1.0.9"
+    vuepress-plugin-flexsearch "0.1.0"
     vuepress-plugin-reading-time "^0.1.1"
-    vuepress-plugin-seo "^0.1.2"
-    vuepress-plugin-sitemap "^2.3.1"
-    vuepress-plugin-smooth-scroll "^0.0.4"
-    vuepress-plugin-social-share "^0.0.6"
 
 vuepress@^1.5.0:
   version "1.5.0"
