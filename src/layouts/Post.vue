@@ -55,7 +55,7 @@
             class="clearfix"
           >
             <h5 class="m-0">
-              {{ $t('read_more') }}
+              {{ $t('continue_reading') }}
             </h5>
           </div>
           <FeaturedPosts
@@ -70,7 +70,7 @@
             class="clearfix"
           >
             <h5 class="m-0">
-              Tags
+              {{ $t('tags_header') }}
             </h5>
           </div>
           <div>
